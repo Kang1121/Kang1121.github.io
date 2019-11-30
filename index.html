@@ -93,7 +93,7 @@
     			  	
     			    <li><a href="/categories/Life/" class="animsition-link">Life<small>(1)</small></a></li>
     			    
-    			    <li><a href="/categories/Python/" class="animsition-link">Python<small>(1)</small></a></li>
+    			    <li><a href="/categories/Python/" class="animsition-link">Python<small>(2)</small></a></li>
     			    
     			    <li><a href="/categories/Ubuntu/" class="animsition-link">Ubuntu<small>(1)</small></a></li>
     			    
@@ -216,6 +216,41 @@
 
 <section id="intro">
     <div class="container">
+        
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 opening-statement">
+                <div class="col-md-4">
+                    <h3><a href="/2019/11/30/size-mismatch/">RuntimeError: size mismatch, m1: [128 x 184320], m2: [9216 x 4096]</a></h3>
+                    <span>
+                        <span class="post-meta">
+      <time datetime="2019-11-30T08:42:55.000Z" itemprop="datePublished">
+          2019-11-30
+      </time>
+    
+    
+    | 
+    <a href='/tags/Python-错误/'>Python 错误</a>
+    
+    
+</span>
+                    </span>
+                </div>
+                <div class="col-md-8">
+                    <p>
+                      
+                        &emsp;&emsp;今天跑代码遇到这个问题，发现出错的位置是在卷积层到全连接层的地方。卷积网络的每层节点个数都是事先定好的，这对input的像素也有要求，必须也是和预先设定的像素相同，否则卷积层最后得出的结果会与设计的不同。&emsp;&emsp;卷积层结果一般是 [batchsize, dimension0, 1, 1]， 全连接层只有二维 [batchsize, dimensio_0]，会自动对之前四维的卷积结果进行压缩。如果最
+                      
+                    </p>
+                    
+                    <p class="pull-right readMore">
+                        <a href="/2019/11/30/size-mismatch/">Read More...</a>
+                    </p>
+                    
+                </div>
+                <div class="clearfix"></div>
+                <hr class="nogutter">
+            </div>
+        </div>
         
         <div class="row">
             <div class="col-md-8 col-md-offset-2 opening-statement">

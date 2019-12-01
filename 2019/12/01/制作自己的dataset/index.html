@@ -17,7 +17,7 @@
 <!--<![endif]-->
 
 <head>
-  <title>Archives: 2019 | Kang&#39;s blog</title>
+  <title>制作自己的dataset | Kang&#39;s blog</title>
   <!-- Meta data -->
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -59,7 +59,7 @@
 </head>
 
 <!--
-<body class="home-template">
+<body class="post-template">
 -->
 <body id="index" class="lightnav animsition">
 
@@ -184,108 +184,92 @@
         <!-- ============================ Header & Logo bar =========================== -->
 
 
-      <!-- ============================ Hero Image =========================== -->
-
-<section id="hero" class="scrollme">
-    <div class="container-fluid element-img" style="background: url(/img/lion-1214837_1920.jpg) no-repeat center center fixed;background-size: cover">
-        <div class="row">
-            <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 vertical-align cover boost text-center">
-                <div class="center-me animateme" data-when="exit" data-from="0" data-to="0.6" data-opacity="0" data-translatey="100">
-                    <div>
-                        
-                        <h2></h2>
-                        <p></p>
-                        
-                        <h2></h2>
-                        <p></p>
-                        
-
-                    </div>
-                </div>
-            </div>
-            <!-- // .col-md-12 -->
-        </div>
-        <div class="herofade beige-dk"></div>
-    </div>
-</section>
-
-<!-- Height spacing helper -->
-<div class="heightblock"></div>
-<!-- // End height spacing helper -->
-
-<!-- ============================ END Hero Image =========================== -->
-
-
-
-
-<section id="services">
+      
+<section id="intro">
     <div class="container">
-        <div class="row">
-            <div class="col-md-10 col-md-offset-1">
-                <div class="row boxes">
-                    
-                    
-                        
-                        
-                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
-                            
-                              <h4 class="title"><a href="/2019/12/01/制作自己的dataset/">制作自己的dataset</a></h4>
-                            
-                            <p><time datetime="2019-12-01T11:34:03.000Z"><a href="/2019/12/01/制作自己的dataset/">2019-12-01</a></time></p>
-                        </div>
-                    
-                        
-                        
-                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
-                            
-                              <h4 class="title"><a href="/2019/11/30/size-mismatch/">RuntimeError: size mismatch, m1: [128 x 184320], m2: [9216 x 4096]</a></h4>
-                            
-                            <p><time datetime="2019-11-30T08:42:55.000Z"><a href="/2019/11/30/size-mismatch/">2019-11-30</a></time></p>
-                        </div>
-                    
-                        
-                        
-                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
-                            
-                              <h4 class="title"><a href="/2019/11/26/将dataset标签写入txt/">将dataset标签写入txt</a></h4>
-                            
-                            <p><time datetime="2019-11-26T11:26:15.000Z"><a href="/2019/11/26/将dataset标签写入txt/">2019-11-26</a></time></p>
-                        </div>
-                    
-                        
-                        
-                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
-                            
-                              <h4 class="title"><a href="/2019/11/26/删除错误的更新源/">删除错误的更新源</a></h4>
-                            
-                            <p><time datetime="2019-11-26T10:44:59.000Z"><a href="/2019/11/26/删除错误的更新源/">2019-11-26</a></time></p>
-                        </div>
-                    
-                        
-                            </div><div class="row boxes">
-                            
-                        
-                        
-                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
-                            
-                              <h4 class="title"><a href="/2019/11/24/first-time-record/">使用Github+Hexo搭建Blog</a></h4>
-                            
-                            <p><time datetime="2019-11-24T11:25:46.000Z"><a href="/2019/11/24/first-time-record/">2019-11-24</a></time></p>
-                        </div>
-                    
-                </div>
-            </div>    
+        <div class="row col-md-offset-2">
+            <div class="col-md-8">
+    			<span class="post-meta">
+      <time datetime="2019-12-01T11:34:03.000Z" itemprop="datePublished">
+          2019-12-01
+      </time>
+    
+</span>
+                <h1>制作自己的dataset</h1>
+            </div>
         </div>
-    </div>
-</section> 
+        <div class="col-md-8 col-md-offset-2">
+      		<h3 id="emsp-emsp-制作自己的数据集要写一个自己的-Dataset-类，然后用-Dataloader-调用就好了。"><a href="#emsp-emsp-制作自己的数据集要写一个自己的-Dataset-类，然后用-Dataloader-调用就好了。" class="headerlink" title="&emsp;&emsp;制作自己的数据集要写一个自己的 Dataset 类，然后用 Dataloader  调用就好了。"></a>&emsp;&emsp;制作自己的数据集要写一个自己的 Dataset 类，然后用 Dataloader  调用就好了。</h3><h3 id="emsp-emsp-一般-Dataset-类有以下的函数："><a href="#emsp-emsp-一般-Dataset-类有以下的函数：" class="headerlink" title="&emsp;&emsp;一般 Dataset 类有以下的函数："></a>&emsp;&emsp;一般 Dataset 类有以下的函数：</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Dataset</span><span class="params">(Dataset)</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, ...)</span>:</span></span><br><span class="line">		...</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__getitem__</span><span class="params">(self, index)</span>:</span></span><br><span class="line">		...</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__len__</span><span class="params">(self)</span>:</span></span><br><span class="line">		...</span><br></pre></td></tr></table></figure>
 
-<section id="statement">
-    <div class="container text-center wow fadeInUp" data-wow-delay="0.5s">
-        <div class="row">
-            <p>It's when I'm weak that I am strong.</p>
+</br>
+
+<h3 id="emsp-emsp-init-是初始化时传入的一些参数，不是非常重要。"><a href="#emsp-emsp-init-是初始化时传入的一些参数，不是非常重要。" class="headerlink" title="&emsp;&emsp;__init__() 是初始化时传入的一些参数，不是非常重要。"></a>&emsp;&emsp;__init__() 是初始化时传入的一些参数，不是非常重要。</h3><h3 id="emsp-emsp-getitem-需要自己修改，功能是将图片从磁盘中读入，存入array或者list中。"><a href="#emsp-emsp-getitem-需要自己修改，功能是将图片从磁盘中读入，存入array或者list中。" class="headerlink" title="&emsp;&emsp;__getitem__() 需要自己修改，功能是将图片从磁盘中读入，存入array或者list中。"></a>&emsp;&emsp;__getitem__() 需要自己修改，功能是将图片从磁盘中读入，存入array或者list中。</h3><h3 id="emsp-emsp-len-是返回Dataset的大小，需要仔细设计。"><a href="#emsp-emsp-len-是返回Dataset的大小，需要仔细设计。" class="headerlink" title="&emsp;&emsp;__len()__ 是返回Dataset的大小，需要仔细设计。"></a>&emsp;&emsp;__len()__ 是返回Dataset的大小，需要仔细设计。</h3><h3 id="emsp-emsp-下面是一个example。"><a href="#emsp-emsp-下面是一个example。" class="headerlink" title="&emsp;&emsp;下面是一个example。"></a>&emsp;&emsp;下面是一个example。</h3></br>
+            <div class="clearfix"></div>
+            <hr class="nogutter">
         </div>
+        <nav class="m-pagination col-md-8 col-md-offset-2 col-sm-24" role="pagination">
+    
+    
+    <a class="pull-right" href="/2019/11/30/size-mismatch/">
+        RuntimeError: size mismatch, m1: [128 x 184320], m2: [9216 x 4096] →
+    </a>
+    
+</nav>
+
+        <div class="col-md-8 col-md-offset-2 col-sm-24"><script type="text/javascript">
+  /**
+   * 搜狐畅言
+   */
+
+  /*
+  document.write('<div id="SOHUCS" sid="' + window.location.pathname.slice(1) + '" ></div>');
+
+  window.onload = function () {
+    (function () {
+      var appid = 'cytXXXX';
+      var conf = 'prod_xxxxxxxxxxxxxxxxx';
+      var width = window.innerWidth || document.documentElement.clientWidth;
+      var loadJs = function (d, a, id) {
+        var c = document.getElementsByTagName("head")[0] || document.head || document.documentElement;
+        var b = document.createElement("script");
+        b.setAttribute("type", "text/javascript");
+        b.setAttribute("charset", "UTF-8");
+        b.setAttribute("src", d);
+        if (id) {
+          b.setAttribute("id", id);
+        }
+        if (typeof a === "function") {
+          if (window.attachEvent) {
+            b.onreadystatechange = function () {
+              var e = b.readyState;
+              if (e === "loaded" || e === "complete") {
+                b.onreadystatechange = null;
+                a()
+              }
+            }
+          } else {
+            b.onload = a
+          }
+        }
+        c.appendChild(b)
+      };
+
+      loadJs("https://changyan.sohu.com/upload/changyan.js", function () {
+        window.changyan.api.config({
+          appid: appid,
+          conf: conf
+        })
+      });
+    })();
+  }
+  */
+
+</script>
+</div>
     </div>
 </section>
+
+
       <!-- ============================ Footer =========================== -->
 
 <footer>

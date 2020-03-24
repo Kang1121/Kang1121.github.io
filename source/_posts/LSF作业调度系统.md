@@ -1,5 +1,5 @@
 ---
-title: LSF作业调度系统
+title: LSF 作业调度系统
 date: 2020-03-24 10:50:44
 tags:
 - LSF
@@ -25,8 +25,16 @@ categories:
 
 #### &emsp;&emsp;&emsp;&emsp;其中， lsf.sh 是自己写的一个脚本，之前犯错没输 <, 然后提交总是通不过。脚本范例如下：
 
-```vim
-
+```python
+#!/bin/sh              
+#BSUB -q gpu_v100 
+#BSUB -m "gpu10"
+#BSUB -gpu num=4:mode=exclusive_process
+#BSUB -o %J.out
+#BSUB -n 1
+#BSUB -e %J.err
+#BSUB -J Firsttry      
+python3 /xxx/xxx/xxx/xxx.py
 ```
 
 </br>
@@ -106,4 +114,3 @@ categories:
 ### &emsp;&emsp;3. Ending
 
 ### &emsp;&emsp;&emsp;&emsp;最后祝自己以后还有机会用这样的 GPU 集群。：）
-

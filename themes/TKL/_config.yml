@@ -20,10 +20,9 @@ highlightjs: vs
 
 #Works
 works:
-- works_name: AAA
-  works_url: /
-- works_name: BBB
-  works_url: /atom.xml
+- works_name: REVIEW ARTICLE
+  works_url: https://www.frontiersin.org/articles/10.3389/fgene.2019.00214/full
+
 
 #duoshuo name
 duoshuo:
@@ -36,8 +35,8 @@ fancybox: true
 
 # Miscellaneous
 github: https://github.com/kang1121
-twitter: https://www.instagram.com/ttlololo_yk/?hl=zh-cn
-facebook: https://www.facebook.com/
+instagram: https://www.instagram.com/ttlololo_yk/?hl=zh-cn
+linkedin: https://www.linkedin.com/in/康-殷-33665b15a
 google: https://google.com/
 weibo: http://weibo.com/
 

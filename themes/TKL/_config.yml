@@ -55,10 +55,12 @@ timeline:
 
 #Links
 links:
-- name: Kieran
-  link: http://go.kieran.top/
-- name: Name
-  link: http://domain.com/
+- name: My Github
+  link: https://github.com/kang1121
+- name: My Linkedin
+  link: https://www.linkedin.com/in/%E5%BA%B7-%E6%AE%B7-33665b15a
+- name: My Instragram
+  link: https://www.instagram.com/ttlololo_yk/?hl=zh-cn
 
 # Local search
 # Dependencies: https://github.com/flashlab/hexo-generator-search

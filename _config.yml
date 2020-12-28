@@ -99,7 +99,7 @@ theme: TKL
 deploy:
   type: git
   repository: git@github.com:Kang1121/Kang1121.github.io.git
-  branch: master
+  branch: source
 
 search:
   path: search.json

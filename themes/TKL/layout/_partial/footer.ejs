@@ -31,4 +31,8 @@
         </div>
 </footer>
 
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+<% if (page.mathjax){ %>
+<%- partial('mathjax') %>
+<% } %>
 <!-- ============================ END Footer =========================== -->

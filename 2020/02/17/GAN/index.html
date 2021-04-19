@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<!--[if lte IE 8 ]>
+<html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<!--
+***************  *      *     *
+      8          *    *       *
+      8          *  *         *
+      8          **           *
+      8          *  *         *
+      8          *    *       *
+      8          *      *     *
+      8          *        *   ***********    -----Theme By Kieran(http://go.kieran.top)
+-->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
+<!--<![endif]-->
+
+<head>
+  <title>GAN | Kang&#39;s blog</title>
+  <!-- Meta data -->
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content="Kang's blog">
+    <meta name="author" content="Kang Yin">
+    <meta name="description" content="��" />
+    <meta name="keywords" content="Blog" />
+
+    <!-- Favicon, (keep icon in root folder) -->
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+    
+    <link rel="Shortcut Icon" href="/img/favicon.ico" type="image/ico">
+    
+    <link rel="alternate" href="/atom.xml" title="Kang&#39;s blog" type="application/atom+xml">
+    <link rel="stylesheet" href="/css/all.css" media="screen" type="text/css">
+    
+    <link rel="stylesheet" href="/highlightjs/vs.css" type="text/css">
+    
+    
+    <!--[if IE 8]>
+    <link rel="stylesheet" type="text/css" href="/css/ie8.css" />
+    <![endif]-->
+    
+    <!-- jQuery | Load our jQuery, with an alternative source fallback to a local version if request is unavailable -->
+    <script src="/js/jquery-1.11.1.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/jquery-1.11.1.min.js"><\/script>')</script>
+    
+    <!-- Load these in the <head> for quicker IE8+ load times -->
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="/js/html5shiv.min.js"></script>
+    <script src="/js/respond.min.js"></script>
+    <![endif]-->
+
+  
+  
+  <link rel="alternate" type="application/atom+xml" title="Atom 0.3" href="atom.xml">
+  
+  
+
+  <style>.col-md-8.col-md-offset-2.opening-statement img{display:none;}</style>
+</head>
+
+<!--
+<body class="post-template">
+-->
+<body id="index" class="lightnav animsition">
+
+      <!-- ============================ Off-canvas navigation =========================== -->
+
+    <div class="sb-slidebar sb-right sb-style-overlay sb-momentum-scrolling">
+        <div class="sb-close" aria-label="Close Menu" aria-hidden="true">
+            <img src="/img/close.png" alt="Close"/>
+        </div>
+        <!-- Lists in Slidebars -->
+        <ul class="sb-menu">
+            <li><a href="/" class="animsition-link" title="Home">Home</a></li>
+            <li><a href="/archives" class="animsition-link" title="archive">archives</a></li>
+            <!-- Dropdown Menu -->
+    		 
+            <li>
+                <a class="sb-toggle-submenu">Works<span class="sb-caret"></span></a>
+                <ul class="sb-submenu">
+                    
+                        <li><a href="https://www.frontiersin.org/articles/10.3389/fgene.2019.00214/full" target="_BLANK" class="animsition-link">REVIEW ARTICLE</a></li>
+                    
+                </ul>
+            </li>
+            
+            
+        	<li>
+        		<a class="sb-toggle-submenu">Categories<span class="sb-caret"></span></a>
+            	<ul class="sb-submenu">
+    			  	
+    			    <li><a href="/categories/Deep-Learning/" class="animsition-link">Deep Learning<small>(8)</small></a></li>
+    			    
+    			    <li><a href="/categories/Life/" class="animsition-link">Life<small>(1)</small></a></li>
+    			    
+    			    <li><a href="/categories/Linux/" class="animsition-link">Linux<small>(3)</small></a></li>
+    			    
+    			    <li><a href="/categories/Others/" class="animsition-link">Others<small>(1)</small></a></li>
+    			    
+    			    <li><a href="/categories/Paper-Reading/" class="animsition-link">Paper Reading<small>(1)</small></a></li>
+    			    
+    			    <li><a href="/categories/Python/" class="animsition-link">Python<small>(1)</small></a></li>
+    			    
+    			</ul>
+        	</li>
+    		
+            
+            <li>
+                <a class="sb-toggle-submenu">Links<span class="sb-caret"></span></a>
+                <ul class="sb-submenu">
+                    
+                    <li><a href="https://github.com/kang1121" target="_blank" rel="noopener" class="animsition-link">My Github</a></li>
+                    
+                    <li><a href="https://www.linkedin.com/in/%E5%BA%B7-%E6%AE%B7-33665b15a" target="_blank" rel="noopener" class="animsition-link">My Linkedin</a></li>
+                    
+                    <li><a href="https://www.instagram.com/ttlololo_yk/?hl=zh-cn" target="_blank" rel="noopener" class="animsition-link">My Instragram</a></li>
+                    
+                </ul>
+            </li>
+            
+        </ul>
+        <!-- Lists in Slidebars -->
+        <ul class="sb-menu secondary">
+            
+            <li><a href="javascript:;" class="popup-trigger" title="Search"><span class="search-icon"></span>Search</a></li>
+            
+            <li><a href="/about.html" class="animsition-link" title="about">About</a></li>
+            <li><a href="/atom.xml" class="animsition-link" title="rss">RSS</a></li>
+        </ul>
+    </div>
+    
+    <!-- ============================ END Off-canvas navigation =========================== -->
+    
+    <!-- ============================ #sb-site Main Page Wrapper =========================== -->
+    
+    <div id="sb-site">
+        <!-- #sb-site - All page content should be contained within this id, except the off-canvas navigation itself -->
+    
+        <!-- ============================ Header & Logo bar =========================== -->
+    
+        <div id="navigation" class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <!-- Nav logo -->
+                    <div class="logo">
+                        <a href="/" title="Logo" class="animsition-link">
+                         <img src="/img/logo.png" alt="Logo" width="35px;"/> 
+                        </a>
+                    </div>
+                    <!-- // Nav logo -->
+                    <!-- Info-bar -->
+                    <nav>
+                        <ul class="nav">
+                            <li><a href="/" class="animsition-link">Kang's blog</a></li>
+                            <li class="nolink"> <span>Stay hungry.</span></li>
+                            
+                            <li><a href="https://github.com/kang1121" title="Github" target="_blank"><i class="icon-github"></i></a></li>
+                            
+                            
+                            <li><a href="https://www.instagram.com/ttlololo_yk/?hl=zh-cn" title="Instagram" target="_blank"><i class="icon-instagram"></i></a></li>
+                            
+                            
+                            <li><a href="https://www.linkedin.com/in/康-殷-33665b15a" title="Linkedin" target="_blank"><i class="icon-linkedin"></i></a></li>
+                            
+                            
+                            <li><a href="https://google.com/" title="Google-Plus" target="_blank"><i class="icon-google-plus"></i></a></li>
+                            
+                            
+                            <li><a href="http://weibo.com/" title="Sina-Weibo" target="_blank"><i class="icon-sina-weibo"></i></a></li>
+                            
+                            <li class="nolink"><span>Welcome!</span></li>
+                        </ul>
+                    </nav>
+                    <!--// Info-bar -->
+                </div>
+                <!-- // .container -->
+                <div class="learnmore sb-toggle-right">More</div>
+                <button type="button" class="navbar-toggle menu-icon sb-toggle-right" title="More">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar before"></span>
+                <span class="icon-bar main"></span>
+                <span class="icon-bar after"></span>
+                </button>
+            </div>
+            <!-- // .navbar-inner -->
+        </div>
+    
+        <!-- ============================ Header & Logo bar =========================== -->
+
+
+      
+<section id="intro">
+    <div class="container">
+        <div class="row col-md-offset-2">
+            <div class="col-md-8">
+    			<span class="post-meta">
+      <time datetime="2020-02-16T15:27:51.000Z" itemprop="datePublished">
+          2020-02-17
+      </time>
+    
+</span>
+                <h1>GAN</h1>
+            </div>
+        </div>
+        <div class="col-md-8 col-md-offset-2">
+      		<h3 id="emsp-0-Description"><a href="#emsp-0-Description" class="headerlink" title="&emsp;0. Description"></a>&emsp;0. Description</h3><h3 id="emsp-emsp-emsp-这篇-post-将所有了解过的-GAN-都写下来-方便回忆原理"><a href="#emsp-emsp-emsp-这篇-post-将所有了解过的-GAN-都写下来-方便回忆原理" class="headerlink" title="&emsp;&emsp;&emsp;这篇 post 将所有了解过的 GAN 都写下来, 方便回忆原理."></a>&emsp;&emsp;&emsp;这篇 post 将所有了解过的 GAN 都写下来, 方便回忆原理.</h3><p>&lt;/br&gt;</p>
+<h3 id="emsp-1-GAN"><a href="#emsp-1-GAN" class="headerlink" title="&emsp;1. GAN"></a>&emsp;1. GAN</h3><h3 id="emsp-emsp-emsp-最初-GAN-的目的是想-generate-出和真实图片非常像的图片-有个有个图片集-data-假设它在某维空间满足某个分布"><a href="#emsp-emsp-emsp-最初-GAN-的目的是想-generate-出和真实图片非常像的图片-有个有个图片集-data-假设它在某维空间满足某个分布" class="headerlink" title="&emsp;&emsp;&emsp;最初 GAN 的目的是想 generate 出和真实图片非常像的图片. 有个有个图片集 data, 假设它在某维空间满足某个分布:"></a>&emsp;&emsp;&emsp;最初 GAN 的目的是想 generate 出和真实图片非常像的图片. 有个有个图片集 data, 假设它在某维空间满足某个分布:</h3><div align="center">    
+ <img src="/images/GAN/1.png" width="50" height="35" align="center">
+</div>
+
+<h3 id="emsp-emsp-emsp-但是现在不知道这个分布的-formula-现在可以做的是从这个-data-的分布中-sample-出一些图片-Generator-就希望能通过-network-学到一个分布"><a href="#emsp-emsp-emsp-但是现在不知道这个分布的-formula-现在可以做的是从这个-data-的分布中-sample-出一些图片-Generator-就希望能通过-network-学到一个分布" class="headerlink" title="&emsp;&emsp;&emsp;但是现在不知道这个分布的 formula, 现在可以做的是从这个 data 的分布中, sample 出一些图片. Generator 就希望能通过 network 学到一个分布:"></a>&emsp;&emsp;&emsp;但是现在不知道这个分布的 formula, 现在可以做的是从这个 data 的分布中, sample 出一些图片. Generator 就希望能通过 network 学到一个分布:</h3><div align="center">    
+ <img src="/images/GAN/2.png" width="33" height="33" align="center">
+</div>
+
+<h3 id="emsp-emsp-emsp-希望得到"><a href="#emsp-emsp-emsp-希望得到" class="headerlink" title="&emsp;&emsp;&emsp;希望得到:"></a>&emsp;&emsp;&emsp;希望得到:</h3><h3 id><a href="#" class="headerlink" title=" "></a> </h3><div align="center">    
+ <img src="/images/GAN/3.png" width="110" height="38" align="center">
+</div>
+
+<h3 id="emsp-emsp-emsp-也就是说-当这两个分布相等时-随便从-generator-学到的-distribution-中-sample-产生一个图片-都会是在-data-的distribution-中的-也就是说会是真实的图片"><a href="#emsp-emsp-emsp-也就是说-当这两个分布相等时-随便从-generator-学到的-distribution-中-sample-产生一个图片-都会是在-data-的distribution-中的-也就是说会是真实的图片" class="headerlink" title="&emsp;&emsp;&emsp;也就是说, 当这两个分布相等时, 随便从 generator 学到的 distribution 中 sample 产生一个图片, 都会是在 data 的distribution 中的, 也就是说会是真实的图片."></a>&emsp;&emsp;&emsp;也就是说, 当这两个分布相等时, 随便从 generator 学到的 distribution 中 sample 产生一个图片, 都会是在 data 的distribution 中的, 也就是说会是真实的图片.</h3><h3 id="emsp-emsp-emsp-因为-generator-是个-network-所以它要做的就是学到一个-network-使得这两个分布的-divergence-最小"><a href="#emsp-emsp-emsp-因为-generator-是个-network-所以它要做的就是学到一个-network-使得这两个分布的-divergence-最小" class="headerlink" title="&emsp;&emsp;&emsp;因为 generator 是个 network, 所以它要做的就是学到一个 network, 使得这两个分布的 divergence 最小:"></a>&emsp;&emsp;&emsp;因为 generator 是个 network, 所以它要做的就是学到一个 network, 使得这两个分布的 divergence 最小:</h3><div align="center">    
+ <img src="/images/GAN/4.png" width="370" height="40" align="center">
+</div>
+
+<h3 id="emsp-emsp-emsp-由于这两个分布它们的-formula-都不知道-所以-divergence-其实是不能直接算的-这个时候先把这个问题放一边-看一下-discriminator"><a href="#emsp-emsp-emsp-由于这两个分布它们的-formula-都不知道-所以-divergence-其实是不能直接算的-这个时候先把这个问题放一边-看一下-discriminator" class="headerlink" title="&emsp;&emsp;&emsp;由于这两个分布它们的 formula 都不知道, 所以 divergence 其实是不能直接算的. 这个时候先把这个问题放一边, 看一下 discriminator."></a>&emsp;&emsp;&emsp;由于这两个分布它们的 formula 都不知道, 所以 divergence 其实是不能直接算的. 这个时候先把这个问题放一边, 看一下 discriminator.</h3><p>&lt;/br&gt;</p>
+<h3 id="emsp-emsp-emsp-Discriminator-要做的事情是区分真实的-image-和-generated-的-image-如果是从-data-distribution-中-sample-出来的-就给高分-如果是从-generated-distribution-中-sample-出来的-就给低分"><a href="#emsp-emsp-emsp-Discriminator-要做的事情是区分真实的-image-和-generated-的-image-如果是从-data-distribution-中-sample-出来的-就给高分-如果是从-generated-distribution-中-sample-出来的-就给低分" class="headerlink" title="&emsp;&emsp;&emsp; Discriminator 要做的事情是区分真实的 image 和 generated 的 image. 如果是从 data distribution 中 sample 出来的, 就给高分; 如果是从 generated distribution 中 sample 出来的, 就给低分:"></a>&emsp;&emsp;&emsp; Discriminator 要做的事情是区分真实的 image 和 generated 的 image. 如果是从 data distribution 中 sample 出来的, 就给高分; 如果是从 generated distribution 中 sample 出来的, 就给低分:</h3><div align="center">    
+ <img src="/images/GAN/7.png" width="265" height="45" align="center">
+</div>
+
+<h3 id="emsp-emsp-emsp-所以可以得到以下-cost-function-希望-V-越大越好-已经经过了一部分等价转换"><a href="#emsp-emsp-emsp-所以可以得到以下-cost-function-希望-V-越大越好-已经经过了一部分等价转换" class="headerlink" title="&emsp;&emsp;&emsp;所以可以得到以下 cost function, 希望 V 越大越好, 已经经过了一部分等价转换:"></a>&emsp;&emsp;&emsp;所以可以得到以下 cost function, 希望 V 越大越好, 已经经过了一部分等价转换:</h3><div align="center">    
+ <img src="/images/GAN/5.png" width="570" height="40" align="center">
+</div>
+
+<h3 id="emsp-emsp-emsp-把期望转成积分的形式"><a href="#emsp-emsp-emsp-把期望转成积分的形式" class="headerlink" title="&emsp;&emsp;&emsp;把期望转成积分的形式:"></a>&emsp;&emsp;&emsp;把期望转成积分的形式:</h3><div align="center">    
+ <img src="/images/GAN/6.png" width="550" height="42" align="center">
+</div>
+
+<h3 id="emsp-emsp-emsp-预期是-无论输入什么样的-x-只要来自于-generator-就给低分-只要来自于-real-sample-就给高分-所以其实-D-of-x-的在某处-e-g-x-0-的值不受任何附近-e-g-1-1-的值的影响-完全可以看成是一元函数求极值"><a href="#emsp-emsp-emsp-预期是-无论输入什么样的-x-只要来自于-generator-就给低分-只要来自于-real-sample-就给高分-所以其实-D-of-x-的在某处-e-g-x-0-的值不受任何附近-e-g-1-1-的值的影响-完全可以看成是一元函数求极值" class="headerlink" title="&emsp;&emsp;&emsp;预期是, 无论输入什么样的 x, 只要来自于 generator 就给低分, 只要来自于 real sample 就给高分, 所以其实 D of x 的在某处(e.g. x = 0)的值不受任何附近(e.g. (-1, 1))的值的影响, 完全可以看成是一元函数求极值."></a>&emsp;&emsp;&emsp;预期是, 无论输入什么样的 x, 只要来自于 generator 就给低分, 只要来自于 real sample 就给高分, 所以其实 D of x 的在某处(e.g. x = 0)的值不受任何附近(e.g. (-1, 1))的值的影响, 完全可以看成是一元函数求极值.</h3><div align="center">    
+ <img src="/images/GAN/8.png" width="270" height="53" align="center">
+</div>
+
+<h3 id="emsp-emsp-emsp-最后算出来-理论上-D-取这个值的时候-V-可以达到最大-也就是说-discriminator-的性能最好-但是两个分布都不知道-所以没有解析解-真正操作时这个用不了-但是把上式代入-V-中-整理后可得"><a href="#emsp-emsp-emsp-最后算出来-理论上-D-取这个值的时候-V-可以达到最大-也就是说-discriminator-的性能最好-但是两个分布都不知道-所以没有解析解-真正操作时这个用不了-但是把上式代入-V-中-整理后可得" class="headerlink" title="&emsp;&emsp;&emsp;最后算出来, 理论上 D 取这个值的时候 V 可以达到最大, 也就是说 discriminator 的性能最好. 但是两个分布都不知道, 所以没有解析解, 真正操作时这个用不了. 但是把上式代入 V 中, 整理后可得:"></a>&emsp;&emsp;&emsp;最后算出来, 理论上 D 取这个值的时候 V 可以达到最大, 也就是说 discriminator 的性能最好. 但是两个分布都不知道, 所以没有解析解, 真正操作时这个用不了. 但是把上式代入 V 中, 整理后可得:</h3><div align="center">    
+ <img src="/images/GAN/9.png" width="600" height="50" align="center">
+</div>
+
+<h3 id="emsp-emsp-emsp-发现这个正好是-JS-divergence-的形式-又由于最初要求的就是-g-和-data-distribution-的-divergence-所以把上式代入-G-star-得"><a href="#emsp-emsp-emsp-发现这个正好是-JS-divergence-的形式-又由于最初要求的就是-g-和-data-distribution-的-divergence-所以把上式代入-G-star-得" class="headerlink" title="&emsp;&emsp;&emsp;发现这个正好是 JS divergence 的形式. 又由于最初要求的就是 g 和 data distribution 的 divergence, 所以把上式代入 G star 得:"></a>&emsp;&emsp;&emsp;发现这个正好是 JS divergence 的形式. 又由于最初要求的就是 g 和 data distribution 的 divergence, 所以把上式代入 G star 得:</h3><div align="center">    
+ <img src="/images/GAN/10.png" width="320" height="52" align="center">
+</div>
+
+<h3 id="emsp-emsp-emsp-这个式子就可以用-network-求了-先固定-Generator-训练-Discriminator-让-V-达到-max-再固定-Discriminator-训练-Generator-使得-V-取最小值-Iteratively-训练"><a href="#emsp-emsp-emsp-这个式子就可以用-network-求了-先固定-Generator-训练-Discriminator-让-V-达到-max-再固定-Discriminator-训练-Generator-使得-V-取最小值-Iteratively-训练" class="headerlink" title="&emsp;&emsp;&emsp;这个式子就可以用 network 求了. 先固定 Generator 训练 Discriminator 让 V 达到 max, 再固定 Discriminator  训练 Generator 使得 V 取最小值. Iteratively 训练."></a>&emsp;&emsp;&emsp;这个式子就可以用 network 求了. 先固定 Generator 训练 Discriminator 让 V 达到 max, 再固定 Discriminator  训练 Generator 使得 V 取最小值. Iteratively 训练.</h3><p>&lt;/br&gt;</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> argparse</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> math</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> torchvision.transforms <span class="keyword">as</span> transforms</span><br><span class="line"><span class="keyword">from</span> torchvision.utils <span class="keyword">import</span> save_image</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> torch.utils.data <span class="keyword">import</span> DataLoader</span><br><span class="line"><span class="keyword">from</span> torchvision <span class="keyword">import</span> datasets</span><br><span class="line"><span class="keyword">from</span> torch.autograd <span class="keyword">import</span> Variable</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br><span class="line"><span class="keyword">import</span> torch.nn.functional <span class="keyword">as</span> F</span><br><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"></span><br><span class="line">os.makedirs(<span class="string">"images"</span>, exist_ok=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line">parser = argparse.ArgumentParser()</span><br><span class="line">parser.add_argument(<span class="string">"--n_epochs"</span>, type=int, default=<span class="number">200</span>, help=<span class="string">"number of epochs of training"</span>)</span><br><span class="line">parser.add_argument(<span class="string">"--batch_size"</span>, type=int, default=<span class="number">64</span>, help=<span class="string">"size of the batches"</span>)</span><br><span class="line">parser.add_argument(<span class="string">"--lr"</span>, type=float, default=<span class="number">0.0002</span>, help=<span class="string">"adam: learning rate"</span>)</span><br><span class="line">parser.add_argument(<span class="string">"--b1"</span>, type=float, default=<span class="number">0.5</span>, help=<span class="string">"adam: decay of first order momentum of gradient"</span>)</span><br><span class="line">parser.add_argument(<span class="string">"--b2"</span>, type=float, default=<span class="number">0.999</span>, help=<span class="string">"adam: decay of first order momentum of gradient"</span>)</span><br><span class="line">parser.add_argument(<span class="string">"--n_cpu"</span>, type=int, default=<span class="number">8</span>, help=<span class="string">"number of cpu threads to use during batch generation"</span>)</span><br><span class="line">parser.add_argument(<span class="string">"--latent_dim"</span>, type=int, default=<span class="number">100</span>, help=<span class="string">"dimensionality of the latent space"</span>)</span><br><span class="line">parser.add_argument(<span class="string">"--img_size"</span>, type=int, default=<span class="number">28</span>, help=<span class="string">"size of each image dimension"</span>)</span><br><span class="line">parser.add_argument(<span class="string">"--channels"</span>, type=int, default=<span class="number">1</span>, help=<span class="string">"number of image channels"</span>)</span><br><span class="line">parser.add_argument(<span class="string">"--sample_interval"</span>, type=int, default=<span class="number">400</span>, help=<span class="string">"interval betwen image samples"</span>)</span><br><span class="line">opt = parser.parse_args()</span><br><span class="line">print(opt)</span><br><span class="line"></span><br><span class="line">img_shape = (opt.channels, opt.img_size, opt.img_size)</span><br><span class="line"></span><br><span class="line">cuda = <span class="literal">True</span> <span class="keyword">if</span> torch.cuda.is_available() <span class="keyword">else</span> <span class="literal">False</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Generator</span><span class="params">(nn.Module)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        super(Generator, self).__init__()</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">block</span><span class="params">(in_feat, out_feat, normalize=True)</span>:</span></span><br><span class="line">            layers = [nn.Linear(in_feat, out_feat)]</span><br><span class="line">            <span class="keyword">if</span> normalize:</span><br><span class="line">                layers.append(nn.BatchNorm1d(out_feat, <span class="number">0.8</span>))</span><br><span class="line">            layers.append(nn.LeakyReLU(<span class="number">0.2</span>, inplace=<span class="literal">True</span>))</span><br><span class="line">            <span class="keyword">return</span> layers</span><br><span class="line"></span><br><span class="line">        self.model = nn.Sequential(</span><br><span class="line">            *block(opt.latent_dim, <span class="number">128</span>, normalize=<span class="literal">False</span>),</span><br><span class="line">            *block(<span class="number">128</span>, <span class="number">256</span>),</span><br><span class="line">            *block(<span class="number">256</span>, <span class="number">512</span>),</span><br><span class="line">            *block(<span class="number">512</span>, <span class="number">1024</span>),</span><br><span class="line">            nn.Linear(<span class="number">1024</span>, int(np.prod(img_shape))),</span><br><span class="line">            nn.Tanh()</span><br><span class="line">        )</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">forward</span><span class="params">(self, z)</span>:</span></span><br><span class="line">        img = self.model(z)</span><br><span class="line">        img = img.view(img.size(<span class="number">0</span>), *img_shape)</span><br><span class="line">        <span class="keyword">return</span> img</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Discriminator</span><span class="params">(nn.Module)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        super(Discriminator, self).__init__()</span><br><span class="line"></span><br><span class="line">        self.model = nn.Sequential(</span><br><span class="line">            nn.Linear(int(np.prod(img_shape)), <span class="number">512</span>),</span><br><span class="line">            nn.LeakyReLU(<span class="number">0.2</span>, inplace=<span class="literal">True</span>),</span><br><span class="line">            nn.Linear(<span class="number">512</span>, <span class="number">256</span>),</span><br><span class="line">            nn.LeakyReLU(<span class="number">0.2</span>, inplace=<span class="literal">True</span>),</span><br><span class="line">            nn.Linear(<span class="number">256</span>, <span class="number">1</span>),</span><br><span class="line">            nn.Sigmoid(),</span><br><span class="line">        )</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">forward</span><span class="params">(self, img)</span>:</span></span><br><span class="line">        img_flat = img.view(img.size(<span class="number">0</span>), <span class="number">-1</span>)</span><br><span class="line">        validity = self.model(img_flat)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> validity</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># Loss function</span></span><br><span class="line">adversarial_loss = torch.nn.BCELoss()</span><br><span class="line"></span><br><span class="line"><span class="comment"># Initialize generator and discriminator</span></span><br><span class="line">generator = Generator()</span><br><span class="line">discriminator = Discriminator()</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> cuda:</span><br><span class="line">    generator.cuda()</span><br><span class="line">    discriminator.cuda()</span><br><span class="line">    adversarial_loss.cuda()</span><br><span class="line"></span><br><span class="line"><span class="comment"># Configure data loader</span></span><br><span class="line">os.makedirs(<span class="string">"../../data/mnist"</span>, exist_ok=<span class="literal">True</span>)</span><br><span class="line">dataloader = torch.utils.data.DataLoader(</span><br><span class="line">    datasets.MNIST(</span><br><span class="line">        <span class="string">"../../data/mnist"</span>,</span><br><span class="line">        train=<span class="literal">True</span>,</span><br><span class="line">        download=<span class="literal">True</span>,</span><br><span class="line">        transform=transforms.Compose(</span><br><span class="line">            [transforms.Resize(opt.img_size), transforms.ToTensor(), transforms.Normalize([<span class="number">0.5</span>], [<span class="number">0.5</span>])]</span><br><span class="line">        ),</span><br><span class="line">    ),</span><br><span class="line">    batch_size=opt.batch_size,</span><br><span class="line">    shuffle=<span class="literal">True</span>,</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Optimizers</span></span><br><span class="line">optimizer_G = torch.optim.Adam(generator.parameters(), lr=opt.lr, betas=(opt.b1, opt.b2))</span><br><span class="line">optimizer_D = torch.optim.Adam(discriminator.parameters(), lr=opt.lr, betas=(opt.b1, opt.b2))</span><br><span class="line"></span><br><span class="line">Tensor = torch.cuda.FloatTensor <span class="keyword">if</span> cuda <span class="keyword">else</span> torch.FloatTensor</span><br><span class="line"></span><br><span class="line"><span class="comment"># ----------</span></span><br><span class="line"><span class="comment">#  Training</span></span><br><span class="line"><span class="comment"># ----------</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> epoch <span class="keyword">in</span> range(opt.n_epochs):</span><br><span class="line">    <span class="keyword">for</span> i, (imgs, _) <span class="keyword">in</span> enumerate(dataloader):</span><br><span class="line"></span><br><span class="line">        <span class="comment"># Adversarial ground truths</span></span><br><span class="line">        valid = Variable(Tensor(imgs.size(<span class="number">0</span>), <span class="number">1</span>).fill_(<span class="number">1.0</span>), requires_grad=<span class="literal">False</span>)</span><br><span class="line">        fake = Variable(Tensor(imgs.size(<span class="number">0</span>), <span class="number">1</span>).fill_(<span class="number">0.0</span>), requires_grad=<span class="literal">False</span>)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># Configure input</span></span><br><span class="line">        real_imgs = Variable(imgs.type(Tensor))</span><br><span class="line"></span><br><span class="line">        <span class="comment"># -----------------</span></span><br><span class="line">        <span class="comment">#  Train Generator</span></span><br><span class="line">        <span class="comment"># -----------------</span></span><br><span class="line"></span><br><span class="line">        optimizer_G.zero_grad()</span><br><span class="line"></span><br><span class="line">        <span class="comment"># Sample noise as generator input</span></span><br><span class="line">        z = Variable(Tensor(np.random.normal(<span class="number">0</span>, <span class="number">1</span>, (imgs.shape[<span class="number">0</span>], opt.latent_dim))))</span><br><span class="line"></span><br><span class="line">        <span class="comment"># Generate a batch of images</span></span><br><span class="line">        gen_imgs = generator(z)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># Loss measures generator's ability to fool the discriminator</span></span><br><span class="line">        g_loss = adversarial_loss(discriminator(gen_imgs), valid)</span><br><span class="line"></span><br><span class="line">        g_loss.backward()</span><br><span class="line">        optimizer_G.step()</span><br><span class="line"></span><br><span class="line">        <span class="comment"># ---------------------</span></span><br><span class="line">        <span class="comment">#  Train Discriminator</span></span><br><span class="line">        <span class="comment"># ---------------------</span></span><br><span class="line"></span><br><span class="line">        optimizer_D.zero_grad()</span><br><span class="line"></span><br><span class="line">        <span class="comment"># Measure discriminator's ability to classify real from generated samples</span></span><br><span class="line">        real_loss = adversarial_loss(discriminator(real_imgs), valid)</span><br><span class="line">        fake_loss = adversarial_loss(discriminator(gen_imgs.detach()), fake)</span><br><span class="line">        d_loss = (real_loss + fake_loss) / <span class="number">2</span></span><br><span class="line"></span><br><span class="line">        d_loss.backward()</span><br><span class="line">        optimizer_D.step()</span><br><span class="line"></span><br><span class="line">        print(</span><br><span class="line">            <span class="string">"[Epoch %d/%d] [Batch %d/%d] [D loss: %f] [G loss: %f]"</span></span><br><span class="line">            % (epoch, opt.n_epochs, i, len(dataloader), d_loss.item(), g_loss.item())</span><br><span class="line">        )</span><br><span class="line"></span><br><span class="line">        batches_done = epoch * len(dataloader) + i</span><br><span class="line">        <span class="keyword">if</span> batches_done % opt.sample_interval == <span class="number">0</span>:</span><br><span class="line">            save_image(gen_imgs.data[:<span class="number">25</span>], <span class="string">"images/%d.png"</span> % batches_done, nrow=<span class="number">5</span>, normalize=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
+
+            <div class="clearfix"></div>
+            <hr class="nogutter">
+        </div>
+        <nav class="m-pagination col-md-8 col-md-offset-2 col-sm-24" role="pagination">
+    
+    <a class="pull-left" href="/2020/03/24/LSF%E4%BD%9C%E4%B8%9A%E8%B0%83%E5%BA%A6%E7%B3%BB%E7%BB%9F/" style="float: left;">
+        ← LSF 作业调度系统
+    </a>
+    
+    
+    <a class="pull-right" href="/2020/02/12/sorted%E5%87%BD%E6%95%B0-%E5%AF%B9list-class%E6%8E%92%E5%BA%8F/">
+        sorted 对 class 元素排序 →
+    </a>
+    
+</nav>
+
+        <div class="col-md-8 col-md-offset-2 col-sm-24"><script type="text/javascript">
+  /**
+   * 搜狐畅言
+   */
+
+  /*
+  document.write('<div id="SOHUCS" sid="' + window.location.pathname.slice(1) + '" ></div>');
+
+  window.onload = function () {
+    (function () {
+      var appid = 'cytXXXX';
+      var conf = 'prod_xxxxxxxxxxxxxxxxx';
+      var width = window.innerWidth || document.documentElement.clientWidth;
+      var loadJs = function (d, a, id) {
+        var c = document.getElementsByTagName("head")[0] || document.head || document.documentElement;
+        var b = document.createElement("script");
+        b.setAttribute("type", "text/javascript");
+        b.setAttribute("charset", "UTF-8");
+        b.setAttribute("src", d);
+        if (id) {
+          b.setAttribute("id", id);
+        }
+        if (typeof a === "function") {
+          if (window.attachEvent) {
+            b.onreadystatechange = function () {
+              var e = b.readyState;
+              if (e === "loaded" || e === "complete") {
+                b.onreadystatechange = null;
+                a()
+              }
+            }
+          } else {
+            b.onload = a
+          }
+        }
+        c.appendChild(b)
+      };
+
+      loadJs("https://changyan.sohu.com/upload/changyan.js", function () {
+        window.changyan.api.config({
+          appid: appid,
+          conf: conf
+        })
+      });
+    })();
+  }
+  */
+
+</script>
+</div>
+    </div>
+</section>
+
+
+      <!-- ============================ Footer =========================== -->
+
+<footer>
+    <div class="container">
+            <div class="copy">
+                <p>
+                    &copy; 2019<script>new Date().getFullYear()>2010&&document.write("-"+new Date().getFullYear());</script>, Content By Kang Yin. All Rights Reserved.
+                </p>
+
+            </div>
+            <div class="social">
+                <ul>
+                    
+                    <li><a href="https://github.com/kang1121" title="Github" target="_blank"><i class="icon-github"></i></a>&nbsp;</li>
+                    
+                    
+                    <li><a href="https://www.instagram.com/ttlololo_yk/?hl=zh-cn" title="Instagram" target="_blank"><i class="icon-instagram"></i></a>&nbsp;</li>
+                    
+                    
+                    <li><a href="https://www.linkedin.com/in/康-殷-33665b15a" title="Linkedin" target="_blank"><i class="icon-linkedin"></i></a>&nbsp;</li>
+                    
+                    
+                    <li><a href="https://google.com/" title="Google-Plus" target="_blank"><i class="icon-google-plus"></i></a>&nbsp;</li>
+                    
+                    
+                    <li><a href="http://weibo.com/" title="Sina-Weibo" target="_blank"><i class="icon-sina-weibo"></i></a>&nbsp;</li>
+                    
+                </ul>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+</footer>
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+<!-- ============================ END Footer =========================== -->
+      <!-- Load our scripts -->
+<!-- Resizable 'on-demand' full-height hero -->
+<script type="text/javascript">
+    var resizeHero = function () {
+        var hero = $(".cover,.heightblock"),
+            window1 = $(window);
+        hero.css({
+            "height": window1.height()
+        });
+    };
+
+    resizeHero();
+
+    $(window).resize(function () {
+        resizeHero();
+    });
+</script>
+<script src="/js/plugins.min.js"></script><!-- Bootstrap core and concatenated plugins always load here -->
+<script src="/js/scripts.js"></script><!-- Theme scripts -->
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$('#intro').find('img').each(function(){
+  var alt = this.alt;
+
+  if (alt){
+    $(this).after('<span class="caption" style="display:none">' + alt + '</span>');
+  }
+
+  $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox" rel="gallery" />');
+});
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+      
+            <style>
+.local-search-popup {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  background: rgba(255, 255, 255, .9);
+  color: #333;
+  z-index: 9999;
+  border-radius: 5px;
+  overflow: scroll;
+}
+#local-search-input {
+  width: 100%;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid #151515;
+  background-color: initial;
+}
+.search-result-list {
+  list-style: none;
+  padding-left: 0;
+}
+.search-result-list > li {
+  margin-top: 15px;
+  border-bottom: 1px solid #ddd;
+  transition: all ease .3s;
+}
+.search-result-list > li:hover {
+  border-bottom: 1px solid gray;
+}
+.search-result-title {
+  font-size: 16px;
+}
+.search-result {
+  line-height: 20px;
+}
+.search-keyword {
+  font-weight: normal;
+  color: #c00;
+}
+
+@media (min-width: 890px) {
+  .popup-btn-close {
+    position: absolute;
+    top: 15px;
+    left: 35px;
+    border: 1px solid #151515;
+    padding: 0px 10px;
+    border-top-left-radius: 8px;
+    cursor: pointer;
+    transition: all ease .3s;
+  }
+  .popup-btn-close:hover {
+    background: #151515;
+    opacity: .9;
+    color: #fff;
+  }
+}
+@media (max-width: 890px) {
+  .popup-btn-close {
+    font-size: 0;
+    position: fixed;
+    right: 20px;
+    bottom: 50px;
+    width: 50px;
+    height: 50px;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 1px 1px 5px #888;
+    cursor: pointer;
+  }
+  .popup-btn-close::after {
+    content: '←';
+    color: #151515;
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 20px;
+    width: 100%;
+    height: 100%;
+    line-height: 50px;
+    text-align: center;
+  }
+}
+</style>
+
+<div class="popup search-popup local-search-popup">
+  <span class="popup-btn-close">
+    ESC
+  </span>
+  <div class="container">
+    <div class="col-md-8 col-md-offset-2">
+      <div class="local-search-header clearfix">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="local-search-input-wrapper">
+          <input autocomplete="off" placeholder="Search..." type="text" id="local-search-input">
+        </div>
+      </div>
+      <div id="local-search-result"></div>
+    </div>
+  </div>
+</div>
+
+<script src="/js/ziploader.js"></script>
+
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.json";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').fadeOut(300);
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $('.popup').fadeIn(300);
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // get search zip version
+    $.get('/searchVersion.txt?t=' + (+new Date()), function(res) {
+      if (localStorage.getItem('searchVersion') !== res) {
+        localStorage.setItem('searchVersion', res);
+        initSearchJson();
+      }
+    });
+
+    function initSearchJson () {
+      initLoad(['/search.zip'], {
+        loadOptions: {
+          success: function(obj) {
+            localStorage.setItem('searchJson', obj['search.json'])
+          },
+          error: function(e) {
+            return console.log(e)
+          }
+        },
+        returnOptions: {
+          'json': TYPE_TEXT
+        },
+        mimeOptions:{
+          'json':'application/json'
+        }
+      })
+    }
+
+
+    // search function;
+    var searchFunc = function(search_id, content_id) {
+      'use strict';
+
+      isfetched = true;
+      var datas = JSON.parse(localStorage.getItem('searchJson'));
+      console.log(search_id)
+      var input = document.getElementById(search_id);
+      var resultContent = document.getElementById(content_id);
+      var inputEventFunction = function() {
+        var searchText = input.value.trim().toLowerCase();
+        var keywords = searchText.split(/[\s\-]+/);
+        if (keywords.length > 1) {
+          keywords.push(searchText);
+        }
+        var resultItems = [];
+        if (searchText.length > 0) {
+          // perform local searching
+          datas.forEach(function(data) {
+            var isMatch = false;
+            var hitCount = 0;
+            var searchTextCount = 0;
+            var title = data.title ? data.title.trim() : '';
+            var titleInLowerCase = title.toLowerCase();
+            var content = data.content ? data.content.trim().replace(/<[^>]+>/g,"") : '';
+            var contentInLowerCase = content.toLowerCase();
+            var articleUrl = decodeURIComponent(data.url);
+            var indexOfTitle = [];
+            var indexOfContent = [];
+            // only match articles with not empty titles
+            keywords.forEach(function(keyword) {
+              function getIndexByWord(word, text, caseSensitive) {
+                var wordLen = word.length;
+                if (wordLen === 0) {
+                  return [];
+                }
+                var startPosition = 0, position = [], index = [];
+                if (!caseSensitive) {
+                  text = text.toLowerCase();
+                  word = word.toLowerCase();
+                }
+                while ((position = text.indexOf(word, startPosition)) > -1) {
+                  index.push({position: position, word: word});
+                  startPosition = position + wordLen;
+                }
+                return index;
+              }
+
+              indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+              indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+            });
+            if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+              isMatch = true;
+              hitCount = indexOfTitle.length + indexOfContent.length;
+            }
+
+            // show search results
+
+            if (isMatch) {
+              // sort index by position of keyword
+
+              [indexOfTitle, indexOfContent].forEach(function (index) {
+                index.sort(function (itemLeft, itemRight) {
+                  if (itemRight.position !== itemLeft.position) {
+                    return itemRight.position - itemLeft.position;
+                  } else {
+                    return itemLeft.word.length - itemRight.word.length;
+                  }
+                });
+              });
+
+              // merge hits into slices
+
+              function mergeIntoSlice(text, start, end, index) {
+                var item = index[index.length - 1];
+                var position = item.position;
+                var word = item.word;
+                var hits = [];
+                var searchTextCountInSlice = 0;
+                while (position + word.length <= end && index.length != 0) {
+                  if (word === searchText) {
+                    searchTextCountInSlice++;
+                  }
+                  hits.push({position: position, length: word.length});
+                  var wordEnd = position + word.length;
+
+                  // move to next position of hit
+
+                  index.pop();
+                  while (index.length != 0) {
+                    item = index[index.length - 1];
+                    position = item.position;
+                    word = item.word;
+                    if (wordEnd > position) {
+                      index.pop();
+                    } else {
+                      break;
+                    }
+                  }
+                }
+                searchTextCount += searchTextCountInSlice;
+                return {
+                  hits: hits,
+                  start: start,
+                  end: end,
+                  searchTextCount: searchTextCountInSlice
+                };
+              }
+
+              var slicesOfTitle = [];
+              if (indexOfTitle.length != 0) {
+                slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+              }
+
+              var slicesOfContent = [];
+              while (indexOfContent.length != 0) {
+                var item = indexOfContent[indexOfContent.length - 1];
+                var position = item.position;
+                var word = item.word;
+                // cut out 100 characters
+                var start = position - 20;
+                var end = position + 80;
+                if(start < 0){
+                  start = 0;
+                }
+                if (end < position + word.length) {
+                  end = position + word.length;
+                }
+                if(end > content.length){
+                  end = content.length;
+                }
+                slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+              }
+
+              // sort slices in content by search text's count and hits' count
+
+              slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                  return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                  return sliceRight.hits.length - sliceLeft.hits.length;
+                } else {
+                  return sliceLeft.start - sliceRight.start;
+                }
+              });
+
+              // select top N slices in content
+
+              var upperBound = parseInt('2');
+              if (upperBound >= 0) {
+                slicesOfContent = slicesOfContent.slice(0, upperBound);
+              }
+
+              // highlight title and content
+
+              function highlightKeyword(text, slice) {
+                var result = '';
+                var prevEnd = slice.start;
+                slice.hits.forEach(function (hit) {
+                  result += text.substring(prevEnd, hit.position);
+                  var end = hit.position + hit.length;
+                  result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                  prevEnd = end;
+                });
+                result += text.substring(prevEnd, slice.end);
+                return result;
+              }
+
+              var resultItem = '';
+
+              if (slicesOfTitle.length != 0) {
+                resultItem += "<li><a target='_blank' href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+              } else {
+                resultItem += "<li><a target='_blank' href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+              }
+
+              slicesOfContent.forEach(function (slice) {
+                resultItem += "<a target='_blank' href='" + articleUrl + "'>" +
+                  "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                  "...</p>" + "</a>";
+              });
+
+              resultItem += "</li>";
+              resultItems.push({
+                item: resultItem,
+                searchTextCount: searchTextCount,
+                hitCount: hitCount,
+                id: resultItems.length
+              });
+            }
+          })
+        };
+        if (keywords.length === 1 && keywords[0] === "") {
+          resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+        } else if (resultItems.length === 0) {
+          resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+        } else {
+          resultItems.sort(function (resultLeft, resultRight) {
+            if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+              return resultRight.searchTextCount - resultLeft.searchTextCount;
+            } else if (resultLeft.hitCount !== resultRight.hitCount) {
+              return resultRight.hitCount - resultLeft.hitCount;
+            } else {
+              return resultRight.id - resultLeft.id;
+            }
+          });
+          var searchResultList = '<ul class=\"search-result-list\">';
+          resultItems.forEach(function (result) {
+            searchResultList += result.item;
+          })
+          searchResultList += "</ul>";
+          resultContent.innerHTML = searchResultList;
+        }
+      }
+
+      if ('auto' === 'auto') {
+        input.addEventListener('input', inputEventFunction);
+      } else {
+        $('.search-icon').click(inputEventFunction);
+        input.addEventListener('keypress', function (event) {
+          if (event.keyCode === 13) {
+            inputEventFunction();
+          }
+        });
+      }
+
+      // remove loading animation
+      $('body').css('overflow', '');
+
+      proceedsearch();
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        $('.sb-close').click();
+        searchFunc('local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+      
+</body>
+</html>

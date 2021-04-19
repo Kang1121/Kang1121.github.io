@@ -3,7 +3,7 @@ title: 制作自己的 dataset
 date: 2019-12-01 19:34:03
 tags:
 categories:
-- Deep Learning
+- Practical Codes
 ---
 
 ### &emsp;&emsp;制作自己的 dataset 要写一个自己的 Dataset 类，然后用 Dataloader  封装就好了。

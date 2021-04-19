@@ -3,7 +3,7 @@ title: sorted 对 class 元素排序
 date: 2020-02-12 19:56:02
 tags:
 categories:
-- Python
+- Practical Codes
 ---
 
 ### Example

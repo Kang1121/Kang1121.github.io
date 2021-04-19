@@ -3,7 +3,7 @@ title: 将dataset标签写入txt
 date: 2019-11-26 19:26:15
 tags:
 categories:
-- Deep Learning
+- Practical Codes
 ---
 
 ### &emsp;&emsp;从网上获取的数据集，想做成自己想要的样子，要为该数据集做一个 label.txt 方便以后的训练。比如像这样的，第一列是图片位置，第二列是标签：

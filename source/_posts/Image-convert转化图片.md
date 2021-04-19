@@ -3,7 +3,7 @@ title: Image.convert转化图片
 date: 2019-12-20 20:19:34
 tags:
 categories:
-- Deep Learning
+- Practical Codes
 ---
 
 ```reStructuredText

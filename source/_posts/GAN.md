@@ -3,7 +3,7 @@ title: GAN
 date: 2020-02-17 00:27:51
 tags:
 categories:
-- Deep Learning
+- Theoretical Analysis
 ---
 
 ### &emsp;0. Description

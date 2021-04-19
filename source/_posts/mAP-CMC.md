@@ -3,7 +3,7 @@ title: mAP CMC
 date: 2020-02-12 19:53:29
 tags:
 categories: 
-- Deep Learning
+- Metrics
 ---
 
 ## mAP**(Mean Average Precision)**

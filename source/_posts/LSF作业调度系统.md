@@ -4,7 +4,7 @@ date: 2020-03-24 10:50:44
 tags:
 - LSF
 categories:
-- Others
+- Thinking
 ---
 
 ### &emsp;&emsp;最近在搞 Vehicle Re-Id 的时候，要跑的模型太大，有幸用到了某单位的超算。用的是 LSF 作业调度系统。官方给的指南不太全，自己整理了几个常用的指令。

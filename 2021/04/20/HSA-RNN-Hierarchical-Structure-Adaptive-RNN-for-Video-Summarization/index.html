@@ -17,7 +17,7 @@
 <!--<![endif]-->
 
 <head>
-  <title>删除错误的更新源 | Kang&#39;s blog</title>
+  <title>HSA-RNN: Hierarchical Structure-Adaptive RNN for Video Summarization | Kang&#39;s blog</title>
   <!-- Meta data -->
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -199,38 +199,33 @@
         <div class="row col-md-offset-2">
             <div class="col-md-8">
     			<span class="post-meta">
-      <time datetime="2019-11-26T09:44:59.000Z" itemprop="datePublished">
-          2019-11-26
+      <time datetime="2021-04-20T07:44:40.000Z" itemprop="datePublished">
+          2021-04-20
       </time>
     
+    
+    | 
+    <a href='/tags/LSTM/'>LSTM</a>
+    
+    
 </span>
-                <h1>删除错误的更新源</h1>
+                <h1>HSA-RNN: Hierarchical Structure-Adaptive RNN for Video Summarization</h1>
             </div>
         </div>
         <div class="col-md-8 col-md-offset-2">
-      		<h3 id="emsp-emsp-Linux在执行-apt-get-update时，有的时候会出现这样的情况。"><a href="#emsp-emsp-Linux在执行-apt-get-update时，有的时候会出现这样的情况。" class="headerlink" title="&emsp;&emsp;Linux在执行 apt-get update时，有的时候会出现这样的情况。"></a>&emsp;&emsp;Linux在执行 apt-get update时，有的时候会出现这样的情况。</h3><h3 id="lt-br-gt"><a href="#lt-br-gt" class="headerlink" title="&lt;/br&gt;"></a>&lt;/br&gt;</h3><p><img src="/images/删除错误的更新源/1.png" alt></p>
-<p>&lt;/br&gt;</p>
-<h3 id="emsp-emsp-之后每次对新的软件更新都会看到之前的错误提示，很烦。所以要把这些一直更新错误的软件信息删去。如下图操作，进入-etc-apt-sources-list-d，输入ls查看，可以看到上图中更新错误的hzwhuang-ubuntu-ss-qt5。"><a href="#emsp-emsp-之后每次对新的软件更新都会看到之前的错误提示，很烦。所以要把这些一直更新错误的软件信息删去。如下图操作，进入-etc-apt-sources-list-d，输入ls查看，可以看到上图中更新错误的hzwhuang-ubuntu-ss-qt5。" class="headerlink" title="&emsp;&emsp;之后每次对新的软件更新都会看到之前的错误提示，很烦。所以要把这些一直更新错误的软件信息删去。如下图操作，进入/etc/apt/sources.list.d，输入ls查看，可以看到上图中更新错误的hzwhuang-ubuntu-ss-qt5。"></a>&emsp;&emsp;之后每次对新的软件更新都会看到之前的错误提示，很烦。所以要把这些一直更新错误的软件信息删去。如下图操作，进入/etc/apt/sources.list.d，输入ls查看，可以看到上图中更新错误的hzwhuang-ubuntu-ss-qt5。</h3><p>&lt;/br&gt;</p>
-<p><img src="/images/删除错误的更新源/2.png" alt></p>
-<p>&lt;/br&gt;</p>
-<h3 id="emsp-emsp-输入-sudo-rm-XXXXX-文件名-，就可以删除该文件，把相关的list、save文件一并删除。"><a href="#emsp-emsp-输入-sudo-rm-XXXXX-文件名-，就可以删除该文件，把相关的list、save文件一并删除。" class="headerlink" title="&emsp;&emsp;输入 sudo rm XXXXX(文件名)，就可以删除该文件，把相关的list、save文件一并删除。"></a>&emsp;&emsp;输入 sudo rm XXXXX(文件名)，就可以删除该文件，把相关的list、save文件一并删除。</h3><p>&lt;/br&gt;</p>
-<p><img src="/images/删除错误的更新源/3.png" alt></p>
-<p>&lt;/br&gt;</p>
-<h3 id="emsp-emsp-这时再-apt-get-update-时，刚刚那个错误就消失了。就这样，把所有的之前更新不了的软件信息都删掉，心旷神怡！！！"><a href="#emsp-emsp-这时再-apt-get-update-时，刚刚那个错误就消失了。就这样，把所有的之前更新不了的软件信息都删掉，心旷神怡！！！" class="headerlink" title="&emsp;&emsp;这时再 apt-get update 时，刚刚那个错误就消失了。就这样，把所有的之前更新不了的软件信息都删掉，心旷神怡！！！"></a>&emsp;&emsp;这时再 apt-get update 时，刚刚那个错误就消失了。就这样，把所有的之前更新不了的软件信息都删掉，心旷神怡！！！</h3><p>&lt;/br&gt;</p>
-<p><img src="/images/删除错误的更新源/6.png" alt></p>
+      		<h3 id="0-Overview"><a href="#0-Overview" class="headerlink" title="0. Overview"></a>0. Overview</h3><p><img src="/2021/04/20/%C2%96HSA-RNN-Hierarchical-Structure-Adaptive-RNN-for-Video-Summarization/1.png" alt></p>
+<p>&emsp;&emsp;&emsp;&emsp;优点：frame-shot-video分层结构，双向LSTM滑动窗口<br>&emsp;&emsp;&emsp;&emsp;缺点：纯pixel features，supervised，importance score不新颖，滑动窗口k固定<br>&emsp;&emsp;&emsp;&emsp;兴趣程度：6</p>
+<h3 id="1-Understanding"><a href="#1-Understanding" class="headerlink" title="1. Understanding"></a>1. Understanding</h3><p>&emsp;&emsp;&emsp;&emsp;中规中矩的一篇文章。提出了frame-shot-video的层级结构。先从frames中划分shots，再再划分的shots中，选择key shots。优点在于，单个shots的长度和shots的个数可变不固定，问题是默认了一个滑动窗口中必然出现shot boundary，这个是不一定的。选confidence score是用softmax的形式（n取1）。选shot boundary和key shot用的是一样的方法。</p>
+<h3 id="2-Analysis"><a href="#2-Analysis" class="headerlink" title="2. Analysis"></a>2. Analysis</h3><p>&emsp;&emsp;&emsp;&emsp;由于这篇文章需要label，标记正确key shots的位置来训练，所以还有待改进。说到底，还是没有真正找到frames（shots）在高维空间中的联系（loss function），所以只能有监督。</p>
 
             <div class="clearfix"></div>
             <hr class="nogutter">
         </div>
         <nav class="m-pagination col-md-8 col-md-offset-2 col-sm-24" role="pagination">
     
-    <a class="pull-left" href="/2019/11/26/%E5%B0%86dataset%E6%A0%87%E7%AD%BE%E5%86%99%E5%85%A5txt/" style="float: left;">
-        ← 将dataset标签写入txt
-    </a>
     
-    
-    <a class="pull-right" href="/2019/11/24/first-time-record/">
-        使用Github+Hexo搭建Blog →
+    <a class="pull-right" href="/2021/04/19/Unsupervised%20Video%20Summarization%20via%20Relation-aware%20Assignment%20Learning/">
+        Unsupervised Video Summarization via Relation-aware Assignment Learning →
     </a>
     
 </nav>

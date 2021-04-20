@@ -98,7 +98,7 @@
     			    
     			    <li><a href="/categories/Metrics/" class="animsition-link">Metrics<small>(1)</small></a></li>
     			    
-    			    <li><a href="/categories/Paper-Reading/" class="animsition-link">Paper Reading<small>(2)</small></a></li>
+    			    <li><a href="/categories/Paper-Reading/" class="animsition-link">Paper Reading<small>(3)</small></a></li>
     			    
     			    <li><a href="/categories/Practical-Codes/" class="animsition-link">Practical Codes<small>(5)</small></a></li>
     			    
@@ -227,6 +227,43 @@
 
 <section id="intro">
     <div class="container">
+        
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 opening-statement">
+                <div class="col-md-4">
+                    <h3><a href="/2021/04/20/HSA-RNN-Hierarchical-Structure-Adaptive-RNN-for-Video-Summarization/">HSA-RNN: Hierarchical Structure-Adaptive RNN for Video Summarization</a></h3>
+                    <span>
+                        <span class="post-meta">
+      <time datetime="2021-04-20T07:44:40.000Z" itemprop="datePublished">
+          2021-04-20
+      </time>
+    
+    
+    | 
+    <a href='/tags/LSTM/'>LSTM</a>
+    
+    
+</span>
+                    </span>
+                </div>
+                <div class="col-md-8">
+                    <p>
+                      
+                        0. Overview
+&emsp;&emsp;&emsp;&emsp;优点：frame-shot-video分层结构，双向LSTM滑动窗口&emsp;&emsp;&emsp;&emsp;缺点：纯pixel features，supervised，importance score不新颖，滑动窗口k固定&emsp;&emsp;&emsp;&emsp;兴趣程度：6
+1. Understanding&emsp;&emsp;&emsp;&ems
+                      
+                    </p>
+                    
+                    <p class="pull-right readMore">
+                        <a href="/2021/04/20/HSA-RNN-Hierarchical-Structure-Adaptive-RNN-for-Video-Summarization/">Read More...</a>
+                    </p>
+                    
+                </div>
+                <div class="clearfix"></div>
+                <hr class="nogutter">
+            </div>
+        </div>
         
         <div class="row">
             <div class="col-md-8 col-md-offset-2 opening-statement">
@@ -530,42 +567,6 @@
                     
                     <p class="pull-right readMore">
                         <a href="/2019/12/20/Image-convert转化图片/">Read More...</a>
-                    </p>
-                    
-                </div>
-                <div class="clearfix"></div>
-                <hr class="nogutter">
-            </div>
-        </div>
-        
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2 opening-statement">
-                <div class="col-md-4">
-                    <h3><a href="/2019/12/19/模型的保存与载入/">模型的保存与载入</a></h3>
-                    <span>
-                        <span class="post-meta">
-      <time datetime="2019-12-19T10:02:48.000Z" itemprop="datePublished">
-          2019-12-19
-      </time>
-    
-    
-    | 
-    <a href='/tags/Pytorch/'>Pytorch</a>
-    
-    
-</span>
-                    </span>
-                </div>
-                <div class="col-md-8">
-                    <p>
-                      
-                        &emsp;&emsp;跑大网络一次跑不完，就要保存了下次再跑。有两种保存方式，一种是保存网络基本结构(e.g. 每层的W, b)，一种是整个网络所有东西全部保存。网上推荐使用第一种，因为如果网络过大，用第二种方法加载网络会比较慢，而且占地方也大。我只试过第一种，Pytorch 例子如下。&lt;/br&gt;
-&emsp;&emsp;保存：1torch.save(net.state_dict(), model_path + '/mod
-                      
-                    </p>
-                    
-                    <p class="pull-right readMore">
-                        <a href="/2019/12/19/模型的保存与载入/">Read More...</a>
                     </p>
                     
                 </div>

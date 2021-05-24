@@ -6,7 +6,7 @@
   <link href="http://yoursite.com/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2021-04-20T08:07:23.564Z</updated>
+  <updated>2021-05-24T01:34:38.466Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>DSNet A Flexible Detect-to-Summarize Network for Video Summarization</title>
+    <link href="http://yoursite.com/2021/05/24/DSNet/"/>
+    <id>http://yoursite.com/2021/05/24/DSNet/</id>
+    <published>2021-05-24T01:20:18.000Z</published>
+    <updated>2021-05-24T01:34:38.466Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="0-Overview"><a href="#0-Overview" class="headerlink" title="0. Overview"></a>0. Overview</h3><p>&emsp;&emsp;&emsp;&emsp;代码：<a href="https://github.com/li-plus/DSNet.git" target="_blank" rel="noopener">https://github.com/li-plus/DSNet.git</a><br>&emsp;&emsp;&emsp;&emsp;兴趣程度 6</p><h3 id="1-Details"><a href="#1-Details" class="headerlink" title="1. Details"></a>1. Details</h3><p><img src="/2021/05/24/DSNet/Report1/幻灯片2.jpg" alt></p><p><img src="/2021/05/24/DSNet/Report1/幻灯片3.jpg" alt></p><p><img src="/2021/05/24/DSNet/Report1/幻灯片6.jpg" alt></p><p><img src="/2021/05/24/DSNet/Report1/幻灯片7.jpg" alt></p><p><img src="/2021/05/24/DSNet/Report1/幻灯片8.jpg" alt></p><p><img src="/2021/05/24/DSNet/Report1/幻灯片9.jpg" alt></p><p><img src="/2021/05/24/DSNet/Report1/幻灯片10.jpg" alt></p><p><img src="/2021/05/24/DSNet/Report1/幻灯片11.jpg" alt></p><p><img src="/2021/05/24/DSNet/Report1/幻灯片12.jpg" alt></p><p><img src="/2021/05/24/DSNet/Report1/幻灯片13.jpg" alt></p><p><img src="/2021/05/24/DSNet/Report1/幻灯片14.jpg" alt></p><p><img src="/2021/05/24/DSNet/Report1/幻灯片15.jpg" alt></p><p><img src="/2021/05/24/DSNet/Report1/幻灯片16.jpg" alt></p><p><img src="/2021/05/24/DSNet/Report1/幻灯片17.jpg" alt></p><p><img src="/2021/05/24/DSNet/Report1/幻灯片18.jpg" alt></p><p><img src="/2021/05/24/DSNet/Report1/幻灯片19.jpg" alt></p><p><img src="/2021/05/24/DSNet/Report1/幻灯片20.jpg" alt></p><p><img src="/2021/05/24/DSNet/Report1/幻灯片21.jpg" alt></p><p><img src="/2021/05/24/DSNet/Report1/幻灯片22.jpg" alt></p><p><img src="/2021/05/24/DSNet/Report1/幻灯片23.jpg" alt></p><p><img src="/2021/05/24/DSNet/Report1/幻灯片24.jpg" alt></p><p><img src="/2021/05/24/DSNet/Report1/幻灯片25.jpg" alt></p><p><img src="/2021/05/24/DSNet/Report1/幻灯片26.jpg" alt></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;0-Overview&quot;&gt;&lt;a href=&quot;#0-Overview&quot; class=&quot;headerlink&quot; title=&quot;0. Overview&quot;&gt;&lt;/a&gt;0. Overview&lt;/h3&gt;&lt;p&gt;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;代码：&lt;a href=&quot;</summary>
+      
+    
+    
+    
+    <category term="Paper Reading" scheme="http://yoursite.com/categories/Paper-Reading/"/>
+    
+    
+    <category term="LSTM" scheme="http://yoursite.com/tags/LSTM/"/>
+    
+  </entry>
   
   <entry>
     <title>HSA-RNN: Hierarchical Structure-Adaptive RNN for Video Summarization</title>

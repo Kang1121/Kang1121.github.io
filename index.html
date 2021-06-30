@@ -17,7 +17,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"kang1121.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"kang1121.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="My blog">
@@ -342,7 +342,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-06-30 16:34:00" itemprop="dateModified" datetime="2021-06-30T16:34:00+09:00">2021-06-30</time>
+                <time title="Modified: 2021-06-30 17:58:28" itemprop="dateModified" datetime="2021-06-30T17:58:28+09:00">2021-06-30</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -365,13 +365,14 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h3 id="overview">0. Overview</h3>
+          <h3 id="overview">Overview</h3>
 <p><img src="/2021/04/20/%C2%96HSA-RNN-Hierarchical-Structure-Adaptive-RNN-for-Video-Summarization/1.png"></p>
-<p>优点：frame-shot-video分层结构，双向LSTM滑动窗口 缺点：纯pixel features，supervised，importance score不新颖，滑动窗口k固定 兴趣程度：6</p>
-<p><span class="math display">\[evidence\_{i}=\sum\_{j}W\_{ij}x\_{j}+b\_{i}\]</span></p>
-<h3 id="understanding">1. Understanding</h3>
+<p>优点：frame-shot-video分层结构，双向LSTM滑动窗口</p>
+<p>缺点：纯pixel features，supervised，importance score不新颖，滑动窗口k固定</p>
+<p>兴趣程度：6</p>
+<h3 id="understanding">Understanding</h3>
 <p>中规中矩的一篇文章。提出了frame-shot-video的层级结构。先从frames中划分shots，再再划分的shots中，选择key shots。优点在于，单个shots的长度和shots的个数可变不固定，问题是默认了一个滑动窗口中必然出现shot boundary，这个是不一定的。选confidence score是用softmax的形式（n取1）。选shot boundary和key shot用的是一样的方法。</p>
-<h3 id="analysis">2. Analysis</h3>
+<h3 id="analysis">Analysis</h3>
 <p>由于这篇文章需要label，标记正确key shots的位置来训练，所以还有待改进。说到底，还是没有真正找到frames（shots）在高维空间中的联系（loss function），所以只能有监督。</p>
 
       
@@ -483,7 +484,7 @@
         <a href="https://www.instagram.com/ttlololo_yk/?hl=zh-cn" title="Instagram → https:&#x2F;&#x2F;www.instagram.com&#x2F;ttlololo_yk&#x2F;?hl&#x3D;zh-cn" rel="noopener" target="_blank"><i class="fab fa-instagram fa-fw"></i>Instagram</a>
       </span>
       <span class="links-of-author-item">
-        <a href="https://www.linkedin.com/in/%E5%BA%B7-%E6%AE%B7-33665b15a" title="Linkedin → https:&#x2F;&#x2F;www.linkedin.com&#x2F;in&#x2F;康-殷-33665b15a" rel="noopener" target="_blank"><i class="fab fa-linkedin fa-fw"></i>Linkedin</a>
+        <a href="https://www.linkedin.com/in/%E5%BA%B7-%E6%AE%B7-33665b15a" title="LinkedIn → https:&#x2F;&#x2F;www.linkedin.com&#x2F;in&#x2F;康-殷-33665b15a" rel="noopener" target="_blank"><i class="fab fa-linkedin fa-fw"></i>LinkedIn</a>
       </span>
   </div>
 
@@ -514,7 +515,7 @@
   </span>
   <span class="author" itemprop="copyrightHolder">Kang</span>
 </div>
-  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a>
   </div>
 
         
@@ -565,6 +566,61 @@
 
 
   
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 

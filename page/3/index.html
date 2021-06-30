@@ -13,20 +13,23 @@ bsub &amp;lt; lsf.sh
 # !/bin/sh
 # BSUB -q gpu_v100
 # BSUB -m &quot;gpu10&quot;
-# BSUB -gpu num=4:mode=excl..</p><a class="button is-default mt-2 has-text-weight-semibold" href="/2020/03/24/LSF%E4%BD%9C%E4%B8%9A%E8%B0%83%E5%BA%A6%E7%B3%BB%E7%BB%9F/">Read more</a></section></article><article class="post-item-card"><header class="is-relative is-flex"><div class="post-cover-backdrop is-hidden"><img src="/images/GAN/1.png" alt="loading.."></div><a class="post-cover-link has-text-centered skeleton" href="/2020/02/17/GAN/"><img class="post-cover-img js-img-fadeIn" src="/images/GAN/1.png" alt="loading.." data-backdrop="true"></a></header><section class="content post-card-content p-4 pb-5"><h2 class="mt-4 mb-0 is-family-serif"><a href="/2020/02/17/GAN/">GAN</a></h2><time class="has-text-grey" datetime="2020-02-16T15:27:51.000Z">2020-02-17</time><p class="is-flex-grow-2 mt-2">0. Description这篇 post 将所有了解过的 GAN 都写下来, 方便回忆原理.&amp;lt;/br&amp;gt;
-1. GAN最初 GAN 的目的是想 generate 出和真实图片非常像的图片. 有个有个图片集 data, 假设它在某维空间满足某个分布:    
+# BSUB -gpu num=4:mode=excl..</p><a class="button is-default mt-2 has-text-weight-semibold" href="/2020/03/24/LSF%E4%BD%9C%E4%B8%9A%E8%B0%83%E5%BA%A6%E7%B3%BB%E7%BB%9F/">Read more</a></section></article><article class="post-item-card"><header class="is-relative is-flex"><div class="post-cover-backdrop is-hidden"><img src="/images/GAN/1.png" alt="loading.."></div><a class="post-cover-link has-text-centered skeleton" href="/2020/02/17/GAN/"><img class="post-cover-img js-img-fadeIn" src="/images/GAN/1.png" alt="loading.." data-backdrop="true"></a></header><section class="content post-card-content p-4 pb-5"><h2 class="mt-4 mb-0 is-family-serif"><a href="/2020/02/17/GAN/">GAN</a></h2><time class="has-text-grey" datetime="2020-02-16T15:27:51.000Z">2020-02-17</time><p class="is-flex-grow-2 mt-2">0. Description
+这篇 post 将所有了解过的 GAN 都写下来, 方便回忆原理.
+1. GAN
+最初 GAN 的目的是想 generate 出和真实图片非常像的图片. 有个有个图片集 data, 假设它在某维空间满足某个分布:
+    
  
 
-
-但是现在不知道这个分布的 formula, 现在可以做的是从这个 data 的分布中, sample 出一些图片. Generator 就希望能通过 network 学到一个分布:    
+但是现在不知道这个分布的 formula, 现在可以做的是从这个 data 的分布中, sample 出一些图片. Generator 就希望能通过 network 学到一个分布:
+    
  
 
-
-希望得到:     
+希望得到:
+    
  
 
-
-也就是说, 当这两个分布相等时, 随便从 generator 学到的 distribution 中 sample 产生一个图片, 都会是在 data 的distribution 中的, 也就是说会是真实的图片...</p><a class="button is-default mt-2 has-text-weight-semibold" href="/2020/02/17/GAN/">Read more</a></section></article><section class="paginator is-flex is-justify-content-flex-end is-flex-wrap-wrap mt-5"><a class="extend prev" rel="prev" href="/page/2/"><i class="iconfont icon-prev has-text-grey"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/4/"><i class="iconfont icon-next has-text-grey"></i></a></section></section><aside class="column is-hidden-mobile is-4-tablet is-3-widescreen"><style>.search-widget .search-input {
+也就是说, 当这两个分布相等时, 随便从 generator 学到的 distribution 中 sample 产生一个图片, 都会是在 data 的distribution 中的, 也就是说会是真实的图片.
+因为 genera..</p><a class="button is-default mt-2 has-text-weight-semibold" href="/2020/02/17/GAN/">Read more</a></section></article><section class="paginator is-flex is-justify-content-flex-end is-flex-wrap-wrap mt-5"><a class="extend prev" rel="prev" href="/page/2/"><i class="iconfont icon-prev has-text-grey"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/4/"><i class="iconfont icon-next has-text-grey"></i></a></section></section><aside class="column is-hidden-mobile is-4-tablet is-3-widescreen"><style>.search-widget .search-input {
     border: none;
     outline: none;
     background: transparent;

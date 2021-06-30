@@ -1,173 +1,585 @@
-<!DOCTYPE html><html class="appearance-auto" lang="en"><head><meta charset="UTF-8"><title>Kang Yin's blog</title><meta name="description" content="My blog"><meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, initial-scale=1"><!-- Google Analytics --><!-- End Google Analytics -->
-<!-- Baidu Analytics --><!-- End Baidu Analytics --><link rel="icon" href="/images/favicon.png"><link rel="stylesheet" href="/style/common/bulma.css"><link rel="stylesheet" href="/style/base.css"><link rel="stylesheet" href="/style/common/helper.css"><script src="/js/common.js"></script><link rel="stylesheet" href="/style/widget-post-list.css"><!-- hexo injector head_end start -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"kang1121.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="My blog">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Kang&#39;s blog">
+<meta property="og:url" content="https://kang1121.github.io/page/6/index.html">
+<meta property="og:site_name" content="Kang&#39;s blog">
+<meta property="og:description" content="My blog">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="Kang">
+<meta property="article:tag" content="Blog">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://kang1121.github.io/page/6/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : true,
+    isPost : false,
+    lang   : 'en'
+  };
+</script>
+
+  <title>Kang's blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<!-- hexo injector head_end start -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.0">
+<!-- hexo injector head_end end -->
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
 <link rel="alternate" href="/atom.xml" title="Kang's blog" type="application/atom+xml">
-</head><body class="is-flex is-flex-direction-column"><header class="header-widget is-flex-shrink-0 is-hidden-mobile"><div class="container is-fullhd is-flex is-justify-content-space-between is-align-items-center is-full-height"><section class="is-hidden-mobile is-flex-shrink-0"><h2><a href="/">Kang Yin's blog</a></h2></section><h3 class="is-hidden-mobile is-family-serif is-full-height is-flex is-align-items-center is-flex-shrink-0"></h3><aside class="is-flex-shrink-0"><h3 class="is-inline-block"><a href="/">Home</a></h3><h3 class="is-inline-block"><a href="/about">About</a></h3><h3 class="is-inline-block"><a href="/archives">Archives</a></h3></aside></div></header><header class="is-flex header-widget is-flex-shrink-0 is-align-items-center is-justify-content-center is-hidden-tablet"><h3 class="is-inline-block"><a href="/">Home</a></h3><h3 class="is-inline-block"><a href="/about">About</a></h3><h3 class="is-inline-block"><a href="/archives">Archives</a></h3></header><main><article class="post-container is-flex is-justify-content-center section container is-max-widescreen pt-4 px-2"><div class="columns is-variable is-1-tablet is-3-desktop-only is-2-widescreen is-full-width"><section class="column"><article class="post-item-card"><header class="is-relative is-flex"><div class="post-cover-backdrop is-hidden"><img src="/images/将dataset标签写入txt/1.png" alt="loading.."></div><a class="post-cover-link has-text-centered skeleton" href="/2019/11/26/%E5%B0%86dataset%E6%A0%87%E7%AD%BE%E5%86%99%E5%85%A5txt/"><img class="post-cover-img js-img-fadeIn" src="/images/将dataset标签写入txt/1.png" alt="loading.." data-backdrop="true"></a></header><section class="content post-card-content p-4 pb-5"><h2 class="mt-4 mb-0 is-family-serif"><a href="/2019/11/26/%E5%B0%86dataset%E6%A0%87%E7%AD%BE%E5%86%99%E5%85%A5txt/">将dataset标签写入txt</a></h2><time class="has-text-grey" datetime="2019-11-26T10:26:15.000Z">2019-11-26</time><p class="is-flex-grow-2 mt-2">从网上获取的数据集，想做成自己想要的样子，要为该数据集做一个 label.txt 方便以后的训练。比如像这样的，第一列是图片位置，第二列是标签：&amp;lt;/br&amp;gt;
+</head>
 
-&amp;lt;/br&amp;gt;
-因为我原先的这个数据集里面每类样本数不一样，所以稍微要烦一丢丢，直接上代码。&amp;lt;/br&amp;gt;
-import os
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
 
-roots = &quot;/home/yk/下载/VERI-Wild/images/&quot;                
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Kang's blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">��</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content index posts-expand">
+            
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://kang1121.github.io/2019/11/26/%E5%B0%86dataset%E6%A0%87%E7%AD%BE%E5%86%99%E5%85%A5txt/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Kang">
+      <meta itemprop="description" content="My blog">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kang's blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/11/26/%E5%B0%86dataset%E6%A0%87%E7%AD%BE%E5%86%99%E5%85%A5txt/" class="post-title-link" itemprop="url">将dataset标签写入txt</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-11-26 19:26:15" itemprop="dateCreated datePublished" datetime="2019-11-26T19:26:15+09:00">2019-11-26</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-06-30 14:37:36" itemprop="dateModified" datetime="2021-06-30T14:37:36+09:00">2021-06-30</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Practical-Codes/" itemprop="url" rel="index"><span itemprop="name">Practical Codes</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="从网上获取的数据集，想做成自己想要的样子，要为该数据集做一个-label-txt-方便以后的训练。比如像这样的，第一列是图片位置，第二列是标签："><a href="#从网上获取的数据集，想做成自己想要的样子，要为该数据集做一个-label-txt-方便以后的训练。比如像这样的，第一列是图片位置，第二列是标签：" class="headerlink" title="从网上获取的数据集，想做成自己想要的样子，要为该数据集做一个 label.txt 方便以后的训练。比如像这样的，第一列是图片位置，第二列是标签："></a>从网上获取的数据集，想做成自己想要的样子，要为该数据集做一个 label.txt 方便以后的训练。比如像这样的，第一列是图片位置，第二列是标签：</h3><p>&lt;/br&gt;</p>
+<p><img src="/images/将dataset标签写入txt/1.png" alt=""></p>
+<p>&lt;/br&gt;</p>
+<h3 id="因为我原先的这个数据集里面每类样本数不一样，所以稍微要烦一丢丢，直接上代码。"><a href="#因为我原先的这个数据集里面每类样本数不一样，所以稍微要烦一丢丢，直接上代码。" class="headerlink" title="因为我原先的这个数据集里面每类样本数不一样，所以稍微要烦一丢丢，直接上代码。"></a>因为我原先的这个数据集里面每类样本数不一样，所以稍微要烦一丢丢，直接上代码。</h3><p>&lt;/br&gt;</p>
+<pre><code class="lang-python">import os
+
+roots = "/home/yk/下载/VERI-Wild/images/"                
 
 
 def convert(train=True):
     if train:
         f = open(roots + 'train.txt', 'w')            # 新建了一个train.txt存label的信息
-        data_path = roo..</p><a class="button is-default mt-2 has-text-weight-semibold" href="/2019/11/26/%E5%B0%86dataset%E6%A0%87%E7%AD%BE%E5%86%99%E5%85%A5txt/">Read more</a></section></article><article class="post-item-card"><header class="is-relative is-flex"><div class="post-cover-backdrop is-hidden"><img src="/images/删除错误的更新源/1.png" alt="loading.."></div><a class="post-cover-link has-text-centered skeleton" href="/2019/11/26/%E5%88%A0%E9%99%A4%E9%94%99%E8%AF%AF%E7%9A%84%E6%9B%B4%E6%96%B0%E6%BA%90/"><img class="post-cover-img js-img-fadeIn" src="/images/删除错误的更新源/1.png" alt="loading.." data-backdrop="true"></a></header><section class="content post-card-content p-4 pb-5"><h2 class="mt-4 mb-0 is-family-serif"><a href="/2019/11/26/%E5%88%A0%E9%99%A4%E9%94%99%E8%AF%AF%E7%9A%84%E6%9B%B4%E6%96%B0%E6%BA%90/">删除错误的更新源</a></h2><time class="has-text-grey" datetime="2019-11-26T09:44:59.000Z">2019-11-26</time><p class="is-flex-grow-2 mt-2">Linux在执行 apt-get update时，有的时候会出现这样的情况。&amp;lt;/br&amp;gt;
-&amp;lt;/br&amp;gt;
-之后每次对新的软件更新都会看到之前的错误提示，很烦。所以要把这些一直更新错误的软件信息删去。如下图操作，进入/etc/apt/sources.list.d，输入ls查看，可以看到上图中更新错误的hzwhuang-ubuntu-ss-qt5。&amp;lt;/br&amp;gt;
+        data_path = roots + 'images/'            
+        if not os.path.exists(data_path):
+            os.makedirs(data_path)
+        label = 0
+        for root, dirs, files in os.walk(data_path):
+            if len(dirs):
+                # print(dirs)
+                continue
+            else:
+                label = label + 1
+                s = len(files)
+                for i in range(s):
+                    img_path = root + '/' + files[i]
+                    # print(img_path + ' ' + str(label))
+                    f.write(img_path + ' ' + str(label) + '\n')            # 写入文件
+        f.close()
 
-&amp;lt;/br&amp;gt;
-输入 sudo rm XXXXX(文件名)，就可以删除该文件，把相关的list、save文件一并删除。&amp;lt;/br&amp;gt;
 
-&amp;lt;/br&amp;gt;
-这时再 apt-get update 时，刚刚那个错误就消失了。就这样，把所有的之前更新不了的软件信息都删掉，心旷神怡！！！&amp;lt;/br&amp;gt;
+convert(train=True)
+</code></pre>
 
-</p><a class="button is-default mt-2 has-text-weight-semibold" href="/2019/11/26/%E5%88%A0%E9%99%A4%E9%94%99%E8%AF%AF%E7%9A%84%E6%9B%B4%E6%96%B0%E6%BA%90/">Read more</a></section></article><article class="post-item-card"><header class="is-relative is-flex"><div class="post-cover-backdrop is-hidden"><img src="/images/c.jpg" alt="loading.."></div><a class="post-cover-link has-text-centered skeleton" href="/2019/11/24/first-time-record/"><img class="post-cover-img js-img-fadeIn" src="/images/c.jpg" alt="loading.." data-backdrop="true"></a></header><section class="content post-card-content p-4 pb-5"><header><a href="/tags/Life"><i class="tag post-item-tag">Life</i></a></header><h2 class="mt-4 mb-0 is-family-serif"><a href="/2019/11/24/first-time-record/">使用Github+Hexo搭建Blog</a></h2><time class="has-text-grey" datetime="2019-11-24T10:25:46.000Z">2019-11-24</time><p class="is-flex-grow-2 mt-2">Happy.
-</p><a class="button is-default mt-2 has-text-weight-semibold" href="/2019/11/24/first-time-record/">Read more</a></section></article><section class="paginator is-flex is-justify-content-flex-end is-flex-wrap-wrap mt-5"><a class="extend prev" rel="prev" href="/page/5/"><i class="iconfont icon-prev has-text-grey"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span></section></section><aside class="column is-hidden-mobile is-4-tablet is-3-widescreen"><style>.search-widget .search-input {
-    border: none;
-    outline: none;
-    background: transparent;
-    color: var(--second-text-color);
-}
-.search-widget .search-content {
-    position: absolute;
-    left: 0;
-    top: calc(100% - 3px);
-    z-index: 2;
+      
+    </div>
 
-    width: 100%;
-    height: 0;
-    max-height: 550px;
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
 
-    overflow: auto;
-    box-sizing: border-box;
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://kang1121.github.io/2019/11/26/%E5%88%A0%E9%99%A4%E9%94%99%E8%AF%AF%E7%9A%84%E6%9B%B4%E6%96%B0%E6%BA%90/">
 
-    background: var(--top-bar-bg-color);
-    backdrop-filter: blur(var(--backdropFilter));
-    -webkit-backdrop-filter: blur(var(--backdropFilter));
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Kang">
+      <meta itemprop="description" content="My blog">
+    </span>
 
-    border-bottom-left-radius: var(--borderRadius);
-    border-bottom-right-radius: var(--borderRadius);
-    box-shadow: 0 12px 15px rgba(0, 0, 0, 0.08);
-}
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kang's blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/11/26/%E5%88%A0%E9%99%A4%E9%94%99%E8%AF%AF%E7%9A%84%E6%9B%B4%E6%96%B0%E6%BA%90/" class="post-title-link" itemprop="url">删除错误的更新源</a>
+        </h2>
 
-.search-widget .search-content a:hover h5 {
-    color: #3273dc!important;
-}
-</style><main class="aside-card-container search-widget is-relative"><label for="searchInput"><div class="is-flex px-4" id="searchButton"><i class="iconfont icon--search1 mr-1"></i><input class="search-input is-flex-grow-1" id="searchInput" placeholder="Search everything.."></div></label><section class="search-content content" id="searchContent"></section></main><script>var searchDatabase = []
-var searchInputEl = document.getElementById('searchInput')
-var searchButtonEl = document.getElementById('searchButton')
-var searchResultEl = document.getElementById('searchContent')
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
 
-searchInputEl.oninput = function (evt) {
-    var searchValue = evt.srcElement.value
-    var haveSearchValue = Boolean(searchValue.trim())
-    if (!haveSearchValue) {
-        searchResultEl.style.height = 0
-        searchResultEl.innerHTML = null
-        return
+              <time title="Created: 2019-11-26 18:44:59" itemprop="dateCreated datePublished" datetime="2019-11-26T18:44:59+09:00">2019-11-26</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-06-30 14:37:38" itemprop="dateModified" datetime="2021-06-30T14:37:38+09:00">2021-06-30</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="Linux在执行-apt-get-update时，有的时候会出现这样的情况。"><a href="#Linux在执行-apt-get-update时，有的时候会出现这样的情况。" class="headerlink" title="Linux在执行 apt-get update时，有的时候会出现这样的情况。"></a>Linux在执行 apt-get update时，有的时候会出现这样的情况。</h3><h3 id="lt-br-gt"><a href="#lt-br-gt" class="headerlink" title="</br>"></a>&lt;/br&gt;</h3><p><img src="/images/删除错误的更新源/1.png" alt=""></p>
+<p>&lt;/br&gt;</p>
+<h3 id="之后每次对新的软件更新都会看到之前的错误提示，很烦。所以要把这些一直更新错误的软件信息删去。如下图操作，进入-etc-apt-sources-list-d，输入ls查看，可以看到上图中更新错误的hzwhuang-ubuntu-ss-qt5。"><a href="#之后每次对新的软件更新都会看到之前的错误提示，很烦。所以要把这些一直更新错误的软件信息删去。如下图操作，进入-etc-apt-sources-list-d，输入ls查看，可以看到上图中更新错误的hzwhuang-ubuntu-ss-qt5。" class="headerlink" title="之后每次对新的软件更新都会看到之前的错误提示，很烦。所以要把这些一直更新错误的软件信息删去。如下图操作，进入/etc/apt/sources.list.d，输入ls查看，可以看到上图中更新错误的hzwhuang-ubuntu-ss-qt5。"></a>之后每次对新的软件更新都会看到之前的错误提示，很烦。所以要把这些一直更新错误的软件信息删去。如下图操作，进入/etc/apt/sources.list.d，输入ls查看，可以看到上图中更新错误的hzwhuang-ubuntu-ss-qt5。</h3><p>&lt;/br&gt;</p>
+<p><img src="/images/删除错误的更新源/2.png" alt=""></p>
+<p>&lt;/br&gt;</p>
+<h3 id="输入-sudo-rm-XXXXX-文件名-，就可以删除该文件，把相关的list、save文件一并删除。"><a href="#输入-sudo-rm-XXXXX-文件名-，就可以删除该文件，把相关的list、save文件一并删除。" class="headerlink" title="输入 sudo rm XXXXX(文件名)，就可以删除该文件，把相关的list、save文件一并删除。"></a>输入 sudo rm XXXXX(文件名)，就可以删除该文件，把相关的list、save文件一并删除。</h3><p>&lt;/br&gt;</p>
+<p><img src="/images/删除错误的更新源/3.png" alt=""></p>
+<p>&lt;/br&gt;</p>
+<h3 id="这时再-apt-get-update-时，刚刚那个错误就消失了。就这样，把所有的之前更新不了的软件信息都删掉，心旷神怡！！！"><a href="#这时再-apt-get-update-时，刚刚那个错误就消失了。就这样，把所有的之前更新不了的软件信息都删掉，心旷神怡！！！" class="headerlink" title="这时再 apt-get update 时，刚刚那个错误就消失了。就这样，把所有的之前更新不了的软件信息都删掉，心旷神怡！！！"></a>这时再 apt-get update 时，刚刚那个错误就消失了。就这样，把所有的之前更新不了的软件信息都删掉，心旷神怡！！！</h3><p>&lt;/br&gt;</p>
+<p><img src="/images/删除错误的更新源/6.png" alt=""></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://kang1121.github.io/2019/11/24/first-time-record/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Kang">
+      <meta itemprop="description" content="My blog">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kang's blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/11/24/first-time-record/" class="post-title-link" itemprop="url">使用Github+Hexo搭建Blog</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-11-24 19:25:46" itemprop="dateCreated datePublished" datetime="2019-11-24T19:25:46+09:00">2019-11-24</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-04-19 15:03:49" itemprop="dateModified" datetime="2021-04-19T15:03:49+09:00">2021-04-19</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Thinking/" itemprop="url" rel="index"><span itemprop="name">Thinking</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="Happy"><a href="#Happy" class="headerlink" title="Happy."></a>Happy.</h3><p><img src="/images/c.jpg" alt></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/page/5/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span>
+  </nav>
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
     }
-
-    var searchResults = searching(searchValue)
-
-    if (searchResults.length > 0) {
-        renderSearchResults(searchResults)
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
     }
-}
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
 
-function renderSearchResults(results) {
-    searchResultEl.innerHTML = null
-    var fragment = document.createDocumentFragment()
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
 
-    results.forEach(function (item) {
-        var link = document.createElement('a')
-        var title = document.createElement('h5')
-        var content = document.createElement('p')
+  <aside class="sidebar">
+    <div class="sidebar-inner">
 
-        title.className = 'mb-1'
-        title.innerText = item.title
-        content.innerText = item.content
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
 
-        link.href = item.link
-        link.appendChild(title)
-        link.appendChild(content)
-        link.className = 'p-4 is-block'
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
 
-        fragment.appendChild(link)
-    })
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Kang</p>
+  <div class="site-description" itemprop="description">My blog</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">18</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
 
-    searchResultEl.appendChild(fragment)
-    searchResultEl.style.height = 'auto'
-}
 
-function searching(inputText) {
-    var inputTexts = inputText.split(' ')
-    var searchResults = []
-    inputTexts.forEach(function (searchKey) {
-        var haveSearchValue = Boolean(searchKey.trim())
-        if (!haveSearchValue) return
 
-        var key = searchKey.toLowerCase()
+      </div>
 
-        for (var entry of searchDatabase) {
-            var title = entry.getElementsByTagName('title')[0].textContent
-            var link = entry.getElementsByTagName('link')[0].getAttribute('href')
-            var contentWithTags = entry.getElementsByTagName('content')[0].textContent
-            var rawContent = contentWithTags.trim().replace(/<[^>]+>/g, '').toLowerCase()
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
 
-            var LENGTH = 80
-            var finalContent = ''
-            var contentLength = rawContent.length
-            var searchResultIdx = rawContent.indexOf(key)
 
-            var startIdx = searchResultIdx - 20,
-                endIdx = startIdx + LENGTH
+      </div>
+    </main>
 
-            if (startIdx < 0) {
-                startIdx = 0
-                endIdx = 100
-            }
+    <footer class="footer">
+      <div class="footer-inner">
+        
 
-            endIdx > contentLength && (endIdx = contentLength)
+        
 
-            finalContent = rawContent.substring(startIdx, endIdx)
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Kang</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
 
-            if (title.indexOf(key) > -1 || searchResultIdx > -1) {
-                searchResults.push({
-                    link: link,
-                    title: title,
-                    content: finalContent
-                })
-            }
-        }
-    })
-    return searchResults
-}
+        
 
-searchButtonEl.onclick = function () {
-    if (searchDatabase.length > 0) return;
 
-    fetch(window.location.href + '/search.xml').then(res => res.text()).then(res => {
-        var domparser = new DOMParser
-        var doc = domparser.parseFromString(res, 'application/xml')
-        searchDatabase = doc.getElementsByTagName('search')[0].children
-    })
-}</script><main class="aside-card-container profile-widget"><!-- todo: 使用取色工具动态阴影--><section class="is-flex is-flex-direction-column is-justify-content-center is-align-items-center"><section class="is-flex is-justify-content-center avatar is-clipped skeleton"><!-- debug images "https://api.ixiaowai.cn/gqapi/gqapi.php"--><img class="js-img-fadeIn" src="/images/icon.jpg" alt="user avatar"></section><h3 class="user-name">Kang Yin</h3><blockquote class="has-text-centered is-relative"><span style="margin-bottom: 5px;">It's when I'm weak that I am strong.</span></blockquote><address class="has-text-centered has-text-grey"><i class="iconfont icon-location" style="margin-right: 5px;"></i><span class="has-text-grey">Korea</span></address></section><section class="sns-container is-flex is-justify-content-center is-align-items-center"><!-- Github--><a title="github" target="_blank" rel="noopener nofollow" href="//github.com/kang1121"><i class="iconfont icon-github"></i></a><!-- Ins--><a title="instagram" target="_blank" rel="noopener nofollow" href="//www.instagram.com/kang.97kk/?hl=zh-cn"><i class="iconfont icon-ins"></i></a><!-- RSS--><a title="rss" target="_blank" rel="noopener nofollow" href="/atom.xml"><i class="iconfont icon-rss"></i></a><!-- 知乎--><!-- 领英--><a title="linkedin" target="_blank" rel="noopener nofollow" href="//www.linkedin.com/in/康-殷-33665b15a"><i class="iconfont icon-linkedin"></i></a><!-- 脸书--></section></main><main class="aside-card-container recent-widget"><h3>Recent</h3><ul><li class="is-flex"><!-- change to element replace image placeholder--><img class="js-img-fadeIn" src="/images/将dataset标签写入txt/1.png" alt="cover"><!--else--><!--    div.post-img-placeholder--><section class="is-flex-grow-2"><p class="has-text-weight-semibold" style="line-height: 20px; font-size: 14px"><a href="/2019/11/26/%E5%B0%86dataset%E6%A0%87%E7%AD%BE%E5%86%99%E5%85%A5txt/">将dataset标签写入txt</a></p><time class="has-text-weight-semibold has-text-grey" datetime="2019-11-26T10:26:15.000Z">2019-11-26</time></section></li><li class="is-flex"><!-- change to element replace image placeholder--><img class="js-img-fadeIn" src="/images/删除错误的更新源/1.png" alt="cover"><!--else--><!--    div.post-img-placeholder--><section class="is-flex-grow-2"><p class="has-text-weight-semibold" style="line-height: 20px; font-size: 14px"><a href="/2019/11/26/%E5%88%A0%E9%99%A4%E9%94%99%E8%AF%AF%E7%9A%84%E6%9B%B4%E6%96%B0%E6%BA%90/">删除错误的更新源</a></p><time class="has-text-weight-semibold has-text-grey" datetime="2019-11-26T09:44:59.000Z">2019-11-26</time></section></li><li class="is-flex"><!-- change to element replace image placeholder--><img class="js-img-fadeIn" src="/images/c.jpg" alt="cover"><!--else--><!--    div.post-img-placeholder--><section class="is-flex-grow-2"><p class="has-text-weight-semibold" style="line-height: 20px; font-size: 14px"><a href="/2019/11/24/first-time-record/">使用Github+Hexo搭建Blog</a></p><time class="has-text-weight-semibold has-text-grey" datetime="2019-11-24T10:25:46.000Z">2019-11-24</time></section></li></ul></main><main class="aside-card-container categories-widget category-page"><h3>Categories</h3><section><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Metrics/">Metrics</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Paper-Reading/">Paper Reading</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Practical-Codes/">Practical Codes</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Theoretical-Analysis/">Theoretical Analysis</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Thinking/">Thinking</a><span class="category-list-count">3</span></li></ul></section></main><main class="aside-card-container archives-widget"><h3>Archives</h3><section><ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">June 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a><span class="archive-list-count">4</span></li></ul></section></main><main class="aside-card-container tag-widget"><h3>Tags</h3><section><a href="/tags/LSF"><span class="tag post-item-tag" style="margin-bottom: 5px;">LSF</span></a><a href="/tags/Life"><span class="tag post-item-tag" style="margin-bottom: 5px;">Life</span></a><a href="/tags/GNN"><span class="tag post-item-tag" style="margin-bottom: 5px;">GNN</span></a><a href="/tags/%E4%B8%8B%E8%BD%BD%E5%8A%A0%E9%80%9F"><span class="tag post-item-tag" style="margin-bottom: 5px;">下载加速</span></a><a href="/tags/Pytorch"><span class="tag post-item-tag" style="margin-bottom: 5px;">Pytorch</span></a><a href="/tags/LSTM"><span class="tag post-item-tag" style="margin-bottom: 5px;">LSTM</span></a><a href="/tags/Python%E9%94%99%E8%AF%AF"><span class="tag post-item-tag" style="margin-bottom: 5px;">Python错误</span></a><a href="/tags/VideoSummarization"><span class="tag post-item-tag" style="margin-bottom: 5px;">VideoSummarization</span></a></section></main></aside></div></article><script>$claudia.fadeInImage(null, $claudia.blurBackdropImg)
 
-window.addEventListener('resize', $claudia.throttle(function () {
-    var images = document.querySelectorAll('.js-img-fadeIn')
 
-    images.forEach($claudia.blurBackdropImg)
-}, 150))</script></main><footer class="is-flex is-flex-direction-column is-align-items-center is-flex-shrink-0 is-family-serif"><section class="sns-container"><!-- Github--><a title="github" target="_blank" rel="noopener nofollow" href="//github.com/kang1121"><i class="iconfont icon-github"></i></a><!-- Ins--><a title="instagram" target="_blank" rel="noopener nofollow" href="//www.instagram.com/kang.97kk/?hl=zh-cn"><i class="iconfont icon-ins"></i></a><!-- RSS--><a title="rss" target="_blank" rel="noopener nofollow" href="/atom.xml"><i class="iconfont icon-rss"></i></a><!-- 知乎--><!-- 领英--><a title="linkedin" target="_blank" rel="noopener nofollow" href="//www.linkedin.com/in/康-殷-33665b15a"><i class="iconfont icon-linkedin"></i></a><!-- 脸书--></section><p><span>Copyright ©</span><span> Kang Yin 2021</span></p><div class="is-flex is-justify-content-center is-flex-wrap-wrap"><p>Powered by Hexo &verbar;&nbsp;</p><p class="is-flex is-justify-content-center"><a title="Hexo theme author" target="_blank" rel="noopener" href="//github.com/haojen">Theme by Haojen&nbsp;</a></p><div style="margin-top: 2px"><a class="github-button" title="github-button" target="_blank" rel="noopener" href="https://github.com/haojen/hexo-theme-Claudia" data-color-scheme="no-preference: light; light: light; dark: dark;" data-show-count="true"></a></div></div><div><span></span></div></footer><script async defer src="https://buttons.github.io/buttons.js"></script><script>$claudia.fadeInImage(null, $claudia.blurBackdropImg)
 
-window.addEventListener('resize', $claudia.throttle(function () {
-    var images = document.querySelectorAll('.js-img-fadeIn')
 
-    images.forEach($claudia.blurBackdropImg)
-}, 150))</script></body></html>
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

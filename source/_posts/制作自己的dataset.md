@@ -6,7 +6,7 @@ categories:
 - Practical Codes
 ---
 
-### &emsp;&emsp;制作自己的 dataset 要写一个自己的 Dataset 类，然后用 Dataloader  封装就好了。
+### 制作自己的 dataset 要写一个自己的 Dataset 类，然后用 Dataloader  封装就好了。
 
 ---
 
@@ -16,7 +16,7 @@ categories:
 
 # 一、Dataset 制作
 
-### &emsp;&emsp;一般 Dataset 类有以下的函数：
+### 一般 Dataset 类有以下的函数：
 
 
 
@@ -34,15 +34,15 @@ class Dataset(Dataset):
 
 </br>
 
-### &emsp;&emsp;\_\_init\_\_() 是初始化时传入的一些参数，不是非常重要。
+### \_\_init\_\_() 是初始化时传入的一些参数，不是非常重要。
 
-### &emsp;&emsp;\_\_getitem\_\_() 需要自己修改，功能是将图片从磁盘中读入，存入 array 或者 list 中。
+### \_\_getitem\_\_() 需要自己修改，功能是将图片从磁盘中读入，存入 array 或者 list 中。
 
-### &emsp;&emsp;\_\_len()\_\_ 是返回 Dataset 的大小，需要仔细设计。
+### \_\_len()\_\_ 是返回 Dataset 的大小，需要仔细设计。
 
-### &emsp;&emsp;下面是两个用于构建Siamese Nerual Network 的 example 。
+### 下面是两个用于构建Siamese Nerual Network 的 example 。
 
-### &emsp;&emsp;这个是事先将图片的 path 都写入了一个 txt 文件中，然后 getitem 就从 txt 中读图片路径。
+### 这个是事先将图片的 path 都写入了一个 txt 文件中，然后 getitem 就从 txt 中读图片路径。
 
 ```python
 class MyDataset(Dataset):
@@ -98,7 +98,7 @@ class MyDataset(Dataset):
 
 </br>
 
-### &emsp;&emsp;这个是事先没有准备 txt 目录，所以写了一个 loadToMem 去每个文件夹里面找图片。
+### 这个是事先没有准备 txt 目录，所以写了一个 loadToMem 去每个文件夹里面找图片。
 
 ```python
 class OmniglotTest(Dataset):
@@ -167,7 +167,7 @@ class OmniglotTest(Dataset):
 
 # 二、Dataloader 封装
 
-### &emsp;&emsp;这个比较简单，因为 Dataloader 是 Pytorch 内置的函数。
+### 这个比较简单，因为 Dataloader 是 Pytorch 内置的函数。
 
 ```python
 train_dataloader = DataLoader(dataset=train_data, shuffle=True, num_workers=2, batch_size=Config.train_batch_size)
@@ -175,7 +175,7 @@ train_dataloader = DataLoader(dataset=train_data, shuffle=True, num_workers=2, b
 
 </br>
 
-### &emsp;&emsp;主要需要关注的是 batch_size 。这个以及之前提到的 len 和训练的次数有关。
+### 主要需要关注的是 batch_size 。这个以及之前提到的 len 和训练的次数有关。
 
 ```python
 for i, data in enumerate(train_dataloader, 0):
@@ -183,7 +183,7 @@ for i, data in enumerate(train_dataloader, 0):
 
 </br>
 
-### &emsp;&emsp;其中，for 循环的次数 = len / batch_size 。
+### 其中，for 循环的次数 = len / batch_size 。
 
 
 

@@ -7,7 +7,7 @@ categories:
 - Linux
 ---
 
-### &emsp;&emsp;1.&emsp;临时指定源
+### 1.临时指定源
 
 ```bash
 # xxxxxxx 为安装对象
@@ -16,7 +16,7 @@ pip install -i https://pypi.tuna.tsinghua.edu.cn/simple xxxxxxx
 
 </br>
 
-### &emsp;&emsp;2.&emsp;永久设定
+### 2.永久设定
 
 ```bash
  # Linux   下创建或进入

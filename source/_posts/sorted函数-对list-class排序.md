@@ -22,4 +22,4 @@ a = [unit(None, None) for i in range(1000)]
 a = sorted(a, key=lambda student: student.value, reverse = True)
 ```
 
-### &emsp;&emsp;student 可随便换其他名字
+### student 可随便换其他名字

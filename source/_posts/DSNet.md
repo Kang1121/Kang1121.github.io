@@ -7,12 +7,15 @@ categories:
 - Paper Reading
 ---
 
-### 0. Overview
+### Overview
 
-&emsp;&emsp;&emsp;&emsp;代码：https://github.com/li-plus/DSNet
-&emsp;&emsp;&emsp;&emsp;兴趣程度 6
+代码：https://github.com/li-plus/DSNet
 
-### 1. Details
+兴趣程度： 6
+
+<!--more-->
+
+### Details
 
 ![](/images/DSNet/2.png)
 

@@ -17,19 +17,19 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"kang1121.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"kang1121.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="0. Introduction  Paper link: https:&#x2F;&#x2F;arxiv.org&#x2F;pdf&#x2F;2011.01623.pdf Code link: https:&#x2F;&#x2F;github.com&#x2F;xuChenSJTU&#x2F;SAT-master-online 主要分析一下算法部分，实验部分不涉及。是VAE+GAN应用于graph的一个文章。用了两个VAE，分别训练X(attribute)和A(structu">
+  <meta name="description" content="0. Introduction    Paper link: https:&#x2F;&#x2F;arxiv.org&#x2F;pdf&#x2F;2011.01623.pdf Code link: https:&#x2F;&#x2F;github.com&#x2F;xuChenSJTU&#x2F;SAT-master-online 主要分析一下算法部分，实验部分不涉及。是VAE+GAN应用于graph的一个文章。用了两个VAE，分别训练X(attribute)和A(struc">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Learning on Attribute-Missing Graphs">
 <meta property="og:url" content="https://kang1121.github.io/2020/12/29/Learning-on-Attribute-Missing-Graphs/index.html">
 <meta property="og:site_name" content="Kang&#39;s blog">
-<meta property="og:description" content="0. Introduction  Paper link: https:&#x2F;&#x2F;arxiv.org&#x2F;pdf&#x2F;2011.01623.pdf Code link: https:&#x2F;&#x2F;github.com&#x2F;xuChenSJTU&#x2F;SAT-master-online 主要分析一下算法部分，实验部分不涉及。是VAE+GAN应用于graph的一个文章。用了两个VAE，分别训练X(attribute)和A(structu">
+<meta property="og:description" content="0. Introduction    Paper link: https:&#x2F;&#x2F;arxiv.org&#x2F;pdf&#x2F;2011.01623.pdf Code link: https:&#x2F;&#x2F;github.com&#x2F;xuChenSJTU&#x2F;SAT-master-online 主要分析一下算法部分，实验部分不涉及。是VAE+GAN应用于graph的一个文章。用了两个VAE，分别训练X(attribute)和A(struc">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://kang1121.github.io/images/Learning-on-Attribute-Missing-Graphs/structure.png">
 <meta property="article:published_time" content="2020-12-28T15:19:02.000Z">
-<meta property="article:modified_time" content="2021-06-30T05:37:25.995Z">
+<meta property="article:modified_time" content="2021-07-01T06:27:04.558Z">
 <meta property="article:author" content="Kang">
 <meta property="article:tag" content="GNN">
 <meta name="twitter:card" content="summary">
@@ -196,7 +196,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-06-30 14:37:25" itemprop="dateModified" datetime="2021-06-30T14:37:25+09:00">2021-06-30</time>
+                <time title="Modified: 2021-07-01 15:27:04" itemprop="dateModified" datetime="2021-07-01T15:27:04+09:00">2021-07-01</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -220,7 +220,9 @@
 
       
         <h3 id="introduction">0. Introduction</h3>
-<p><img src="/images/Learning-on-Attribute-Missing-Graphs/structure.png"></p>
+<div data-align="center">
+<p><img src="/images/Learning-on-Attribute-Missing-Graphs/structure.png" width="70%" height="70%" alt="BiLSTM" align="center"></p>
+</div>
 <p>Paper link: https://arxiv.org/pdf/2011.01623.pdf</p>
 <p>Code link: https://github.com/xuChenSJTU/SAT-master-online</p>
 <p>主要分析一下算法部分，实验部分不涉及。是VAE+GAN应用于graph的一个文章。用了两个VAE，分别训练X(attribute)和A(structure)。文章假设X和A的<span class="math inline">\(z\)</span>在高维空间中遵从同一分布，然后用GAN对他们的高维分布<span class="math inline">\(z\)</span>进行加强。</p>
@@ -383,7 +385,7 @@ min_\Theta max_\Phi L = L_r + L_{adv}
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">18</span>
+          <span class="site-state-item-count">19</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -395,7 +397,7 @@ min_\Theta max_\Phi L = L_r + L_{adv}
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
-        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-count">10</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>

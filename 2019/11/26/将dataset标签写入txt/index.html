@@ -20,12 +20,12 @@
     var CONFIG = {"hostname":"kang1121.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="从网上获取的数据集，想做成自己想要的样子，要为该数据集做一个 label.txt 方便以后的训练。比如像这样的，第一列是图片位置，第二列是标签：&lt;&#x2F;br&gt;  &lt;&#x2F;br&gt; 因为我原先的这个数据集里面每类样本数不一样，所以稍微要烦一丢丢，直接上代码。&lt;&#x2F;br&gt; import os  roots &#x3D; &quot;&#x2F;home&#x2F;yk&#x2F;下载&#x2F;VERI-Wild&#x2F;images&#x2F;&quot;">
+  <meta name="description" content="从网上获取的数据集，想做成自己想要的样子，要为该数据集做一个 label.txt 方便以后的训练。比如像这样的，第一列是图片位置，第二列是标签：    因为我原先的这个数据集里面每类样本数不一样，所以稍微要烦一丢丢，直接上代码。  import os   roots &#x3D; &quot;&#x2F;home&#x2F;yk&#x2F;下载&#x2F;VERI-Wild&#x2F;images&#x2F;&quot;                def convert(train">
 <meta property="og:type" content="article">
 <meta property="og:title" content="将dataset标签写入txt">
 <meta property="og:url" content="https://kang1121.github.io/2019/11/26/%E5%B0%86dataset%E6%A0%87%E7%AD%BE%E5%86%99%E5%85%A5txt/index.html">
 <meta property="og:site_name" content="Kang&#39;s blog">
-<meta property="og:description" content="从网上获取的数据集，想做成自己想要的样子，要为该数据集做一个 label.txt 方便以后的训练。比如像这样的，第一列是图片位置，第二列是标签：&lt;&#x2F;br&gt;  &lt;&#x2F;br&gt; 因为我原先的这个数据集里面每类样本数不一样，所以稍微要烦一丢丢，直接上代码。&lt;&#x2F;br&gt; import os  roots &#x3D; &quot;&#x2F;home&#x2F;yk&#x2F;下载&#x2F;VERI-Wild&#x2F;images&#x2F;&quot;">
+<meta property="og:description" content="从网上获取的数据集，想做成自己想要的样子，要为该数据集做一个 label.txt 方便以后的训练。比如像这样的，第一列是图片位置，第二列是标签：    因为我原先的这个数据集里面每类样本数不一样，所以稍微要烦一丢丢，直接上代码。  import os   roots &#x3D; &quot;&#x2F;home&#x2F;yk&#x2F;下载&#x2F;VERI-Wild&#x2F;images&#x2F;&quot;                def convert(train">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://kang1121.github.io/images/将dataset标签写入txt/1.png">
 <meta property="article:published_time" content="2019-11-26T10:26:15.000Z">
@@ -219,38 +219,39 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h3 id="从网上获取的数据集，想做成自己想要的样子，要为该数据集做一个-label-txt-方便以后的训练。比如像这样的，第一列是图片位置，第二列是标签："><a href="#从网上获取的数据集，想做成自己想要的样子，要为该数据集做一个-label-txt-方便以后的训练。比如像这样的，第一列是图片位置，第二列是标签：" class="headerlink" title="从网上获取的数据集，想做成自己想要的样子，要为该数据集做一个 label.txt 方便以后的训练。比如像这样的，第一列是图片位置，第二列是标签："></a>从网上获取的数据集，想做成自己想要的样子，要为该数据集做一个 label.txt 方便以后的训练。比如像这样的，第一列是图片位置，第二列是标签：</h3><p>&lt;/br&gt;</p>
-<p><img src="/images/将dataset标签写入txt/1.png" alt=""></p>
-<p>&lt;/br&gt;</p>
-<h3 id="因为我原先的这个数据集里面每类样本数不一样，所以稍微要烦一丢丢，直接上代码。"><a href="#因为我原先的这个数据集里面每类样本数不一样，所以稍微要烦一丢丢，直接上代码。" class="headerlink" title="因为我原先的这个数据集里面每类样本数不一样，所以稍微要烦一丢丢，直接上代码。"></a>因为我原先的这个数据集里面每类样本数不一样，所以稍微要烦一丢丢，直接上代码。</h3><p>&lt;/br&gt;</p>
-<pre><code class="lang-python">import os
-
-roots = "/home/yk/下载/VERI-Wild/images/"                
-
-
-def convert(train=True):
-    if train:
-        f = open(roots + 'train.txt', 'w')            # 新建了一个train.txt存label的信息
-        data_path = roots + 'images/'            
-        if not os.path.exists(data_path):
-            os.makedirs(data_path)
-        label = 0
-        for root, dirs, files in os.walk(data_path):
-            if len(dirs):
-                # print(dirs)
-                continue
-            else:
-                label = label + 1
-                s = len(files)
-                for i in range(s):
-                    img_path = root + '/' + files[i]
-                    # print(img_path + ' ' + str(label))
-                    f.write(img_path + ' ' + str(label) + '\n')            # 写入文件
-        f.close()
-
-
-convert(train=True)
-</code></pre>
+        <h3 id="从网上获取的数据集想做成自己想要的样子要为该数据集做一个-label.txt-方便以后的训练比如像这样的第一列是图片位置第二列是标签">从网上获取的数据集，想做成自己想要的样子，要为该数据集做一个 label.txt 方便以后的训练。比如像这样的，第一列是图片位置，第二列是标签：</h3>
+<p><br></p>
+<p><img src="/images/将dataset标签写入txt/1.png"></p>
+<p><br></p>
+<h3 id="因为我原先的这个数据集里面每类样本数不一样所以稍微要烦一丢丢直接上代码">因为我原先的这个数据集里面每类样本数不一样，所以稍微要烦一丢丢，直接上代码。</h3>
+<p><br></p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>roots <span class="op">=</span> <span class="st">"/home/yk/下载/VERI-Wild/images/"</span>             </span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> convert(train<span class="op">=</span><span class="va">True</span>):</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> train:</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>        f <span class="op">=</span> <span class="bu">open</span>(roots <span class="op">+</span> <span class="st">'train.txt'</span>, <span class="st">'w'</span>)          <span class="co"># 新建了一个train.txt存label的信息</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>        data_path <span class="op">=</span> roots <span class="op">+</span> <span class="st">'images/'</span>           </span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="kw">not</span> os.path.exists(data_path):</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>            os.makedirs(data_path)</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>        label <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> root, dirs, files <span class="kw">in</span> os.walk(data_path):</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> <span class="bu">len</span>(dirs):</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>                <span class="co"># print(dirs)</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>                <span class="cf">continue</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>            <span class="cf">else</span>:</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>                label <span class="op">=</span> label <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>                s <span class="op">=</span> <span class="bu">len</span>(files)</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>                <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(s):</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>                    img_path <span class="op">=</span> root <span class="op">+</span> <span class="st">'/'</span> <span class="op">+</span> files[i]</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>                    <span class="co"># print(img_path + ' ' + str(label))</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>                    f.write(img_path <span class="op">+</span> <span class="st">' '</span> <span class="op">+</span> <span class="bu">str</span>(label) <span class="op">+</span> <span class="st">'</span><span class="ch">\n</span><span class="st">'</span>)         <span class="co"># 写入文件</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>        f.close()</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>convert(train<span class="op">=</span><span class="va">True</span>)</span></code></pre></div>
 
     </div>
 
@@ -331,7 +332,7 @@ convert(train=True)
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%8E%E7%BD%91%E4%B8%8A%E8%8E%B7%E5%8F%96%E7%9A%84%E6%95%B0%E6%8D%AE%E9%9B%86%EF%BC%8C%E6%83%B3%E5%81%9A%E6%88%90%E8%87%AA%E5%B7%B1%E6%83%B3%E8%A6%81%E7%9A%84%E6%A0%B7%E5%AD%90%EF%BC%8C%E8%A6%81%E4%B8%BA%E8%AF%A5%E6%95%B0%E6%8D%AE%E9%9B%86%E5%81%9A%E4%B8%80%E4%B8%AA-label-txt-%E6%96%B9%E4%BE%BF%E4%BB%A5%E5%90%8E%E7%9A%84%E8%AE%AD%E7%BB%83%E3%80%82%E6%AF%94%E5%A6%82%E5%83%8F%E8%BF%99%E6%A0%B7%E7%9A%84%EF%BC%8C%E7%AC%AC%E4%B8%80%E5%88%97%E6%98%AF%E5%9B%BE%E7%89%87%E4%BD%8D%E7%BD%AE%EF%BC%8C%E7%AC%AC%E4%BA%8C%E5%88%97%E6%98%AF%E6%A0%87%E7%AD%BE%EF%BC%9A"><span class="nav-number">1.</span> <span class="nav-text">从网上获取的数据集，想做成自己想要的样子，要为该数据集做一个 label.txt 方便以后的训练。比如像这样的，第一列是图片位置，第二列是标签：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%A0%E4%B8%BA%E6%88%91%E5%8E%9F%E5%85%88%E7%9A%84%E8%BF%99%E4%B8%AA%E6%95%B0%E6%8D%AE%E9%9B%86%E9%87%8C%E9%9D%A2%E6%AF%8F%E7%B1%BB%E6%A0%B7%E6%9C%AC%E6%95%B0%E4%B8%8D%E4%B8%80%E6%A0%B7%EF%BC%8C%E6%89%80%E4%BB%A5%E7%A8%8D%E5%BE%AE%E8%A6%81%E7%83%A6%E4%B8%80%E4%B8%A2%E4%B8%A2%EF%BC%8C%E7%9B%B4%E6%8E%A5%E4%B8%8A%E4%BB%A3%E7%A0%81%E3%80%82"><span class="nav-number">2.</span> <span class="nav-text">因为我原先的这个数据集里面每类样本数不一样，所以稍微要烦一丢丢，直接上代码。</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%8E%E7%BD%91%E4%B8%8A%E8%8E%B7%E5%8F%96%E7%9A%84%E6%95%B0%E6%8D%AE%E9%9B%86%E6%83%B3%E5%81%9A%E6%88%90%E8%87%AA%E5%B7%B1%E6%83%B3%E8%A6%81%E7%9A%84%E6%A0%B7%E5%AD%90%E8%A6%81%E4%B8%BA%E8%AF%A5%E6%95%B0%E6%8D%AE%E9%9B%86%E5%81%9A%E4%B8%80%E4%B8%AA-label.txt-%E6%96%B9%E4%BE%BF%E4%BB%A5%E5%90%8E%E7%9A%84%E8%AE%AD%E7%BB%83%E6%AF%94%E5%A6%82%E5%83%8F%E8%BF%99%E6%A0%B7%E7%9A%84%E7%AC%AC%E4%B8%80%E5%88%97%E6%98%AF%E5%9B%BE%E7%89%87%E4%BD%8D%E7%BD%AE%E7%AC%AC%E4%BA%8C%E5%88%97%E6%98%AF%E6%A0%87%E7%AD%BE"><span class="nav-number">1.</span> <span class="nav-text">从网上获取的数据集，想做成自己想要的样子，要为该数据集做一个 label.txt 方便以后的训练。比如像这样的，第一列是图片位置，第二列是标签：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%A0%E4%B8%BA%E6%88%91%E5%8E%9F%E5%85%88%E7%9A%84%E8%BF%99%E4%B8%AA%E6%95%B0%E6%8D%AE%E9%9B%86%E9%87%8C%E9%9D%A2%E6%AF%8F%E7%B1%BB%E6%A0%B7%E6%9C%AC%E6%95%B0%E4%B8%8D%E4%B8%80%E6%A0%B7%E6%89%80%E4%BB%A5%E7%A8%8D%E5%BE%AE%E8%A6%81%E7%83%A6%E4%B8%80%E4%B8%A2%E4%B8%A2%E7%9B%B4%E6%8E%A5%E4%B8%8A%E4%BB%A3%E7%A0%81"><span class="nav-number">2.</span> <span class="nav-text">因为我原先的这个数据集里面每类样本数不一样，所以稍微要烦一丢丢，直接上代码。</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 

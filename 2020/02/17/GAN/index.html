@@ -20,12 +20,12 @@
     var CONFIG = {"hostname":"kang1121.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="0. Description 这篇 post 将所有了解过的 GAN 都写下来, 方便回忆原理. 1. GAN 最初 GAN 的目的是想 generate 出和真实图片非常像的图片. 有个有个图片集 data, 假设它在某维空间满足某个分布:         但是现在不知道这个分布的 formula, 现在可以做的是从这个 data 的分布中, sample 出一些图片. Generator 就希">
+  <meta name="description" content="0. Description 这篇 post 将所有了解过的 GAN 都写下来, 方便回忆原理. 1. GAN 最初 GAN 的目的是想 generate 出和真实图片非常像的图片. 有个有个图片集 data, 假设它在某维空间满足某个分布:    但是现在不知道这个分布的 formula, 现在可以做的是从这个 data 的分布中, sample 出一些图片. Generator 就希望能通过">
 <meta property="og:type" content="article">
 <meta property="og:title" content="GAN">
 <meta property="og:url" content="https://kang1121.github.io/2020/02/17/GAN/index.html">
 <meta property="og:site_name" content="Kang&#39;s blog">
-<meta property="og:description" content="0. Description 这篇 post 将所有了解过的 GAN 都写下来, 方便回忆原理. 1. GAN 最初 GAN 的目的是想 generate 出和真实图片非常像的图片. 有个有个图片集 data, 假设它在某维空间满足某个分布:         但是现在不知道这个分布的 formula, 现在可以做的是从这个 data 的分布中, sample 出一些图片. Generator 就希">
+<meta property="og:description" content="0. Description 这篇 post 将所有了解过的 GAN 都写下来, 方便回忆原理. 1. GAN 最初 GAN 的目的是想 generate 出和真实图片非常像的图片. 有个有个图片集 data, 假设它在某维空间满足某个分布:    但是现在不知道这个分布的 formula, 现在可以做的是从这个 data 的分布中, sample 出一些图片. Generator 就希望能通过">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://kang1121.github.io/images/GAN/1.png">
 <meta property="og:image" content="https://kang1121.github.io/images/GAN/2.png">
@@ -228,52 +228,52 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h3 id="0-Description">0. Description</h3>
+        <h3 id="description">0. Description</h3>
 <p>这篇 post 将所有了解过的 GAN 都写下来, 方便回忆原理.</p>
-<h3 id="1-GAN">1. GAN</h3>
+<h3 id="gan">1. GAN</h3>
 <p>最初 GAN 的目的是想 generate 出和真实图片非常像的图片. 有个有个图片集 data, 假设它在某维空间满足某个分布:</p>
-<div align="center">    
- <img src="/images/GAN/1.png" width="50" height="35" align="center">
+<div data-align="center">
+<p><img src="/images/GAN/1.png" width="50" height="35" align="center"></p>
 </div>
 <p>但是现在不知道这个分布的 formula, 现在可以做的是从这个 data 的分布中, sample 出一些图片. Generator 就希望能通过 network 学到一个分布:</p>
-<div align="center">    
- <img src="/images/GAN/2.png" width="33" height="33" align="center">
+<div data-align="center">
+<p><img src="/images/GAN/2.png" width="33" height="33" align="center"></p>
 </div>
 <p>希望得到:</p>
-<div align="center">    
- <img src="/images/GAN/3.png" width="110" height="38" align="center">
+<div data-align="center">
+<p><img src="/images/GAN/3.png" width="110" height="38" align="center"></p>
 </div>
 <p>也就是说, 当这两个分布相等时, 随便从 generator 学到的 distribution 中 sample 产生一个图片, 都会是在 data 的distribution 中的, 也就是说会是真实的图片.</p>
 <p>因为 generator 是个 network, 所以它要做的就是学到一个 network, 使得这两个分布的 divergence 最小:</p>
-<div align="center">    
- <img src="/images/GAN/4.png" width="370" height="40" align="center">
+<div data-align="center">
+<p><img src="/images/GAN/4.png" width="370" height="40" align="center"></p>
 </div>
 <p>由于这两个分布它们的 formula 都不知道, 所以 divergence 其实是不能直接算的. 这个时候先把这个问题放一边, 看一下 discriminator.</p>
 <p>Discriminator 要做的事情是区分真实的 image 和 generated 的 image. 如果是从 data distribution 中 sample 出来的, 就给高分; 如果是从 generated distribution 中 sample 出来的, 就给低分:</p>
-<div align="center">    
- <img src="/images/GAN/7.png" width="265" height="45" align="center">
+<div data-align="center">
+<p><img src="/images/GAN/7.png" width="265" height="45" align="center"></p>
 </div>
 <p>所以可以得到以下 cost function, 希望 V 越大越好, 已经经过了一部分等价转换:</p>
-<div align="center">    
- <img src="/images/GAN/5.png" width="570" height="40" align="center">
+<div data-align="center">
+<p><img src="/images/GAN/5.png" width="570" height="40" align="center"></p>
 </div>
 <p>把期望转成积分的形式:</p>
-<div align="center">    
- <img src="/images/GAN/6.png" width="550" height="42" align="center">
+<div data-align="center">
+<p><img src="/images/GAN/6.png" width="550" height="42" align="center"></p>
 </div>
 <p>预期是, 无论输入什么样的 x, 只要来自于 generator 就给低分, 只要来自于 real sample 就给高分, 所以其实 D of x 的在某处(e.g. x = 0)的值不受任何附近(e.g. (-1, 1))的值的影响, 完全可以看成是一元函数求极值.</p>
-<div align="center">    
- <img src="/images/GAN/8.png" width="270" height="53" align="center">
+<div data-align="center">
+<p><img src="/images/GAN/8.png" width="270" height="53" align="center"></p>
 </div>
 <p>最后算出来, 理论上 D 取这个值的时候 V 可以达到最大, 也就是说 discriminator 的性能最好. 但是两个分布都不知道, 所以没有解析解, 真正操作时这个用不了. 但是把上式代入 V 中, 整理后可得:</p>
-<div align="center">    
- <img src="/images/GAN/9.png" width="600" height="50" align="center">
+<div data-align="center">
+<p><img src="/images/GAN/9.png" width="600" height="50" align="center"></p>
 </div>
 <p>发现这个正好是 JS divergence 的形式. 又由于最初要求的就是 g 和 data distribution 的 divergence, 所以把上式代入 G star 得:</p>
-<div align="center">    
- <img src="/images/GAN/10.png" width="320" height="52" align="center">
+<div data-align="center">
+<p><img src="/images/GAN/10.png" width="320" height="52" align="center"></p>
 </div>
-<p>这个式子就可以用 network 求了. 先固定 Generator 训练 Discriminator 让 V 达到 max, 再固定 Discriminator  训练 Generator 使得 V 取最小值. Iteratively 训练.</p>
+<p>这个式子就可以用 network 求了. 先固定 Generator 训练 Discriminator 让 V 达到 max, 再固定 Discriminator 训练 Generator 使得 V 取最小值. Iteratively 训练.</p>
 <pre><code>import argparse
 import os
 import numpy as np
@@ -444,7 +444,6 @@ for epoch in range(opt.n_epochs):
         batches_done = epoch * len(dataloader) + i
         if batches_done % opt.sample_interval == 0:
             save_image(gen_imgs.data[:25], "images/%d.png" % batches_done, nrow=5, normalize=True)
-
 </code></pre>
 
     </div>
@@ -526,7 +525,7 @@ for epoch in range(opt.n_epochs):
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#0-Description"><span class="nav-number">1.</span> <span class="nav-text">0. Description</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-GAN"><span class="nav-number">2.</span> <span class="nav-text">1. GAN</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#description"><span class="nav-number">1.</span> <span class="nav-text">0. Description</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#gan"><span class="nav-number">2.</span> <span class="nav-text">1. GAN</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 

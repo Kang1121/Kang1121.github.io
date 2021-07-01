@@ -228,7 +228,6 @@ set http_proxy=http://127.0.0.1:1080
 set https_proxy=http://127.0.0.1:1080
 set http_proxy=socks5://127.0.0.1:1080
 set https_proxy=socks5://127.0.0.1:1080
-
 </code></pre>
 
       
@@ -303,14 +302,14 @@ set https_proxy=socks5://127.0.0.1:1080
     <div class="post-body" itemprop="articleBody">
 
       
-          <h3 id="0-Intro">0. Intro</h3>
+          <h3 id="intro">0. Intro</h3>
 <p>最近在搞 Vehicle Re-Id 的时候，要跑的模型太大，有幸用到了某单位的超算。用的是 LSF 作业调度系统。官方给的指南不太全，自己整理了几个常用的指令。</p>
-<h3 id="1-OS-Software">1. OS &amp; Software</h3>
+<h3 id="os-software">1. OS &amp; Software</h3>
 <p>Windows 10 ( Linux 下没有 GUI，用 FTP 传文件还是不方便，用 windows 的话就是直接文件交互比较方便 )</p>
 <p>软件用的是 MobaXterm。</p>
-<h3 id="2-Command-List">2. Command List</h3>
-<h4 id="bsub-lsf-sh">bsub &lt; <a target="_blank" rel="noopener" href="http://lsf.sh">lsf.sh</a></h4>
-<p>其中， <a target="_blank" rel="noopener" href="http://lsf.sh">lsf.sh</a> 是自己写的一个脚本，之前犯错没输 &lt;, 然后提交总是通不过。脚本范例如下：</p>
+<h3 id="command-list">2. Command List</h3>
+<h4 id="bsub-lsf.sh">bsub &lt; lsf.sh</h4>
+<p>其中， lsf.sh 是自己写的一个脚本，之前犯错没输 &lt;, 然后提交总是通不过。脚本范例如下：</p>
 <pre><code># !/bin/sh
 # BSUB -q gpu_v100
 # BSUB -m "gpu10"
@@ -319,36 +318,35 @@ set https_proxy=socks5://127.0.0.1:1080
 # BSUB -n 1
 # BSUB -e %J.err
 # BSUB -J Firsttry
-python3 /xxx/xxx/xxx/xxx.py
-</code></pre>
+python3 /xxx/xxx/xxx/xxx.py</code></pre>
 <h4 id="bjobs">bjobs</h4>
 <p>该指令可以查看当前正在运行的作业。</p>
-<p><img src="/images/LSF%E4%BD%9C%E4%B8%9A%E8%B0%83%E5%BA%A6%E7%B3%BB%E7%BB%9F/bjobs.jpg" alt=""></p>
-<h4 id="bjobs-l-JOB-ID">bjobs -l JOB_ID</h4>
+<p><img src="/images/LSF作业调度系统/bjobs.jpg"></p>
+<h4 id="bjobs--l-job_id">bjobs -l JOB_ID</h4>
 <p>该指令可以查看当前正在运行的作业的详细情况。</p>
-<p><img src="/images/LSF%E4%BD%9C%E4%B8%9A%E8%B0%83%E5%BA%A6%E7%B3%BB%E7%BB%9F/bjobs-l.jpg" alt=""></p>
-<h4 id="bjobs-p-JOB-ID">bjobs -p JOB_ID</h4>
+<p><img src="/images/LSF作业调度系统/bjobs-l.jpg"></p>
+<h4 id="bjobs--p-job_id">bjobs -p JOB_ID</h4>
 <p>该指令可以查看作业 PENDING 的原因。</p>
-<p><img src="/images/LSF%E4%BD%9C%E4%B8%9A%E8%B0%83%E5%BA%A6%E7%B3%BB%E7%BB%9F/bjobs-p.jpg" alt=""></p>
-<h4 id="bkill-JOB-ID">bkill JOB_ID</h4>
+<p><img src="/images/LSF作业调度系统/bjobs-p.jpg"></p>
+<h4 id="bkill-job_id">bkill JOB_ID</h4>
 <p>该指令可以结束作业。</p>
-<p><img src="/images/LSF%E4%BD%9C%E4%B8%9A%E8%B0%83%E5%BA%A6%E7%B3%BB%E7%BB%9F/bkill.jpg" alt=""></p>
-<h4 id="bkill-r-JOB-ID">bkill -r JOB_ID</h4>
+<p><img src="/images/LSF作业调度系统/bkill.jpg"></p>
+<h4 id="bkill--r-job_id">bkill -r JOB_ID</h4>
 <p>由于刚接触 LSF，不太了解运行机制。自己写了一些非常烂的程序，提交上去，导致怎么 bkill 都结束不了作业，然后输入 info bkill 查看了一下它的详细用法。这个可以直接杀死进程。</p>
-<p><img src="/images/LSF%E4%BD%9C%E4%B8%9A%E8%B0%83%E5%BA%A6%E7%B3%BB%E7%BB%9F/bkill-r.jpg" alt=""></p>
-<h4 id="bstop-JOB-ID-与-bresume-JOB-ID">bstop JOB_ID** 与 **bresume JOB_ID</h4>
+<p><img src="/images/LSF作业调度系统/bkill-r.jpg"></p>
+<h4 id="bstop-job_id-与-bresume-job_id">bstop JOB_ID** 与 **bresume JOB_ID</h4>
 <p>挂起和恢复作业，一般不用。如果作业不想继续了，最好直接 kill，否则占用资源。</p>
-<h4 id="bpeek-JOB-ID-与-bpeek-f-JOB-ID">bpeek JOB_ID 与 bpeek -f JOB_ID</h4>
+<h4 id="bpeek-job_id-与-bpeek--f-job_id">bpeek JOB_ID 与 bpeek -f JOB_ID</h4>
 <p>该指令可以显示程序当前的屏幕输出。</p>
-<p><img src="/images/LSF%E4%BD%9C%E4%B8%9A%E8%B0%83%E5%BA%A6%E7%B3%BB%E7%BB%9F/bpeek.jpg" alt=""></p>
-<h4 id="lsload-与-lsload-gpuload">lsload 与 lsload -gpuload</h4>
+<p><img src="/images/LSF作业调度系统/bpeek.jpg"></p>
+<h4 id="lsload-与-lsload--gpuload">lsload 与 lsload -gpuload</h4>
 <p>该指令可以输出负载。</p>
-<p><img src="/images/LSF%E4%BD%9C%E4%B8%9A%E8%B0%83%E5%BA%A6%E7%B3%BB%E7%BB%9F/lsload.jpg" alt=""></p>
+<p><img src="/images/LSF作业调度系统/lsload.jpg"></p>
 <h4 id="bhosts-与-bqueues">bhosts 与 bqueues</h4>
 <p>该指令可以查看各个节点和队列的作业信息。</p>
-<p><img src="/images/LSF%E4%BD%9C%E4%B8%9A%E8%B0%83%E5%BA%A6%E7%B3%BB%E7%BB%9F/bhosts.jpg" alt=""></p>
-<p><img src="/images/LSF%E4%BD%9C%E4%B8%9A%E8%B0%83%E5%BA%A6%E7%B3%BB%E7%BB%9F/bqueues.jpg" alt=""></p>
-<h3 id="3-Ending">3. Ending</h3>
+<p><img src="/images/LSF作业调度系统/bhosts.jpg"></p>
+<p><img src="/images/LSF作业调度系统/bqueues.jpg"></p>
+<h3 id="ending">3. Ending</h3>
 <p>最后祝自己以后还有机会用这样的 GPU 集群。:)</p>
 
       
@@ -423,52 +421,52 @@ python3 /xxx/xxx/xxx/xxx.py
     <div class="post-body" itemprop="articleBody">
 
       
-          <h3 id="0-Description">0. Description</h3>
+          <h3 id="description">0. Description</h3>
 <p>这篇 post 将所有了解过的 GAN 都写下来, 方便回忆原理.</p>
-<h3 id="1-GAN">1. GAN</h3>
+<h3 id="gan">1. GAN</h3>
 <p>最初 GAN 的目的是想 generate 出和真实图片非常像的图片. 有个有个图片集 data, 假设它在某维空间满足某个分布:</p>
-<div align="center">    
- <img src="/images/GAN/1.png" width="50" height="35" align="center">
+<div data-align="center">
+<p><img src="/images/GAN/1.png" width="50" height="35" align="center"></p>
 </div>
 <p>但是现在不知道这个分布的 formula, 现在可以做的是从这个 data 的分布中, sample 出一些图片. Generator 就希望能通过 network 学到一个分布:</p>
-<div align="center">    
- <img src="/images/GAN/2.png" width="33" height="33" align="center">
+<div data-align="center">
+<p><img src="/images/GAN/2.png" width="33" height="33" align="center"></p>
 </div>
 <p>希望得到:</p>
-<div align="center">    
- <img src="/images/GAN/3.png" width="110" height="38" align="center">
+<div data-align="center">
+<p><img src="/images/GAN/3.png" width="110" height="38" align="center"></p>
 </div>
 <p>也就是说, 当这两个分布相等时, 随便从 generator 学到的 distribution 中 sample 产生一个图片, 都会是在 data 的distribution 中的, 也就是说会是真实的图片.</p>
 <p>因为 generator 是个 network, 所以它要做的就是学到一个 network, 使得这两个分布的 divergence 最小:</p>
-<div align="center">    
- <img src="/images/GAN/4.png" width="370" height="40" align="center">
+<div data-align="center">
+<p><img src="/images/GAN/4.png" width="370" height="40" align="center"></p>
 </div>
 <p>由于这两个分布它们的 formula 都不知道, 所以 divergence 其实是不能直接算的. 这个时候先把这个问题放一边, 看一下 discriminator.</p>
 <p>Discriminator 要做的事情是区分真实的 image 和 generated 的 image. 如果是从 data distribution 中 sample 出来的, 就给高分; 如果是从 generated distribution 中 sample 出来的, 就给低分:</p>
-<div align="center">    
- <img src="/images/GAN/7.png" width="265" height="45" align="center">
+<div data-align="center">
+<p><img src="/images/GAN/7.png" width="265" height="45" align="center"></p>
 </div>
 <p>所以可以得到以下 cost function, 希望 V 越大越好, 已经经过了一部分等价转换:</p>
-<div align="center">    
- <img src="/images/GAN/5.png" width="570" height="40" align="center">
+<div data-align="center">
+<p><img src="/images/GAN/5.png" width="570" height="40" align="center"></p>
 </div>
 <p>把期望转成积分的形式:</p>
-<div align="center">    
- <img src="/images/GAN/6.png" width="550" height="42" align="center">
+<div data-align="center">
+<p><img src="/images/GAN/6.png" width="550" height="42" align="center"></p>
 </div>
 <p>预期是, 无论输入什么样的 x, 只要来自于 generator 就给低分, 只要来自于 real sample 就给高分, 所以其实 D of x 的在某处(e.g. x = 0)的值不受任何附近(e.g. (-1, 1))的值的影响, 完全可以看成是一元函数求极值.</p>
-<div align="center">    
- <img src="/images/GAN/8.png" width="270" height="53" align="center">
+<div data-align="center">
+<p><img src="/images/GAN/8.png" width="270" height="53" align="center"></p>
 </div>
 <p>最后算出来, 理论上 D 取这个值的时候 V 可以达到最大, 也就是说 discriminator 的性能最好. 但是两个分布都不知道, 所以没有解析解, 真正操作时这个用不了. 但是把上式代入 V 中, 整理后可得:</p>
-<div align="center">    
- <img src="/images/GAN/9.png" width="600" height="50" align="center">
+<div data-align="center">
+<p><img src="/images/GAN/9.png" width="600" height="50" align="center"></p>
 </div>
 <p>发现这个正好是 JS divergence 的形式. 又由于最初要求的就是 g 和 data distribution 的 divergence, 所以把上式代入 G star 得:</p>
-<div align="center">    
- <img src="/images/GAN/10.png" width="320" height="52" align="center">
+<div data-align="center">
+<p><img src="/images/GAN/10.png" width="320" height="52" align="center"></p>
 </div>
-<p>这个式子就可以用 network 求了. 先固定 Generator 训练 Discriminator 让 V 达到 max, 再固定 Discriminator  训练 Generator 使得 V 取最小值. Iteratively 训练.</p>
+<p>这个式子就可以用 network 求了. 先固定 Generator 训练 Discriminator 让 V 达到 max, 再固定 Discriminator 训练 Generator 使得 V 取最小值. Iteratively 训练.</p>
 <pre><code>import argparse
 import os
 import numpy as np
@@ -639,7 +637,6 @@ for epoch in range(opt.n_epochs):
         batches_done = epoch * len(dataloader) + i
         if batches_done % opt.sample_interval == 0:
             save_image(gen_imgs.data[:25], "images/%d.png" % batches_done, nrow=5, normalize=True)
-
 </code></pre>
 
       

@@ -20,12 +20,12 @@
     var CONFIG = {"hostname":"kang1121.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Exampleclass unit(object):     def __init__(self, value, label):         self.value &#x3D; value         self.label &#x3D; label   a &#x3D; [unit(None, None) for i in range(1000)]  # 对a赋值后 # reverse &#x3D; True 降序, 默认为 F">
+  <meta name="description" content="Example class unit(object):     def __init__(self, value, label):         self.value &#x3D; value         self.label &#x3D; label                   a &#x3D; [unit(None, None) for i in range(1000)]  # 对a赋值后 # reverse">
 <meta property="og:type" content="article">
 <meta property="og:title" content="sorted 对 class 元素排序">
 <meta property="og:url" content="https://kang1121.github.io/2020/02/12/sorted%E5%87%BD%E6%95%B0-%E5%AF%B9list-class%E6%8E%92%E5%BA%8F/index.html">
 <meta property="og:site_name" content="Kang&#39;s blog">
-<meta property="og:description" content="Exampleclass unit(object):     def __init__(self, value, label):         self.value &#x3D; value         self.label &#x3D; label   a &#x3D; [unit(None, None) for i in range(1000)]  # 对a赋值后 # reverse &#x3D; True 降序, 默认为 F">
+<meta property="og:description" content="Example class unit(object):     def __init__(self, value, label):         self.value &#x3D; value         self.label &#x3D; label                   a &#x3D; [unit(None, None) for i in range(1000)]  # 对a赋值后 # reverse">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-02-12T10:56:02.000Z">
 <meta property="article:modified_time" content="2021-06-30T05:37:31.845Z">
@@ -217,19 +217,20 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><pre><code class="lang-python">class unit(object):
-    def __init__(self, value, label):
-        self.value = value
-        self.label = label
+        <h3 id="example">Example</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> unit(<span class="bu">object</span>):</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, value, label):</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.value <span class="op">=</span> value</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.label <span class="op">=</span> label</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> [unit(<span class="va">None</span>, <span class="va">None</span>) <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1000</span>)]</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 对a赋值后</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co"># reverse = True 降序, 默认为 False 升序</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="bu">sorted</span>(a, key<span class="op">=</span><span class="kw">lambda</span> student: student.value, reverse <span class="op">=</span> <span class="va">True</span>)</span></code></pre></div>
+<h3 id="student-可随便换其他名字">student 可随便换其他名字</h3>
 
-
-a = [unit(None, None) for i in range(1000)]
-
-# 对a赋值后
-# reverse = True 降序, 默认为 False 升序
-a = sorted(a, key=lambda student: student.value, reverse = True)
-</code></pre>
-<h3 id="student-可随便换其他名字"><a href="#student-可随便换其他名字" class="headerlink" title="student 可随便换其他名字"></a>student 可随便换其他名字</h3>
     </div>
 
     
@@ -309,7 +310,7 @@ a = sorted(a, key=lambda student: student.value, reverse = True)
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Example"><span class="nav-number">1.</span> <span class="nav-text">Example</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#student-%E5%8F%AF%E9%9A%8F%E4%BE%BF%E6%8D%A2%E5%85%B6%E4%BB%96%E5%90%8D%E5%AD%97"><span class="nav-number">2.</span> <span class="nav-text">student 可随便换其他名字</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#example"><span class="nav-number">1.</span> <span class="nav-text">Example</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#student-%E5%8F%AF%E9%9A%8F%E4%BE%BF%E6%8D%A2%E5%85%B6%E4%BB%96%E5%90%8D%E5%AD%97"><span class="nav-number">2.</span> <span class="nav-text">student 可随便换其他名字</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 

@@ -20,12 +20,12 @@
     var CONFIG = {"hostname":"kang1121.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="制作自己的 dataset 要写一个自己的 Dataset 类，然后用 Dataloader  封装就好了。 一、Dataset 制作一般 Dataset 类有以下的函数：class Dataset(Dataset):      def __init__(self, ...):         ...     def __getitem__(self, index):         ...">
+  <meta name="description" content="制作自己的 dataset 要写一个自己的 Dataset 类，然后用 Dataloader 封装就好了。  一、Dataset 制作 一般 Dataset 类有以下的函数： class Dataset(Dataset):      def __init__(self, ...):         ...     def __getitem__(self, index):         ...">
 <meta property="og:type" content="article">
 <meta property="og:title" content="制作自己的 dataset">
 <meta property="og:url" content="https://kang1121.github.io/2019/12/01/%E5%88%B6%E4%BD%9C%E8%87%AA%E5%B7%B1%E7%9A%84dataset/index.html">
 <meta property="og:site_name" content="Kang&#39;s blog">
-<meta property="og:description" content="制作自己的 dataset 要写一个自己的 Dataset 类，然后用 Dataloader  封装就好了。 一、Dataset 制作一般 Dataset 类有以下的函数：class Dataset(Dataset):      def __init__(self, ...):         ...     def __getitem__(self, index):         ...">
+<meta property="og:description" content="制作自己的 dataset 要写一个自己的 Dataset 类，然后用 Dataloader 封装就好了。  一、Dataset 制作 一般 Dataset 类有以下的函数： class Dataset(Dataset):      def __init__(self, ...):         ...     def __getitem__(self, index):         ...">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2019-12-01T10:34:03.000Z">
 <meta property="article:modified_time" content="2021-06-30T05:36:49.430Z">
@@ -217,133 +217,142 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h3 id="制作自己的-dataset-要写一个自己的-Dataset-类，然后用-Dataloader-封装就好了。"><a href="#制作自己的-dataset-要写一个自己的-Dataset-类，然后用-Dataloader-封装就好了。" class="headerlink" title="制作自己的 dataset 要写一个自己的 Dataset 类，然后用 Dataloader  封装就好了。"></a>制作自己的 dataset 要写一个自己的 Dataset 类，然后用 Dataloader  封装就好了。</h3><hr>
-<h1 id="一、Dataset-制作"><a href="#一、Dataset-制作" class="headerlink" title="一、Dataset 制作"></a>一、Dataset 制作</h1><h3 id="一般-Dataset-类有以下的函数："><a href="#一般-Dataset-类有以下的函数：" class="headerlink" title="一般 Dataset 类有以下的函数："></a>一般 Dataset 类有以下的函数：</h3><pre><code class="lang-python">class Dataset(Dataset):
-
-    def __init__(self, ...):
-        ...
-    def __getitem__(self, index):
-        ...
-    def __len__(self):
-        ...
-</code></pre>
-<p>&lt;/br&gt;</p>
-<h3 id="init-是初始化时传入的一些参数，不是非常重要。"><a href="#init-是初始化时传入的一些参数，不是非常重要。" class="headerlink" title="__init__() 是初始化时传入的一些参数，不是非常重要。"></a>__init__() 是初始化时传入的一些参数，不是非常重要。</h3><h3 id="getitem-需要自己修改，功能是将图片从磁盘中读入，存入-array-或者-list-中。"><a href="#getitem-需要自己修改，功能是将图片从磁盘中读入，存入-array-或者-list-中。" class="headerlink" title="__getitem__() 需要自己修改，功能是将图片从磁盘中读入，存入 array 或者 list 中。"></a>__getitem__() 需要自己修改，功能是将图片从磁盘中读入，存入 array 或者 list 中。</h3><h3 id="len-是返回-Dataset-的大小，需要仔细设计。"><a href="#len-是返回-Dataset-的大小，需要仔细设计。" class="headerlink" title="__len()__ 是返回 Dataset 的大小，需要仔细设计。"></a>__len()__ 是返回 Dataset 的大小，需要仔细设计。</h3><h3 id="下面是两个用于构建Siamese-Nerual-Network-的-example-。"><a href="#下面是两个用于构建Siamese-Nerual-Network-的-example-。" class="headerlink" title="下面是两个用于构建Siamese Nerual Network 的 example 。"></a>下面是两个用于构建Siamese Nerual Network 的 example 。</h3><h3 id="这个是事先将图片的-path-都写入了一个-txt-文件中，然后-getitem-就从-txt-中读图片路径。"><a href="#这个是事先将图片的-path-都写入了一个-txt-文件中，然后-getitem-就从-txt-中读图片路径。" class="headerlink" title="这个是事先将图片的 path 都写入了一个 txt 文件中，然后 getitem 就从 txt 中读图片路径。"></a>这个是事先将图片的 path 都写入了一个 txt 文件中，然后 getitem 就从 txt 中读图片路径。</h3><pre><code class="lang-python">class MyDataset(Dataset):
-
-    def __init__(self, txt, transform=None, target_transform=None, should_invert=False):
-
-        self.transform = transform
-        self.target_transform = target_transform
-        self.should_invert = should_invert
-        self.txt = txt
-
-    def __getitem__(self, index):
-
-        line = linecache.getline(self.txt, random.randint(1, self.__len__()))
-        line.strip('\n')
-        img0_list = line.split()
-        # 判断是否要选同一个类别的图片
-        should_get_same_class = random.randint(0, 1)
-        if should_get_same_class:
-            while True:
-                # 随机在 txt 中选一行读取，每一行有一张图片的 path 和它的 label
-                img1_list = linecache.getline(self.txt, random.randint(1, self.__len__())).strip('\n').split()
-                if img0_list[1] == img1_list[1]:
-                    break
-        else:
-            img1_list = linecache.getline(self.txt, random.randint(1, self.__len__())).strip('\n').split()
-
-        img0 = Image.open(img0_list[0])
-        img1 = Image.open(img1_list[0])
-        # 转图片通道数
-        img0 = img0.convert("L")
-        img1 = img1.convert("L")
-
-        # 非必要的
-        if self.should_invert:
-            img0 = PIL.ImageOps.invert(img0)
-            img1 = PIL.ImageOps.invert(img1)
-
-        # 非必要的
-        if self.transform is not None:
-            img0 = self.transform(img0)
-            img1 = self.transform(img1)
-
-        return img0, img1, torch.from_numpy(np.array([int(img1_list[1] != img0_list[1])], dtype=np.float32))
-
-    # 这个 len 的返回长度就是 txt 中图片总数
-    def __len__(self):
-        fh = open(self.txt, 'r')
-        num = len(fh.readlines())
-        fh.close()
-        return num
-</code></pre>
-<p>&lt;/br&gt;</p>
-<h3 id="这个是事先没有准备-txt-目录，所以写了一个-loadToMem-去每个文件夹里面找图片。"><a href="#这个是事先没有准备-txt-目录，所以写了一个-loadToMem-去每个文件夹里面找图片。" class="headerlink" title="这个是事先没有准备 txt 目录，所以写了一个 loadToMem 去每个文件夹里面找图片。"></a>这个是事先没有准备 txt 目录，所以写了一个 loadToMem 去每个文件夹里面找图片。</h3><pre><code class="lang-python">class OmniglotTest(Dataset):
-
-    def __init__(self, dataPath, transform=None, times=100, way=166):
-        np.random.seed(1)
-        super(OmniglotTest, self).__init__()
-        self.transform = transform
-        self.times = times
-        self.way = way
-        self.img1 = None
-        self.c1 = None
-        self.datas, self.num_classes = self.loadToMem(dataPath)
-
-    def loadToMem(self, dataPath):
-        print("begin loading test dataset to memory")
-        # datas 是读取到的图片的总 list，idx 是类别数。
-        datas = {}
-        idx = 0
-        for alphaPath in os.listdir(dataPath):
-            # for charPath in os.listdir(os.path.join(dataPath, alphaPath)):
-                datas[idx] = []
-                for samplePath in os.listdir(os.path.join(dataPath, alphaPath)):
-                    filePath = os.path.join(dataPath, alphaPath, samplePath)
-                    s = Image.open(filePath).convert('L')
-                    # 调整图片尺寸
-                    s = s.resize((105, 105), Image.ANTIALIAS)
-                    datas[idx].append(s)
-                idx += 1
-        print("finish loading test dataset to memory")
-        return datas, idx
-
-    def __len__(self):
-        return self.times * self.way
-
-    def __getitem__(self, index):
-        idx = index % self.way
-        label = None
-        # generate image pair from same class
-        if idx == 0:
-            self.c1 = random.randint(0, self.num_classes - 1)
-            self.img1 = random.choice(self.datas[self.c1])
-            img2 = random.choice(self.datas[self.c1])
-        # generate image pair from different class
-        else:
-            c2 = random.randint(0, self.num_classes - 1)
-            while self.c1 == c2:
-                c2 = random.randint(0, self.num_classes - 1)
-            img2 = random.choice(self.datas[c2])
-
-        if self.transform:
-            img1 = self.transform(self.img1)
-            img2 = self.transform(img2)
-        # print('datas.shape = ', len(self.datas))
-        # print('img1 = ', img1.shape)
-        # print('img2 = ', img2.shape)
-        return img1, img2
-</code></pre>
-<p>&lt;/br&gt;</p>
+        <h3 id="制作自己的-dataset-要写一个自己的-dataset-类然后用-dataloader-封装就好了">制作自己的 dataset 要写一个自己的 Dataset 类，然后用 Dataloader 封装就好了。</h3>
 <hr>
-<h1 id="二、Dataloader-封装"><a href="#二、Dataloader-封装" class="headerlink" title="二、Dataloader 封装"></a>二、Dataloader 封装</h1><h3 id="这个比较简单，因为-Dataloader-是-Pytorch-内置的函数。"><a href="#这个比较简单，因为-Dataloader-是-Pytorch-内置的函数。" class="headerlink" title="这个比较简单，因为 Dataloader 是 Pytorch 内置的函数。"></a>这个比较简单，因为 Dataloader 是 Pytorch 内置的函数。</h3><pre><code class="lang-python">train_dataloader = DataLoader(dataset=train_data, shuffle=True, num_workers=2, batch_size=Config.train_batch_size)
-</code></pre>
-<p>&lt;/br&gt;</p>
-<h3 id="主要需要关注的是-batch-size-。这个以及之前提到的-len-和训练的次数有关。"><a href="#主要需要关注的是-batch-size-。这个以及之前提到的-len-和训练的次数有关。" class="headerlink" title="主要需要关注的是 batch_size 。这个以及之前提到的 len 和训练的次数有关。"></a>主要需要关注的是 batch_size 。这个以及之前提到的 len 和训练的次数有关。</h3><pre><code class="lang-python">for i, data in enumerate(train_dataloader, 0):
-</code></pre>
-<p>&lt;/br&gt;</p>
-<h3 id="其中，for-循环的次数-len-batch-size-。"><a href="#其中，for-循环的次数-len-batch-size-。" class="headerlink" title="其中，for 循环的次数 = len / batch_size 。"></a>其中，for 循环的次数 = len / batch_size 。</h3>
+<h1 id="一dataset-制作">一、Dataset 制作</h1>
+<h3 id="一般-dataset-类有以下的函数">一般 Dataset 类有以下的函数：</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Dataset(Dataset):</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, ...):</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>        ...</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__getitem__</span>(<span class="va">self</span>, index):</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>        ...</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__len__</span>(<span class="va">self</span>):</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>        ...</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    </span></code></pre></div>
+<p><br></p>
+<h3 id="init__-是初始化时传入的一些参数不是非常重要">__init__() 是初始化时传入的一些参数，不是非常重要。</h3>
+<h3 id="getitem__-需要自己修改功能是将图片从磁盘中读入存入-array-或者-list-中">__getitem__() 需要自己修改，功能是将图片从磁盘中读入，存入 array 或者 list 中。</h3>
+<h3 id="len__-是返回-dataset-的大小需要仔细设计">__len()__ 是返回 Dataset 的大小，需要仔细设计。</h3>
+<h3 id="下面是两个用于构建siamese-nerual-network-的-example">下面是两个用于构建Siamese Nerual Network 的 example 。</h3>
+<h3 id="这个是事先将图片的-path-都写入了一个-txt-文件中然后-getitem-就从-txt-中读图片路径">这个是事先将图片的 path 都写入了一个 txt 文件中，然后 getitem 就从 txt 中读图片路径。</h3>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> MyDataset(Dataset):</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, txt, transform<span class="op">=</span><span class="va">None</span>, target_transform<span class="op">=</span><span class="va">None</span>, should_invert<span class="op">=</span><span class="va">False</span>):</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.transform <span class="op">=</span> transform</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.target_transform <span class="op">=</span> target_transform</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.should_invert <span class="op">=</span> should_invert</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.txt <span class="op">=</span> txt</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__getitem__</span>(<span class="va">self</span>, index):</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>        line <span class="op">=</span> linecache.getline(<span class="va">self</span>.txt, random.randint(<span class="dv">1</span>, <span class="va">self</span>.<span class="fu">__len__</span>()))</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>        line.strip(<span class="st">'</span><span class="ch">\n</span><span class="st">'</span>)</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>        img0_list <span class="op">=</span> line.split()</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>        <span class="co"># 判断是否要选同一个类别的图片</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>        should_get_same_class <span class="op">=</span> random.randint(<span class="dv">0</span>, <span class="dv">1</span>)</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> should_get_same_class:</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>            <span class="cf">while</span> <span class="va">True</span>:</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>                <span class="co"># 随机在 txt 中选一行读取，每一行有一张图片的 path 和它的 label</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>                img1_list <span class="op">=</span> linecache.getline(<span class="va">self</span>.txt, random.randint(<span class="dv">1</span>, <span class="va">self</span>.<span class="fu">__len__</span>())).strip(<span class="st">'</span><span class="ch">\n</span><span class="st">'</span>).split()</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> img0_list[<span class="dv">1</span>] <span class="op">==</span> img1_list[<span class="dv">1</span>]:</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>                    <span class="cf">break</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>:</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>            img1_list <span class="op">=</span> linecache.getline(<span class="va">self</span>.txt, random.randint(<span class="dv">1</span>, <span class="va">self</span>.<span class="fu">__len__</span>())).strip(<span class="st">'</span><span class="ch">\n</span><span class="st">'</span>).split()</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>        img0 <span class="op">=</span> Image.<span class="bu">open</span>(img0_list[<span class="dv">0</span>])</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>        img1 <span class="op">=</span> Image.<span class="bu">open</span>(img1_list[<span class="dv">0</span>])</span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>        <span class="co"># 转图片通道数</span></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>        img0 <span class="op">=</span> img0.convert(<span class="st">"L"</span>)</span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>        img1 <span class="op">=</span> img1.convert(<span class="st">"L"</span>)</span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>        <span class="co"># 非必要的</span></span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="va">self</span>.should_invert:</span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>            img0 <span class="op">=</span> PIL.ImageOps.invert(img0)</span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>            img1 <span class="op">=</span> PIL.ImageOps.invert(img1)</span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>        <span class="co"># 非必要的</span></span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="va">self</span>.transform <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span>:</span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>            img0 <span class="op">=</span> <span class="va">self</span>.transform(img0)</span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>            img1 <span class="op">=</span> <span class="va">self</span>.transform(img1)</span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> img0, img1, torch.from_numpy(np.array([<span class="bu">int</span>(img1_list[<span class="dv">1</span>] <span class="op">!=</span> img0_list[<span class="dv">1</span>])], dtype<span class="op">=</span>np.float32))</span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 这个 len 的返回长度就是 txt 中图片总数</span></span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__len__</span>(<span class="va">self</span>):</span>
+<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a>        fh <span class="op">=</span> <span class="bu">open</span>(<span class="va">self</span>.txt, <span class="st">'r'</span>)</span>
+<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a>        num <span class="op">=</span> <span class="bu">len</span>(fh.readlines())</span>
+<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a>        fh.close()</span>
+<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> num</span></code></pre></div>
+<p><br></p>
+<h3 id="这个是事先没有准备-txt-目录所以写了一个-loadtomem-去每个文件夹里面找图片">这个是事先没有准备 txt 目录，所以写了一个 loadToMem 去每个文件夹里面找图片。</h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> OmniglotTest(Dataset):</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, dataPath, transform<span class="op">=</span><span class="va">None</span>, times<span class="op">=</span><span class="dv">100</span>, way<span class="op">=</span><span class="dv">166</span>):</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>        np.random.seed(<span class="dv">1</span>)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>        <span class="bu">super</span>(OmniglotTest, <span class="va">self</span>).<span class="fu">__init__</span>()</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.transform <span class="op">=</span> transform</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.times <span class="op">=</span> times</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.way <span class="op">=</span> way</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.img1 <span class="op">=</span> <span class="va">None</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.c1 <span class="op">=</span> <span class="va">None</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.datas, <span class="va">self</span>.num_classes <span class="op">=</span> <span class="va">self</span>.loadToMem(dataPath)</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> loadToMem(<span class="va">self</span>, dataPath):</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"begin loading test dataset to memory"</span>)</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>        <span class="co"># datas 是读取到的图片的总 list，idx 是类别数。</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>        datas <span class="op">=</span> {}</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>        idx <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> alphaPath <span class="kw">in</span> os.listdir(dataPath):</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>            <span class="co"># for charPath in os.listdir(os.path.join(dataPath, alphaPath)):</span></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>                datas[idx] <span class="op">=</span> []</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>                <span class="cf">for</span> samplePath <span class="kw">in</span> os.listdir(os.path.join(dataPath, alphaPath)):</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>                    filePath <span class="op">=</span> os.path.join(dataPath, alphaPath, samplePath)</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>                    s <span class="op">=</span> Image.<span class="bu">open</span>(filePath).convert(<span class="st">'L'</span>)</span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>                    <span class="co"># 调整图片尺寸</span></span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>                    s <span class="op">=</span> s.resize((<span class="dv">105</span>, <span class="dv">105</span>), Image.ANTIALIAS)</span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>                    datas[idx].append(s)</span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>                idx <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"finish loading test dataset to memory"</span>)</span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> datas, idx</span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__len__</span>(<span class="va">self</span>):</span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>.times <span class="op">*</span> <span class="va">self</span>.way</span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__getitem__</span>(<span class="va">self</span>, index):</span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>        idx <span class="op">=</span> index <span class="op">%</span> <span class="va">self</span>.way</span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>        label <span class="op">=</span> <span class="va">None</span></span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a>        <span class="co"># generate image pair from same class</span></span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> idx <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a>            <span class="va">self</span>.c1 <span class="op">=</span> random.randint(<span class="dv">0</span>, <span class="va">self</span>.num_classes <span class="op">-</span> <span class="dv">1</span>)</span>
+<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a>            <span class="va">self</span>.img1 <span class="op">=</span> random.choice(<span class="va">self</span>.datas[<span class="va">self</span>.c1])</span>
+<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a>            img2 <span class="op">=</span> random.choice(<span class="va">self</span>.datas[<span class="va">self</span>.c1])</span>
+<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a>        <span class="co"># generate image pair from different class</span></span>
+<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>:</span>
+<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a>            c2 <span class="op">=</span> random.randint(<span class="dv">0</span>, <span class="va">self</span>.num_classes <span class="op">-</span> <span class="dv">1</span>)</span>
+<span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a>            <span class="cf">while</span> <span class="va">self</span>.c1 <span class="op">==</span> c2:</span>
+<span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a>                c2 <span class="op">=</span> random.randint(<span class="dv">0</span>, <span class="va">self</span>.num_classes <span class="op">-</span> <span class="dv">1</span>)</span>
+<span id="cb3-47"><a href="#cb3-47" aria-hidden="true" tabindex="-1"></a>            img2 <span class="op">=</span> random.choice(<span class="va">self</span>.datas[c2])</span>
+<span id="cb3-48"><a href="#cb3-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-49"><a href="#cb3-49" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="va">self</span>.transform:</span>
+<span id="cb3-50"><a href="#cb3-50" aria-hidden="true" tabindex="-1"></a>            img1 <span class="op">=</span> <span class="va">self</span>.transform(<span class="va">self</span>.img1)</span>
+<span id="cb3-51"><a href="#cb3-51" aria-hidden="true" tabindex="-1"></a>            img2 <span class="op">=</span> <span class="va">self</span>.transform(img2)</span>
+<span id="cb3-52"><a href="#cb3-52" aria-hidden="true" tabindex="-1"></a>        <span class="co"># print('datas.shape = ', len(self.datas))</span></span>
+<span id="cb3-53"><a href="#cb3-53" aria-hidden="true" tabindex="-1"></a>        <span class="co"># print('img1 = ', img1.shape)</span></span>
+<span id="cb3-54"><a href="#cb3-54" aria-hidden="true" tabindex="-1"></a>        <span class="co"># print('img2 = ', img2.shape)</span></span>
+<span id="cb3-55"><a href="#cb3-55" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> img1, img2</span></code></pre></div>
+<p><br></p>
+<hr>
+<h1 id="二dataloader-封装">二、Dataloader 封装</h1>
+<h3 id="这个比较简单因为-dataloader-是-pytorch-内置的函数">这个比较简单，因为 Dataloader 是 Pytorch 内置的函数。</h3>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>train_dataloader <span class="op">=</span> DataLoader(dataset<span class="op">=</span>train_data, shuffle<span class="op">=</span><span class="va">True</span>, num_workers<span class="op">=</span><span class="dv">2</span>, batch_size<span class="op">=</span>Config.train_batch_size)</span></code></pre></div>
+<p><br></p>
+<h3 id="主要需要关注的是-batch_size-这个以及之前提到的-len-和训练的次数有关">主要需要关注的是 batch_size 。这个以及之前提到的 len 和训练的次数有关。</h3>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, data <span class="kw">in</span> <span class="bu">enumerate</span>(train_dataloader, <span class="dv">0</span>):</span></code></pre></div>
+<p><br></p>
+<h3 id="其中for-循环的次数-len-batch_size">其中，for 循环的次数 = len / batch_size 。</h3>
+
     </div>
 
     
@@ -423,7 +432,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%B6%E4%BD%9C%E8%87%AA%E5%B7%B1%E7%9A%84-dataset-%E8%A6%81%E5%86%99%E4%B8%80%E4%B8%AA%E8%87%AA%E5%B7%B1%E7%9A%84-Dataset-%E7%B1%BB%EF%BC%8C%E7%84%B6%E5%90%8E%E7%94%A8-Dataloader-%E5%B0%81%E8%A3%85%E5%B0%B1%E5%A5%BD%E4%BA%86%E3%80%82"><span class="nav-number">1.</span> <span class="nav-text">制作自己的 dataset 要写一个自己的 Dataset 类，然后用 Dataloader  封装就好了。</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E3%80%81Dataset-%E5%88%B6%E4%BD%9C"><span class="nav-number"></span> <span class="nav-text">一、Dataset 制作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E8%88%AC-Dataset-%E7%B1%BB%E6%9C%89%E4%BB%A5%E4%B8%8B%E7%9A%84%E5%87%BD%E6%95%B0%EF%BC%9A"><span class="nav-number">1.</span> <span class="nav-text">一般 Dataset 类有以下的函数：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#init-%E6%98%AF%E5%88%9D%E5%A7%8B%E5%8C%96%E6%97%B6%E4%BC%A0%E5%85%A5%E7%9A%84%E4%B8%80%E4%BA%9B%E5%8F%82%E6%95%B0%EF%BC%8C%E4%B8%8D%E6%98%AF%E9%9D%9E%E5%B8%B8%E9%87%8D%E8%A6%81%E3%80%82"><span class="nav-number">2.</span> <span class="nav-text">__init__() 是初始化时传入的一些参数，不是非常重要。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#getitem-%E9%9C%80%E8%A6%81%E8%87%AA%E5%B7%B1%E4%BF%AE%E6%94%B9%EF%BC%8C%E5%8A%9F%E8%83%BD%E6%98%AF%E5%B0%86%E5%9B%BE%E7%89%87%E4%BB%8E%E7%A3%81%E7%9B%98%E4%B8%AD%E8%AF%BB%E5%85%A5%EF%BC%8C%E5%AD%98%E5%85%A5-array-%E6%88%96%E8%80%85-list-%E4%B8%AD%E3%80%82"><span class="nav-number">3.</span> <span class="nav-text">__getitem__() 需要自己修改，功能是将图片从磁盘中读入，存入 array 或者 list 中。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#len-%E6%98%AF%E8%BF%94%E5%9B%9E-Dataset-%E7%9A%84%E5%A4%A7%E5%B0%8F%EF%BC%8C%E9%9C%80%E8%A6%81%E4%BB%94%E7%BB%86%E8%AE%BE%E8%AE%A1%E3%80%82"><span class="nav-number">4.</span> <span class="nav-text">__len()__ 是返回 Dataset 的大小，需要仔细设计。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8B%E9%9D%A2%E6%98%AF%E4%B8%A4%E4%B8%AA%E7%94%A8%E4%BA%8E%E6%9E%84%E5%BB%BASiamese-Nerual-Network-%E7%9A%84-example-%E3%80%82"><span class="nav-number">5.</span> <span class="nav-text">下面是两个用于构建Siamese Nerual Network 的 example 。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%99%E4%B8%AA%E6%98%AF%E4%BA%8B%E5%85%88%E5%B0%86%E5%9B%BE%E7%89%87%E7%9A%84-path-%E9%83%BD%E5%86%99%E5%85%A5%E4%BA%86%E4%B8%80%E4%B8%AA-txt-%E6%96%87%E4%BB%B6%E4%B8%AD%EF%BC%8C%E7%84%B6%E5%90%8E-getitem-%E5%B0%B1%E4%BB%8E-txt-%E4%B8%AD%E8%AF%BB%E5%9B%BE%E7%89%87%E8%B7%AF%E5%BE%84%E3%80%82"><span class="nav-number">6.</span> <span class="nav-text">这个是事先将图片的 path 都写入了一个 txt 文件中，然后 getitem 就从 txt 中读图片路径。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%99%E4%B8%AA%E6%98%AF%E4%BA%8B%E5%85%88%E6%B2%A1%E6%9C%89%E5%87%86%E5%A4%87-txt-%E7%9B%AE%E5%BD%95%EF%BC%8C%E6%89%80%E4%BB%A5%E5%86%99%E4%BA%86%E4%B8%80%E4%B8%AA-loadToMem-%E5%8E%BB%E6%AF%8F%E4%B8%AA%E6%96%87%E4%BB%B6%E5%A4%B9%E9%87%8C%E9%9D%A2%E6%89%BE%E5%9B%BE%E7%89%87%E3%80%82"><span class="nav-number">7.</span> <span class="nav-text">这个是事先没有准备 txt 目录，所以写了一个 loadToMem 去每个文件夹里面找图片。</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%E3%80%81Dataloader-%E5%B0%81%E8%A3%85"><span class="nav-number"></span> <span class="nav-text">二、Dataloader 封装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%99%E4%B8%AA%E6%AF%94%E8%BE%83%E7%AE%80%E5%8D%95%EF%BC%8C%E5%9B%A0%E4%B8%BA-Dataloader-%E6%98%AF-Pytorch-%E5%86%85%E7%BD%AE%E7%9A%84%E5%87%BD%E6%95%B0%E3%80%82"><span class="nav-number">1.</span> <span class="nav-text">这个比较简单，因为 Dataloader 是 Pytorch 内置的函数。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BB%E8%A6%81%E9%9C%80%E8%A6%81%E5%85%B3%E6%B3%A8%E7%9A%84%E6%98%AF-batch-size-%E3%80%82%E8%BF%99%E4%B8%AA%E4%BB%A5%E5%8F%8A%E4%B9%8B%E5%89%8D%E6%8F%90%E5%88%B0%E7%9A%84-len-%E5%92%8C%E8%AE%AD%E7%BB%83%E7%9A%84%E6%AC%A1%E6%95%B0%E6%9C%89%E5%85%B3%E3%80%82"><span class="nav-number">2.</span> <span class="nav-text">主要需要关注的是 batch_size 。这个以及之前提到的 len 和训练的次数有关。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B6%E4%B8%AD%EF%BC%8Cfor-%E5%BE%AA%E7%8E%AF%E7%9A%84%E6%AC%A1%E6%95%B0-len-batch-size-%E3%80%82"><span class="nav-number">3.</span> <span class="nav-text">其中，for 循环的次数 &#x3D; len &#x2F; batch_size 。</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%B6%E4%BD%9C%E8%87%AA%E5%B7%B1%E7%9A%84-dataset-%E8%A6%81%E5%86%99%E4%B8%80%E4%B8%AA%E8%87%AA%E5%B7%B1%E7%9A%84-dataset-%E7%B1%BB%E7%84%B6%E5%90%8E%E7%94%A8-dataloader-%E5%B0%81%E8%A3%85%E5%B0%B1%E5%A5%BD%E4%BA%86"><span class="nav-number">1.</span> <span class="nav-text">制作自己的 dataset 要写一个自己的 Dataset 类，然后用 Dataloader 封装就好了。</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80dataset-%E5%88%B6%E4%BD%9C"><span class="nav-number"></span> <span class="nav-text">一、Dataset 制作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E8%88%AC-dataset-%E7%B1%BB%E6%9C%89%E4%BB%A5%E4%B8%8B%E7%9A%84%E5%87%BD%E6%95%B0"><span class="nav-number">1.</span> <span class="nav-text">一般 Dataset 类有以下的函数：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#init__-%E6%98%AF%E5%88%9D%E5%A7%8B%E5%8C%96%E6%97%B6%E4%BC%A0%E5%85%A5%E7%9A%84%E4%B8%80%E4%BA%9B%E5%8F%82%E6%95%B0%E4%B8%8D%E6%98%AF%E9%9D%9E%E5%B8%B8%E9%87%8D%E8%A6%81"><span class="nav-number">2.</span> <span class="nav-text">__init__() 是初始化时传入的一些参数，不是非常重要。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#getitem__-%E9%9C%80%E8%A6%81%E8%87%AA%E5%B7%B1%E4%BF%AE%E6%94%B9%E5%8A%9F%E8%83%BD%E6%98%AF%E5%B0%86%E5%9B%BE%E7%89%87%E4%BB%8E%E7%A3%81%E7%9B%98%E4%B8%AD%E8%AF%BB%E5%85%A5%E5%AD%98%E5%85%A5-array-%E6%88%96%E8%80%85-list-%E4%B8%AD"><span class="nav-number">3.</span> <span class="nav-text">__getitem__() 需要自己修改，功能是将图片从磁盘中读入，存入 array 或者 list 中。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#len__-%E6%98%AF%E8%BF%94%E5%9B%9E-dataset-%E7%9A%84%E5%A4%A7%E5%B0%8F%E9%9C%80%E8%A6%81%E4%BB%94%E7%BB%86%E8%AE%BE%E8%AE%A1"><span class="nav-number">4.</span> <span class="nav-text">__len()__ 是返回 Dataset 的大小，需要仔细设计。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8B%E9%9D%A2%E6%98%AF%E4%B8%A4%E4%B8%AA%E7%94%A8%E4%BA%8E%E6%9E%84%E5%BB%BAsiamese-nerual-network-%E7%9A%84-example"><span class="nav-number">5.</span> <span class="nav-text">下面是两个用于构建Siamese Nerual Network 的 example 。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%99%E4%B8%AA%E6%98%AF%E4%BA%8B%E5%85%88%E5%B0%86%E5%9B%BE%E7%89%87%E7%9A%84-path-%E9%83%BD%E5%86%99%E5%85%A5%E4%BA%86%E4%B8%80%E4%B8%AA-txt-%E6%96%87%E4%BB%B6%E4%B8%AD%E7%84%B6%E5%90%8E-getitem-%E5%B0%B1%E4%BB%8E-txt-%E4%B8%AD%E8%AF%BB%E5%9B%BE%E7%89%87%E8%B7%AF%E5%BE%84"><span class="nav-number">6.</span> <span class="nav-text">这个是事先将图片的 path 都写入了一个 txt 文件中，然后 getitem 就从 txt 中读图片路径。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%99%E4%B8%AA%E6%98%AF%E4%BA%8B%E5%85%88%E6%B2%A1%E6%9C%89%E5%87%86%E5%A4%87-txt-%E7%9B%AE%E5%BD%95%E6%89%80%E4%BB%A5%E5%86%99%E4%BA%86%E4%B8%80%E4%B8%AA-loadtomem-%E5%8E%BB%E6%AF%8F%E4%B8%AA%E6%96%87%E4%BB%B6%E5%A4%B9%E9%87%8C%E9%9D%A2%E6%89%BE%E5%9B%BE%E7%89%87"><span class="nav-number">7.</span> <span class="nav-text">这个是事先没有准备 txt 目录，所以写了一个 loadToMem 去每个文件夹里面找图片。</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8Cdataloader-%E5%B0%81%E8%A3%85"><span class="nav-number"></span> <span class="nav-text">二、Dataloader 封装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%99%E4%B8%AA%E6%AF%94%E8%BE%83%E7%AE%80%E5%8D%95%E5%9B%A0%E4%B8%BA-dataloader-%E6%98%AF-pytorch-%E5%86%85%E7%BD%AE%E7%9A%84%E5%87%BD%E6%95%B0"><span class="nav-number">1.</span> <span class="nav-text">这个比较简单，因为 Dataloader 是 Pytorch 内置的函数。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BB%E8%A6%81%E9%9C%80%E8%A6%81%E5%85%B3%E6%B3%A8%E7%9A%84%E6%98%AF-batch_size-%E8%BF%99%E4%B8%AA%E4%BB%A5%E5%8F%8A%E4%B9%8B%E5%89%8D%E6%8F%90%E5%88%B0%E7%9A%84-len-%E5%92%8C%E8%AE%AD%E7%BB%83%E7%9A%84%E6%AC%A1%E6%95%B0%E6%9C%89%E5%85%B3"><span class="nav-number">2.</span> <span class="nav-text">主要需要关注的是 batch_size 。这个以及之前提到的 len 和训练的次数有关。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B6%E4%B8%ADfor-%E5%BE%AA%E7%8E%AF%E7%9A%84%E6%AC%A1%E6%95%B0-len-batch_size"><span class="nav-number">3.</span> <span class="nav-text">其中，for 循环的次数 &#x3D; len &#x2F; batch_size 。</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 

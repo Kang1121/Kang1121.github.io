@@ -27,21 +27,21 @@
 <meta property="og:site_name" content="Kang&#39;s blog">
 <meta property="og:description" content="0. Intro 最近在搞 Vehicle Re-Id 的时候，要跑的模型太大，有幸用到了某单位的超算。用的是 LSF 作业调度系统。官方给的指南不太全，自己整理了几个常用的指令。 1. OS &amp; Software Windows 10 ( Linux 下没有 GUI，用 FTP 传文件还是不方便，用 windows 的话就是直接文件交互比较方便 ) 软件用的是 MobaXterm。 2.">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://kang1121.github.io/images/LSF%E4%BD%9C%E4%B8%9A%E8%B0%83%E5%BA%A6%E7%B3%BB%E7%BB%9F/bjobs.jpg">
-<meta property="og:image" content="https://kang1121.github.io/images/LSF%E4%BD%9C%E4%B8%9A%E8%B0%83%E5%BA%A6%E7%B3%BB%E7%BB%9F/bjobs-l.jpg">
-<meta property="og:image" content="https://kang1121.github.io/images/LSF%E4%BD%9C%E4%B8%9A%E8%B0%83%E5%BA%A6%E7%B3%BB%E7%BB%9F/bjobs-p.jpg">
-<meta property="og:image" content="https://kang1121.github.io/images/LSF%E4%BD%9C%E4%B8%9A%E8%B0%83%E5%BA%A6%E7%B3%BB%E7%BB%9F/bkill.jpg">
-<meta property="og:image" content="https://kang1121.github.io/images/LSF%E4%BD%9C%E4%B8%9A%E8%B0%83%E5%BA%A6%E7%B3%BB%E7%BB%9F/bkill-r.jpg">
-<meta property="og:image" content="https://kang1121.github.io/images/LSF%E4%BD%9C%E4%B8%9A%E8%B0%83%E5%BA%A6%E7%B3%BB%E7%BB%9F/bpeek.jpg">
-<meta property="og:image" content="https://kang1121.github.io/images/LSF%E4%BD%9C%E4%B8%9A%E8%B0%83%E5%BA%A6%E7%B3%BB%E7%BB%9F/lsload.jpg">
-<meta property="og:image" content="https://kang1121.github.io/images/LSF%E4%BD%9C%E4%B8%9A%E8%B0%83%E5%BA%A6%E7%B3%BB%E7%BB%9F/bhosts.jpg">
-<meta property="og:image" content="https://kang1121.github.io/images/LSF%E4%BD%9C%E4%B8%9A%E8%B0%83%E5%BA%A6%E7%B3%BB%E7%BB%9F/bqueues.jpg">
+<meta property="og:image" content="https://kang1121.github.io/images/LSF作业调度系统/bjobs.jpg">
+<meta property="og:image" content="https://kang1121.github.io/images/LSF作业调度系统/bjobs-l.jpg">
+<meta property="og:image" content="https://kang1121.github.io/images/LSF作业调度系统/bjobs-p.jpg">
+<meta property="og:image" content="https://kang1121.github.io/images/LSF作业调度系统/bkill.jpg">
+<meta property="og:image" content="https://kang1121.github.io/images/LSF作业调度系统/bkill-r.jpg">
+<meta property="og:image" content="https://kang1121.github.io/images/LSF作业调度系统/bpeek.jpg">
+<meta property="og:image" content="https://kang1121.github.io/images/LSF作业调度系统/lsload.jpg">
+<meta property="og:image" content="https://kang1121.github.io/images/LSF作业调度系统/bhosts.jpg">
+<meta property="og:image" content="https://kang1121.github.io/images/LSF作业调度系统/bqueues.jpg">
 <meta property="article:published_time" content="2020-03-24T01:50:44.000Z">
 <meta property="article:modified_time" content="2021-06-30T06:26:40.079Z">
 <meta property="article:author" content="Kang">
 <meta property="article:tag" content="LSF">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://kang1121.github.io/images/LSF%E4%BD%9C%E4%B8%9A%E8%B0%83%E5%BA%A6%E7%B3%BB%E7%BB%9F/bjobs.jpg">
+<meta name="twitter:image" content="https://kang1121.github.io/images/LSF作业调度系统/bjobs.jpg">
 
 <link rel="canonical" href="https://kang1121.github.io/2020/03/24/LSF%E4%BD%9C%E4%B8%9A%E8%B0%83%E5%BA%A6%E7%B3%BB%E7%BB%9F/">
 
@@ -227,14 +227,14 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h3 id="0-Intro">0. Intro</h3>
+        <h3 id="intro">0. Intro</h3>
 <p>最近在搞 Vehicle Re-Id 的时候，要跑的模型太大，有幸用到了某单位的超算。用的是 LSF 作业调度系统。官方给的指南不太全，自己整理了几个常用的指令。</p>
-<h3 id="1-OS-Software">1. OS &amp; Software</h3>
+<h3 id="os-software">1. OS &amp; Software</h3>
 <p>Windows 10 ( Linux 下没有 GUI，用 FTP 传文件还是不方便，用 windows 的话就是直接文件交互比较方便 )</p>
 <p>软件用的是 MobaXterm。</p>
-<h3 id="2-Command-List">2. Command List</h3>
-<h4 id="bsub-lsf-sh">bsub &lt; <a target="_blank" rel="noopener" href="http://lsf.sh">lsf.sh</a></h4>
-<p>其中， <a target="_blank" rel="noopener" href="http://lsf.sh">lsf.sh</a> 是自己写的一个脚本，之前犯错没输 &lt;, 然后提交总是通不过。脚本范例如下：</p>
+<h3 id="command-list">2. Command List</h3>
+<h4 id="bsub-lsf.sh">bsub &lt; lsf.sh</h4>
+<p>其中， lsf.sh 是自己写的一个脚本，之前犯错没输 &lt;, 然后提交总是通不过。脚本范例如下：</p>
 <pre><code># !/bin/sh
 # BSUB -q gpu_v100
 # BSUB -m "gpu10"
@@ -243,36 +243,35 @@
 # BSUB -n 1
 # BSUB -e %J.err
 # BSUB -J Firsttry
-python3 /xxx/xxx/xxx/xxx.py
-</code></pre>
+python3 /xxx/xxx/xxx/xxx.py</code></pre>
 <h4 id="bjobs">bjobs</h4>
 <p>该指令可以查看当前正在运行的作业。</p>
-<p><img src="/images/LSF%E4%BD%9C%E4%B8%9A%E8%B0%83%E5%BA%A6%E7%B3%BB%E7%BB%9F/bjobs.jpg" alt=""></p>
-<h4 id="bjobs-l-JOB-ID">bjobs -l JOB_ID</h4>
+<p><img src="/images/LSF作业调度系统/bjobs.jpg"></p>
+<h4 id="bjobs--l-job_id">bjobs -l JOB_ID</h4>
 <p>该指令可以查看当前正在运行的作业的详细情况。</p>
-<p><img src="/images/LSF%E4%BD%9C%E4%B8%9A%E8%B0%83%E5%BA%A6%E7%B3%BB%E7%BB%9F/bjobs-l.jpg" alt=""></p>
-<h4 id="bjobs-p-JOB-ID">bjobs -p JOB_ID</h4>
+<p><img src="/images/LSF作业调度系统/bjobs-l.jpg"></p>
+<h4 id="bjobs--p-job_id">bjobs -p JOB_ID</h4>
 <p>该指令可以查看作业 PENDING 的原因。</p>
-<p><img src="/images/LSF%E4%BD%9C%E4%B8%9A%E8%B0%83%E5%BA%A6%E7%B3%BB%E7%BB%9F/bjobs-p.jpg" alt=""></p>
-<h4 id="bkill-JOB-ID">bkill JOB_ID</h4>
+<p><img src="/images/LSF作业调度系统/bjobs-p.jpg"></p>
+<h4 id="bkill-job_id">bkill JOB_ID</h4>
 <p>该指令可以结束作业。</p>
-<p><img src="/images/LSF%E4%BD%9C%E4%B8%9A%E8%B0%83%E5%BA%A6%E7%B3%BB%E7%BB%9F/bkill.jpg" alt=""></p>
-<h4 id="bkill-r-JOB-ID">bkill -r JOB_ID</h4>
+<p><img src="/images/LSF作业调度系统/bkill.jpg"></p>
+<h4 id="bkill--r-job_id">bkill -r JOB_ID</h4>
 <p>由于刚接触 LSF，不太了解运行机制。自己写了一些非常烂的程序，提交上去，导致怎么 bkill 都结束不了作业，然后输入 info bkill 查看了一下它的详细用法。这个可以直接杀死进程。</p>
-<p><img src="/images/LSF%E4%BD%9C%E4%B8%9A%E8%B0%83%E5%BA%A6%E7%B3%BB%E7%BB%9F/bkill-r.jpg" alt=""></p>
-<h4 id="bstop-JOB-ID-与-bresume-JOB-ID">bstop JOB_ID** 与 **bresume JOB_ID</h4>
+<p><img src="/images/LSF作业调度系统/bkill-r.jpg"></p>
+<h4 id="bstop-job_id-与-bresume-job_id">bstop JOB_ID** 与 **bresume JOB_ID</h4>
 <p>挂起和恢复作业，一般不用。如果作业不想继续了，最好直接 kill，否则占用资源。</p>
-<h4 id="bpeek-JOB-ID-与-bpeek-f-JOB-ID">bpeek JOB_ID 与 bpeek -f JOB_ID</h4>
+<h4 id="bpeek-job_id-与-bpeek--f-job_id">bpeek JOB_ID 与 bpeek -f JOB_ID</h4>
 <p>该指令可以显示程序当前的屏幕输出。</p>
-<p><img src="/images/LSF%E4%BD%9C%E4%B8%9A%E8%B0%83%E5%BA%A6%E7%B3%BB%E7%BB%9F/bpeek.jpg" alt=""></p>
-<h4 id="lsload-与-lsload-gpuload">lsload 与 lsload -gpuload</h4>
+<p><img src="/images/LSF作业调度系统/bpeek.jpg"></p>
+<h4 id="lsload-与-lsload--gpuload">lsload 与 lsload -gpuload</h4>
 <p>该指令可以输出负载。</p>
-<p><img src="/images/LSF%E4%BD%9C%E4%B8%9A%E8%B0%83%E5%BA%A6%E7%B3%BB%E7%BB%9F/lsload.jpg" alt=""></p>
+<p><img src="/images/LSF作业调度系统/lsload.jpg"></p>
 <h4 id="bhosts-与-bqueues">bhosts 与 bqueues</h4>
 <p>该指令可以查看各个节点和队列的作业信息。</p>
-<p><img src="/images/LSF%E4%BD%9C%E4%B8%9A%E8%B0%83%E5%BA%A6%E7%B3%BB%E7%BB%9F/bhosts.jpg" alt=""></p>
-<p><img src="/images/LSF%E4%BD%9C%E4%B8%9A%E8%B0%83%E5%BA%A6%E7%B3%BB%E7%BB%9F/bqueues.jpg" alt=""></p>
-<h3 id="3-Ending">3. Ending</h3>
+<p><img src="/images/LSF作业调度系统/bhosts.jpg"></p>
+<p><img src="/images/LSF作业调度系统/bqueues.jpg"></p>
+<h3 id="ending">3. Ending</h3>
 <p>最后祝自己以后还有机会用这样的 GPU 集群。:)</p>
 
     </div>
@@ -357,7 +356,7 @@ python3 /xxx/xxx/xxx/xxx.py
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#0-Intro"><span class="nav-number">1.</span> <span class="nav-text">0. Intro</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-OS-Software"><span class="nav-number">2.</span> <span class="nav-text">1. OS &amp; Software</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Command-List"><span class="nav-number">3.</span> <span class="nav-text">2. Command List</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#bsub-lsf-sh"><span class="nav-number">3.1.</span> <span class="nav-text">bsub &lt; lsf.sh</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#bjobs"><span class="nav-number">3.2.</span> <span class="nav-text">bjobs</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#bjobs-l-JOB-ID"><span class="nav-number">3.3.</span> <span class="nav-text">bjobs -l JOB_ID</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#bjobs-p-JOB-ID"><span class="nav-number">3.4.</span> <span class="nav-text">bjobs -p JOB_ID</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#bkill-JOB-ID"><span class="nav-number">3.5.</span> <span class="nav-text">bkill JOB_ID</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#bkill-r-JOB-ID"><span class="nav-number">3.6.</span> <span class="nav-text">bkill -r JOB_ID</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#bstop-JOB-ID-%E4%B8%8E-bresume-JOB-ID"><span class="nav-number">3.7.</span> <span class="nav-text">bstop JOB_ID** 与 **bresume JOB_ID</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#bpeek-JOB-ID-%E4%B8%8E-bpeek-f-JOB-ID"><span class="nav-number">3.8.</span> <span class="nav-text">bpeek JOB_ID 与 bpeek -f JOB_ID</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#lsload-%E4%B8%8E-lsload-gpuload"><span class="nav-number">3.9.</span> <span class="nav-text">lsload 与 lsload -gpuload</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#bhosts-%E4%B8%8E-bqueues"><span class="nav-number">3.10.</span> <span class="nav-text">bhosts 与 bqueues</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-Ending"><span class="nav-number">4.</span> <span class="nav-text">3. Ending</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#intro"><span class="nav-number">1.</span> <span class="nav-text">0. Intro</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#os-software"><span class="nav-number">2.</span> <span class="nav-text">1. OS &amp; Software</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#command-list"><span class="nav-number">3.</span> <span class="nav-text">2. Command List</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#bsub-lsf.sh"><span class="nav-number">3.1.</span> <span class="nav-text">bsub &lt; lsf.sh</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#bjobs"><span class="nav-number">3.2.</span> <span class="nav-text">bjobs</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#bjobs--l-job_id"><span class="nav-number">3.3.</span> <span class="nav-text">bjobs -l JOB_ID</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#bjobs--p-job_id"><span class="nav-number">3.4.</span> <span class="nav-text">bjobs -p JOB_ID</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#bkill-job_id"><span class="nav-number">3.5.</span> <span class="nav-text">bkill JOB_ID</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#bkill--r-job_id"><span class="nav-number">3.6.</span> <span class="nav-text">bkill -r JOB_ID</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#bstop-job_id-%E4%B8%8E-bresume-job_id"><span class="nav-number">3.7.</span> <span class="nav-text">bstop JOB_ID** 与 **bresume JOB_ID</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#bpeek-job_id-%E4%B8%8E-bpeek--f-job_id"><span class="nav-number">3.8.</span> <span class="nav-text">bpeek JOB_ID 与 bpeek -f JOB_ID</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#lsload-%E4%B8%8E-lsload--gpuload"><span class="nav-number">3.9.</span> <span class="nav-text">lsload 与 lsload -gpuload</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#bhosts-%E4%B8%8E-bqueues"><span class="nav-number">3.10.</span> <span class="nav-text">bhosts 与 bqueues</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ending"><span class="nav-number">4.</span> <span class="nav-text">3. Ending</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 

@@ -215,10 +215,13 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h3 id="0-Overview"><a href="#0-Overview" class="headerlink" title="0. Overview"></a>0. Overview</h3><p><img src="/images/Unsupervised Video Summarization via Relation-aware Assignment Learning/2.png" alt=""></p>
-<p>优点：使用GNN来表达relation，unsupervised<br>缺点：clip的划分，loss的选取，纯pixel提取<br>兴趣程度：7</p>
-<h3 id="1-Understanding"><a href="#1-Understanding" class="headerlink" title="1. Understanding"></a>1. Understanding</h3><p>将一个视频分成等长的n个clips，e.g. 10000帧的视频分成等长的20个clips，每个clip包含500帧。每个clip feature作为GNN中的一个node。node之间的edge关系，不是用邻接矩阵表示，而且用全连接的网络得到。node之间传递信息的时候，也是用全连接，把edge的信息当作先验，更新node。<br>MLP是为了进一步提取feature，经过MLP后，得到n个更加representative的feature clips。用L2 norm得到它们的importance score（这边应该是通过node间的联系紧密程度来得到的），然后取前k个作为summary embedding其他为non-summary embedding。另外GNN中所有node合起来得到video embedding，这三个embedding一起放入loss。用了triplet loss，想拉近v和s，拉远v和n。</p>
-<h3 id="2-Analysis"><a href="#2-Analysis" class="headerlink" title="2. Analysis"></a>2. Analysis</h3><p>可部分参考。</p>
+          <h3 id="overview">0. Overview</h3>
+<p><img src="/images/Unsupervised%20Video%20Summarization%20via%20Relation-aware%20Assignment%20Learning/2.png"></p>
+<p>优点：使用GNN来表达relation，unsupervised 缺点：clip的划分，loss的选取，纯pixel提取 兴趣程度：7</p>
+<h3 id="understanding">1. Understanding</h3>
+<p>将一个视频分成等长的n个clips，e.g. 10000帧的视频分成等长的20个clips，每个clip包含500帧。每个clip feature作为GNN中的一个node。node之间的edge关系，不是用邻接矩阵表示，而且用全连接的网络得到。node之间传递信息的时候，也是用全连接，把edge的信息当作先验，更新node。 MLP是为了进一步提取feature，经过MLP后，得到n个更加representative的feature clips。用L2 norm得到它们的importance score（这边应该是通过node间的联系紧密程度来得到的），然后取前k个作为summary embedding其他为non-summary embedding。另外GNN中所有node合起来得到video embedding，这三个embedding一起放入loss。用了triplet loss，想拉近v和s，拉远v和n。</p>
+<h3 id="analysis">2. Analysis</h3>
+<p>可部分参考。</p>
 
       
     </div>
@@ -292,68 +295,71 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h3 id="0-Introduction"><a href="#0-Introduction" class="headerlink" title="0. Introduction"></a>0. Introduction</h3><p><img src="/images/Learning-on-Attribute-Missing-Graphs/structure.png" alt=""></p>
-<p>Paper link: <a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2011.01623.pdf">https://arxiv.org/pdf/2011.01623.pdf</a></p>
-<p>Code link: <a target="_blank" rel="noopener" href="https://github.com/xuChenSJTU/SAT-master-online">https://github.com/xuChenSJTU/SAT-master-online</a></p>
-<p>主要分析一下算法部分，实验部分不涉及。是VAE+GAN应用于graph的一个文章。用了两个VAE，分别训练X(attribute)和A(structure)。文章假设X和A的$z$在高维空间中遵从同一分布，然后用GAN对他们的高维分布$z$进行加强。</p>
-<h3 id="1-VAE"><a href="#1-VAE" class="headerlink" title="1. VAE"></a>1. VAE</h3><p>普通的AE只要，求两个分布p和q使得：</p>
-<script type="math/tex; mode=display">
+          <h3 id="introduction">0. Introduction</h3>
+<p><img src="/images/Learning-on-Attribute-Missing-Graphs/structure.png"></p>
+<p>Paper link: https://arxiv.org/pdf/2011.01623.pdf</p>
+<p>Code link: https://github.com/xuChenSJTU/SAT-master-online</p>
+<p>主要分析一下算法部分，实验部分不涉及。是VAE+GAN应用于graph的一个文章。用了两个VAE，分别训练X(attribute)和A(structure)。文章假设X和A的<span class="math inline">\(z\)</span>在高维空间中遵从同一分布，然后用GAN对他们的高维分布<span class="math inline">\(z\)</span>进行加强。</p>
+<h3 id="vae">1. VAE</h3>
+<p>普通的AE只要，求两个分布p和q使得： <span class="math display">\[
 \hat x \approx q(z)\\
-z = p(x)</script><p>但是实际上操作，有很多局限性。VAE对$z$做限制，使其遵从某个分布，这样如果直接sample一个这个分布给他作为$q(x)$的输入，就可以得到一个相对纯AE来说不错的结果。$p$和$q$是两个NN。</p>
-<p>VAE先推导一下。手上有一堆观测数据$x$，现在要求他们的分布$p(x)$。由于分布可能非常复杂，这里用GMM来表示。假设$x$由一个隐变量$z$控制。那么有</p>
-<script type="math/tex; mode=display">
-p(x)=\int_z p(x|z)p(z)</script><p>接下来就是要求$p(x)$的MLE。即maximize</p>
-<script type="math/tex; mode=display">
-L=\sum_x logp(x)</script><p>做个恒等变形，</p>
-<script type="math/tex; mode=display">
+z = p(x)
+\]</span> 但是实际上操作，有很多局限性。VAE对<span class="math inline">\(z\)</span>做限制，使其遵从某个分布，这样如果直接sample一个这个分布给他作为<span class="math inline">\(q(x)\)</span>的输入，就可以得到一个相对纯AE来说不错的结果。<span class="math inline">\(p\)</span>和<span class="math inline">\(q\)</span>是两个NN。</p>
+<p>VAE先推导一下。手上有一堆观测数据<span class="math inline">\(x\)</span>，现在要求他们的分布<span class="math inline">\(p(x)\)</span>。由于分布可能非常复杂，这里用GMM来表示。假设<span class="math inline">\(x\)</span>由一个隐变量<span class="math inline">\(z\)</span>控制。那么有 <span class="math display">\[
+p(x)=\int_z p(x|z)p(z)
+\]</span> 接下来就是要求<span class="math inline">\(p(x)\)</span>的MLE。即maximize <span class="math display">\[
+L=\sum_x logp(x)
+\]</span> 做个恒等变形， <span class="math display">\[
 \begin{equation}
 \begin{split}
-logp(x)&=\int_z q(z|x)log~p(x)dz=\int_z q(z|x)log\frac{p(x,z)}{p(z|x)}dz \\
-&=\int_z q(z|x)log\frac{p(x,z)}{q(z|x)}dz+\int_z q(z|x)log\frac{q(z|x)}{p(z|x)}dz \\
-&=\int_z q(z|x)log\frac{p(x,z)}{q(z|x)}dz +KL(q(z|x)||p(z|x))\\
-&\ge \int_z q(z|x)log\frac{p(x,z)}{q(z|x)}dz=\int_z q(z|x)log\frac{p(x|z)p(z)}{q(z|x)}dz=L_b
+logp(x)&amp;=\int_z q(z|x)log~p(x)dz=\int_z q(z|x)log\frac{p(x,z)}{p(z|x)}dz \\
+&amp;=\int_z q(z|x)log\frac{p(x,z)}{q(z|x)}dz+\int_z q(z|x)log\frac{q(z|x)}{p(z|x)}dz \\
+&amp;=\int_z q(z|x)log\frac{p(x,z)}{q(z|x)}dz +KL(q(z|x)||p(z|x))\\
+&amp;\ge \int_z q(z|x)log\frac{p(x,z)}{q(z|x)}dz=\int_z q(z|x)log\frac{p(x|z)p(z)}{q(z|x)}dz=L_b
 \end{split}
 \nonumber
-\end{equation}</script><p>因而，就是要maximize$L_b$，而</p>
-<script type="math/tex; mode=display">
+\end{equation}
+\]</span> 因而，就是要maximize<span class="math inline">\(L_b\)</span>，而 <span class="math display">\[
 \begin{equation}
 \begin{split}
-L_b&=\int_z q(z|x)log\frac{p(z)}{q(z|x)}dz+\int_z q(z|x)logp(x|z)dz\\
-&=-KL(q(z|x)||p(z))+\int_z q(z|x)logp(x|z)dz
+L_b&amp;=\int_z q(z|x)log\frac{p(z)}{q(z|x)}dz+\int_z q(z|x)logp(x|z)dz\\
+&amp;=-KL(q(z|x)||p(z))+\int_z q(z|x)logp(x|z)dz
 \end{split}
 \nonumber
-\end{equation}</script><p>即minimize前者，maximize后者。前者只需训练 encoder $q$ 让他输出的分布 $z$ 接近 $p(z)$ 即可。后者可写成</p>
-<script type="math/tex; mode=display">
-E_{x\sim q(z|x)}p(x|z)</script><p>即普通AE的工作。</p>
-<h3 id="2-SAT"><a href="#2-SAT" class="headerlink" title="2. SAT"></a>2. SAT</h3><p>VAE+GAN的组合并不新鲜，但是这篇文章把它运用于重构图的节点信息，算是一个创新点。$X$表示的是每个node的attribute，$A$是整个图的structure。用两个VAE用于分别重构attribute和structure。其中，$E_x$、$D_x$、$D_A$是MLP，而$E_A$是GNN，其中的原因不是很懂。这篇文章是基于一个假设的，即：</p>
+\end{equation}
+\]</span> 即minimize前者，maximize后者。前者只需训练 encoder <span class="math inline">\(q\)</span> 让他输出的分布 <span class="math inline">\(z\)</span> 接近 <span class="math inline">\(p(z)\)</span> 即可。后者可写成 <span class="math display">\[
+E_{x\sim q(z|x)}p(x|z)
+\]</span> 即普通AE的工作。</p>
+<h3 id="sat">2. SAT</h3>
+<p>VAE+GAN的组合并不新鲜，但是这篇文章把它运用于重构图的节点信息，算是一个创新点。<span class="math inline">\(X\)</span>表示的是每个node的attribute，<span class="math inline">\(A\)</span>是整个图的structure。用两个VAE用于分别重构attribute和structure。其中，<span class="math inline">\(E_x\)</span>、<span class="math inline">\(D_x\)</span>、<span class="math inline">\(D_A\)</span>是MLP，而<span class="math inline">\(E_A\)</span>是GNN，其中的原因不是很懂。这篇文章是基于一个假设的，即：</p>
 <blockquote>
 <p>In graph structured data, each node’s attributes and structures are correlated together and can be represented in a shared-latent space.</p>
 </blockquote>
-<p>因为如果不这样，就不能让两个VAE通过隐变量$z$互相学习了。不过这个假设背后的数学原理（是否有），目前还不懂，但这个假设是非常关键的一步。所以$z$其实是一个桥梁，充当了两个角色，1）$E_x-&gt;z-&gt;D_A$和$E_A-&gt;z-&gt;D_x$；2）$z_A$和$z_X$的分布用GAN去拟合。所以这个VAE+GAN和之前有篇VAE-GAN本质上不一样，之前的是用GAN去强化$x$和$\hat x$，使单个VAE的表现更好，图像更清晰，而这篇文章是用GAN去使两个$z$遵从同一分布。</p>
-<p>最后贴一下损失函数作为总结，首先是VAE部分的，</p>
-<script type="math/tex; mode=display">
+<p>因为如果不这样，就不能让两个VAE通过隐变量<span class="math inline">\(z\)</span>互相学习了。不过这个假设背后的数学原理（是否有），目前还不懂，但这个假设是非常关键的一步。所以<span class="math inline">\(z\)</span>其实是一个桥梁，充当了两个角色，1）<span class="math inline">\(E_x-&gt;z-&gt;D_A\)</span>和<span class="math inline">\(E_A-&gt;z-&gt;D_x\)</span>；2）<span class="math inline">\(z_A\)</span>和<span class="math inline">\(z_X\)</span>的分布用GAN去拟合。所以这个VAE+GAN和之前有篇VAE-GAN本质上不一样，之前的是用GAN去强化<span class="math inline">\(x\)</span>和<span class="math inline">\(\hat x\)</span>，使单个VAE的表现更好，图像更清晰，而这篇文章是用GAN去使两个<span class="math inline">\(z\)</span>遵从同一分布。</p>
+<p>最后贴一下损失函数作为总结，首先是VAE部分的， <span class="math display">\[
 \begin{equation}
 \begin{split}
 min_{\theta_x,\theta_a,\phi_x,\phi_a}
-L_r =&− E_{x_i\sim p_X} [E_{q_{\phi_x}(z_x|x_i)}[logp_{\theta_x}(x_i|z_x)]]\\
-&− E_{a_i\sim p_A} [E_{q_{\phi_a}(z_a|a_i)}[log p_{\theta_a}(a_i|z_a)]]\\
-&− λ_c · E_{a_i\sim p_A} [E_{q_{\phi_a}(z_a|a_i)}[log p_{\theta_x}(x_i|z_a)]]\\
-&− λ_c · E_{x_i\sim p_X} [E_{q_{\phi_x}(z_x|x_i)}[log p_{\theta_a}(a_i|z_x)]]
+L_r =&amp;− E_{x_i\sim p_X} [E_{q_{\phi_x}(z_x|x_i)}[logp_{\theta_x}(x_i|z_x)]]\\
+&amp;− E_{a_i\sim p_A} [E_{q_{\phi_a}(z_a|a_i)}[log p_{\theta_a}(a_i|z_a)]]\\
+&amp;− λ_c · E_{a_i\sim p_A} [E_{q_{\phi_a}(z_a|a_i)}[log p_{\theta_x}(x_i|z_a)]]\\
+&amp;− λ_c · E_{x_i\sim p_X} [E_{q_{\phi_x}(z_x|x_i)}[log p_{\theta_a}(a_i|z_x)]]
 \end{split}
 \nonumber
-\end{equation}</script><p>其中，$\lambda_c$是调节上下两个的权重的。接下来是GAN的，</p>
-<script type="math/tex; mode=display">
+\end{equation}
+\]</span> 其中，<span class="math inline">\(\lambda_c\)</span>是调节上下两个的权重的。接下来是GAN的， <span class="math display">\[
 \begin{equation}
 \begin{split}
-min_\psi max_{\phi_x,\phi_a} L_{adv} = &− E_{z_p\sim p(z)}[log D(z_p)]\\
-&− E_{z_x\sim q_{\phi_x}(z_x|x_i)}[log(1 − D(z_x))]\\
-&− E_{z_p\sim p(z)}[log D(z_p)]\\
-&− E_{z_a\sim q_{\phi_a}(z_a|a_i)}[log(1 − D(z_a))]
+min_\psi max_{\phi_x,\phi_a} L_{adv} = &amp;− E_{z_p\sim p(z)}[log D(z_p)]\\
+&amp;− E_{z_x\sim q_{\phi_x}(z_x|x_i)}[log(1 − D(z_x))]\\
+&amp;− E_{z_p\sim p(z)}[log D(z_p)]\\
+&amp;− E_{z_a\sim q_{\phi_a}(z_a|a_i)}[log(1 − D(z_a))]
 \end{split}
 \nonumber
-\end{equation}</script><p>其中，$\psi$是D的参数，$z_p$是label，来自某个分布，这里是Gaussian。最后是总的。</p>
-<script type="math/tex; mode=display">
-min_\Theta max_\Phi L = L_r + L_{adv}</script><p>其中，$\Theta = {\theta_x, \theta_a, \phi_x, \phi_a, \psi}$ ，$ Φ = {\phi_x, \phi_a}$。</p>
+\end{equation}
+\]</span> 其中，<span class="math inline">\(\psi\)</span>是D的参数，<span class="math inline">\(z_p\)</span>是label，来自某个分布，这里是Gaussian。最后是总的。 <span class="math display">\[
+min_\Theta max_\Phi L = L_r + L_{adv}
+\]</span> 其中，<span class="math inline">\(\Theta = \{\theta_x, \theta_a, \phi_x, \phi_a, \psi\}\)</span> ，$ Φ = {_x, _a}$。</p>
 
       
     </div>
@@ -427,20 +433,20 @@ min_\Theta max_\Phi L = L_r + L_{adv}</script><p>其中，$\Theta = {\theta_x, \
     <div class="post-body" itemprop="articleBody">
 
       
-          <h3 id="1-临时指定源"><a href="#1-临时指定源" class="headerlink" title="1.临时指定源"></a>1.临时指定源</h3><pre><code class="lang-bash"># xxxxxxx 为安装对象
-pip install -i https://pypi.tuna.tsinghua.edu.cn/simple xxxxxxx
-</code></pre>
-<p>&lt;/br&gt;</p>
-<h3 id="2-永久设定"><a href="#2-永久设定" class="headerlink" title="2.永久设定"></a>2.永久设定</h3><pre><code class="lang-bash"> # Linux   下创建或进入
- # ~/.pip/pip.conf 
- [global]
- index-url = https://pypi.tuna.tsinghua.edu.cn/simple
-
- # Windows 下创建或进入
- # C:/User/xxxxxxx/pip/pip.ini
- [global]
- index-url = https://pypi.tuna.tsinghua.edu.cn/simple
-</code></pre>
+          <h3 id="临时指定源">1.临时指定源</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># xxxxxxx 为安装对象</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install -i https://pypi.tuna.tsinghua.edu.cn/simple xxxxxxx</span></code></pre></div>
+<p><br></p>
+<h3 id="永久设定">2.永久设定</h3>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a> <span class="co"># Linux   下创建或进入</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a> <span class="co"># ~/.pip/pip.conf </span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a> [<span class="ex">global</span>]</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a> <span class="ex">index-url</span> = https://pypi.tuna.tsinghua.edu.cn/simple</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a> <span class="co"># Windows 下创建或进入</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a> <span class="co"># C:/User/xxxxxxx/pip/pip.ini</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a> [<span class="ex">global</span>]</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a> <span class="ex">index-url</span> = https://pypi.tuna.tsinghua.edu.cn/simple</span></code></pre></div>
 
       
     </div>

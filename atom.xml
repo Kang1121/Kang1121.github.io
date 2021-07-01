@@ -6,7 +6,7 @@
   <link href="https://kang1121.github.io/atom.xml" rel="self"/>
   
   <link href="https://kang1121.github.io/"/>
-  <updated>2021-06-30T04:25:49.803Z</updated>
+  <updated>2021-07-01T05:40:56.406Z</updated>
   <id>https://kang1121.github.io/</id>
   
   <author>
@@ -17,15 +17,27 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Brain-Controlled Robotic Arm System Based on Multi-Directional CNN-BiLSTMNetwork Using EEG Signals</title>
+    <title>Brain-Controlled Robotic Arm System Based on Multi-Directional CNN-BiLSTM Network Using EEG Signals</title>
     <link href="https://kang1121.github.io/2021/06/30/Brain-Controlled-Robotic-Arm-System-Based-on-Multi-Directional-CNN-BiLSTM-Network-Using-EEG-Signals/"/>
     <id>https://kang1121.github.io/2021/06/30/Brain-Controlled-Robotic-Arm-System-Based-on-Multi-Directional-CNN-BiLSTM-Network-Using-EEG-Signals/</id>
     <published>2021-06-30T04:25:02.000Z</published>
-    <updated>2021-06-30T04:25:49.803Z</updated>
+    <updated>2021-07-01T05:40:56.406Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="overview">Overview</h3><p><img src="/2021/06/30/Brain-Controlled-Robotic-Arm-System-Based-on-Multi-Directional-CNN-BiLSTM-Network-Using-EEG-Signals/1.png"></p><p>优点：regression的训练模式，第一次见</p><p>缺点：略微简单，没有subject independent</p><p>兴趣程度：7</p><span id="more"></span><h3 id="understanding">Understanding</h3><p>这篇文章的思路是，事先用实验数据拿到一个ground truth，然后train dataset去拟合这个gt。文章里面是这样说的：</p><blockquote><p>In our experiment, the robotic arm performed reaching tasks according to the directions given in order to acquire the baseline velocity profile after the sessions.</p><p>Conventional hybrid deep learning frameworks have been commonly trained to extract spatial features of brain activities using a CNN and have been trained with temporal information using LSTM networks. In contrast, the proposed MDCBN framework was designed using a CNN architecture to train the multi-direction information per axis as <strong>pretraining</strong> and it used the BiLSTM network for training the <strong>relationships</strong> in the 3D space (x-, y-, and z-axes).</p></blockquote><div data-align="center"><p><img src="/2021/06/30/Brain-Controlled-Robotic-Arm-System-Based-on-Multi-Directional-CNN-BiLSTM-Network-Using-EEG-Signals/2.png" width="50%" height="50%" alt="BiLSTM" align="center"></p></div><p>所以CNN只是一个特征提取模块，然后用BiLSTM去获取xyz三个维度的关系，最后和gt做regression。</p><div data-align="center"><p><img src="/2021/06/30/Brain-Controlled-Robotic-Arm-System-Based-on-Multi-Directional-CNN-BiLSTM-Network-Using-EEG-Signals/3.png" width="50%" height="50%" alt="BiLSTM" align="center"></p></div><h3 id="analysis">Analysis</h3><p>这是第一篇涉及robotic arm的文章，还不知道这样的方法算不算新颖。还有一个问题就是，这个gt是由robotic arm自己运动产生的，然后让EEG信号通过网络，去拟合这个曲线，略微有点说不通。</p>]]></content>
+    
+    
+    <summary type="html">&lt;h3 id=&quot;overview&quot;&gt;Overview&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&quot;/2021/06/30/Brain-Controlled-Robotic-Arm-System-Based-on-Multi-Directional-CNN-BiLSTM-Network-Using-EEG-Signals/1.png&quot;&gt;&lt;/p&gt;
+&lt;p&gt;优点：regression的训练模式，第一次见&lt;/p&gt;
+&lt;p&gt;缺点：略微简单，没有subject independent&lt;/p&gt;
+&lt;p&gt;兴趣程度：7&lt;/p&gt;</summary>
     
     
     
+    <category term="Paper Reading" scheme="https://kang1121.github.io/categories/Paper-Reading/"/>
     
+    
+    <category term="Robotic Arm" scheme="https://kang1121.github.io/tags/Robotic-Arm/"/>
     
   </entry>
   

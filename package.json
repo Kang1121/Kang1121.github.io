@@ -30,7 +30,7 @@
     "hexo-renderer-markdown-it": "^5.0.0",
     "hexo-renderer-mathjax": "^0.6.0",
     "hexo-renderer-pandoc": "^0.3.0",
-    "hexo-renderer-pug": "^1.0.0",
+    "hexo-renderer-pug": "^2.0.0",
     "hexo-renderer-sass": "^0.4.0",
     "hexo-renderer-stylus": "^1.1.0",
     "hexo-server": "^1.0.0",

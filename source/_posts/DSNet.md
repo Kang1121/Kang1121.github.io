@@ -3,6 +3,7 @@ title: "DSNet: A Flexible Detect-to-Summarize Network for Video Summarization"
 date: 2021-05-24 10:20:18
 tags:
 - LSTM
+- Video Summarization
 categories:
 - Paper Reading
 ---

@@ -10,7 +10,10 @@ mathjax : true
 
 ### Overview
 
-![](/Brain-Controlled-Robotic-Arm-System-Based-on-Multi-Directional-CNN-BiLSTM-Network-Using-EEG-Signals/1.png)
+
+<div  align="center">  
+<img src="/Brain-Controlled-Robotic-Arm-System-Based-on-Multi-Directional-CNN-BiLSTM-Network-Using-EEG-Signals/1.png" width = "70%" height = "70%" alt="BiLSTM" align=center />
+</div>
 
 优点：regression的训练模式，第一次见
 
@@ -30,14 +33,14 @@ mathjax : true
 > Conventional hybrid deep learning frameworks have been commonly trained to extract spatial features of brain activities using a CNN and have been trained with temporal information using LSTM networks. In contrast, the proposed MDCBN framework was designed using a CNN architecture to train the multi-direction information per axis as **pretraining** and it used the BiLSTM network for training the **relationships** in the 3D space (x-, y-, and z-axes).
 
 <div  align="center">  
-<img src="/Brain-Controlled-Robotic-Arm-System-Based-on-Multi-Directional-CNN-BiLSTM-Network-Using-EEG-Signals/2.png" width = "50%" height = "50%" alt="BiLSTM" align=center />
+<img src="/Brain-Controlled-Robotic-Arm-System-Based-on-Multi-Directional-CNN-BiLSTM-Network-Using-EEG-Signals/2.png" width = "70%" height = "70%" alt="BiLSTM" align=center />
 </div>
 
 所以CNN只是一个特征提取模块，然后用BiLSTM去获取xyz三个维度的关系，最后和gt做regression。
 
 
 <div  align="center">  
-<img src="/Brain-Controlled-Robotic-Arm-System-Based-on-Multi-Directional-CNN-BiLSTM-Network-Using-EEG-Signals/3.png" width = "50%" height = "50%" alt="BiLSTM" align=center />
+<img src="/Brain-Controlled-Robotic-Arm-System-Based-on-Multi-Directional-CNN-BiLSTM-Network-Using-EEG-Signals/3.png" width = "70%" height = "70%" alt="BiLSTM" align=center />
 </div>
 
 ### Analysis

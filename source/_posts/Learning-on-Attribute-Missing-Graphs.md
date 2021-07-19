@@ -10,7 +10,9 @@ mathjax: true
 
 ### 0. Introduction
 
-![](/images/Learning-on-Attribute-Missing-Graphs/structure.png)
+<div  align="center">  
+<img src="/images/Learning-on-Attribute-Missing-Graphs/structure.png" width = "70%" height = "70%" alt="BiLSTM" align=center />
+</div>
 
 Paper link: https://arxiv.org/pdf/2011.01623.pdf
 

@@ -3,6 +3,7 @@ title: "HSA-RNN: Hierarchical Structure-Adaptive RNN for Video Summarization"
 date: 2021-04-20 16:44:40
 tags:
 - LSTM
+- Video Summarization
 categories:
 - Paper Reading
 mathjax: true
@@ -10,7 +11,9 @@ mathjax: true
 
 ### Overview
 
-![](/HSA-RNN-Hierarchical-Structure-Adaptive-RNN-for-Video-Summarization/1.png)
+<div  align="center">  
+<img src="/HSA-RNN-Hierarchical-Structure-Adaptive-RNN-for-Video-Summarization/1.png" width = "50%" height = "50%" alt="BiLSTM" align=center />
+</div>
 
 优点：frame-shot-video分层结构，双向LSTM滑动窗口
 

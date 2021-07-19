@@ -3,14 +3,16 @@ title: Unsupervised Video Summarization via Relation-aware Assignment Learning
 date: 2021-04-19 10:58:07
 tags:
 - GNN
-- VideoSummarization
+- Video Summarization
 categories:
 - Paper Reading
 ---
 
 ### 0. Overview
 
-![](/images/Unsupervised Video Summarization via Relation-aware Assignment Learning/2.png)
+<div  align="center">  
+<img src="/images/Unsupervised Video Summarization via Relation-aware Assignment Learning/2.png" width = "70%" height = "70%" alt="BiLSTM" align=center />
+</div>
 
 优点：使用GNN来表达relation，unsupervised
 缺点：clip的划分，loss的选取，纯pixel提取
